@@ -3,27 +3,30 @@ layout: default
 title: about
 ---
 
-## ABOUT:
-
 <center>
     <a href="/assets/img/about.jpeg">
         <img src="/assets/img/about.jpeg" width="70%">
     </a> <br>
-    <small> A very natural, unstaged shot of me in my room. 📸 Leonard Lochte-Holtgreven, 2021 </small>
+    <small> (📸 Leonard Lochte-Holtgreven, 2021) </small>
 </center>
 <br>
 
 Hi.
 
-My name is Philipp Schilk.
+My name is Philipp Schilk. I'm <script src="/assets/js/dob.js"></script>.
 
-<!-- To mention: -->
-<!--     Age -->
-<!--     Small village Austria, Istanbul -->
-<!--     ETHZ ITET BACHELOR -->
-<!--     Enjoy/Hobbies. -->
-<!--     Contact information -->
-      
+After growing up in a small village in Austria and spending many years in Istanbul, Turkey, I am currently
+living in Switzerland, where I am completing my Bachelor in Electrical Engineering 
+at ETH Zürich.
 
+I have always been fascinated by both electronics and software, and have done a fair number of technical projects
+which you can find on this site.
 
+Here are a few places that you can find me on the internet:
+
+<center>
+    <a href="https://github.com/TheSchilk"> <img style="padding: 5px" src="assets/icon/icon_github.svg" width="40px"> </a>
+    <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#099;&#104;&#105;&#108;&#107;&#046;&#112;&#104;&#105;&#108;&#105;&#112;&#112;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;"> <img style="padding: 5px" src="assets/icon/icon_email.svg" width="40px"> </a>
+    <a href="https://twitter.com/theschilk"> <img style="padding: 5px" src="assets/icon/icon_twitter.svg" width="40px"> </a>
+</center>
 

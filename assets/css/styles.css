@@ -6,6 +6,10 @@
   font-weight:400;
 }
 
+#float_left{
+    float: left;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color:#222;
   margin:0 0 20px;
@@ -102,6 +106,7 @@ th {
 img {
   max-width:100%;
 }
+
  
 .youtube-video-container {
   position: relative;
