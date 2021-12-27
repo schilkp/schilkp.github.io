@@ -1,6 +1,6 @@
 .PHONY: all, run_local, asset_generation
 
-all: run_local
+all: _asset_generation 
 
 asset_generation: _asset_generation/env/exists
 	@(\
@@ -20,3 +20,6 @@ _asset_generation/env/exists:
 run_local: asset_generation
 	bundle exec jekyll serve
 
+
+clean:
+	rm _site -rf
