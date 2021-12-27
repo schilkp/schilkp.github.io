@@ -1,0 +1,9 @@
+GLOBAL_LABEL_1:          # A global label, creating a new block
+    .loop: JMP .loop     # The label '.loop' only exists inside this block
+
+GLOBAL_LABEL_2:
+    .loop: JMP .loop     # This label is seperate from the previous
+
+GLOBAL_LABEL_2:
+    .loop: JMP .loop    
+    .loop: JMP .loop     # Error: label name conflicts

@@ -1,0 +1,6 @@
+LITA 0               # Load 0x00 into A
+loop:                # A label
+    ADDLA 1          # Add 0x01 to A, store in A
+    JMP loop         # Jump back to label 'loop'
+
+l1: JMP l1           # A label can also be on the same line

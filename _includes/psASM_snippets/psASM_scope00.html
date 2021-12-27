@@ -1,0 +1,9 @@
+<div class="highlight"><pre><span></span><span class="nf">@define</span> global_var 1   <span class="c"># A global variable/label start with a letter</span>
+<span class="s">global_label:</span> <span class="kt">JMP</span> global_label
+
+<span class="nf">@define</span> .local_var 1   <span class="c"># A local variable/label start with a &#39;.&#39;</span>
+<span class="s">.local_label:</span> <span class="kt">JMP</span> local_label
+
+<span class="nf">@define</span> _file_var  1   <span class="c"># A file variable/label start with a &#39;_&#39;</span>
+<span class="s">_file_label:</span> <span class="kt">JMP</span> _file_label
+</pre></div>

@@ -1,0 +1,7 @@
+<div class="highlight"><pre><span></span><span class="kt">LITA</span> 0               <span class="c"># Load 0x00 into A</span>
+<span class="s">loop:</span>                <span class="c"># A label</span>
+    <span class="kt">ADDLA</span> 1          <span class="c"># Add 0x01 to A, store in A</span>
+    <span class="kt">JMP</span> loop         <span class="c"># Jump back to label &#39;loop&#39;</span>
+
+<span class="s">l1:</span> <span class="kt">JMP</span> l1           <span class="c"># A label can also be on the same line</span>
+</pre></div>

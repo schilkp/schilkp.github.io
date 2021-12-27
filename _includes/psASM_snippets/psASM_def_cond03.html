@@ -1,0 +1,18 @@
+<div class="highlight"><pre><span></span><span class="nf">@ifndef</span> _HAS_BEEN_INCLUDED <span class="c"># Include guard, just like C</span>
+<span class="nf">@define</span> _HAS_BEEN_INCLUDED
+
+    <span class="c"># ...</span>
+    
+    <span class="c"># Values can be defined using flags passed to </span>
+    <span class="c"># the assembler when evoked, a great way of </span>
+    <span class="c"># creating different build types:</span>
+    <span class="nf">@if</span> defined(DEBUG) || defined(TESTING) 
+        <span class="kt">LITA</span> 1        
+    <span class="nf">@else</span> 
+        <span class="kt">LITA</span> 0
+    <span class="nf">@end</span>
+
+    <span class="c"># ...</span>
+
+<span class="nf">@end</span>
+</pre></div>

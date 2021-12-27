@@ -1,0 +1,5 @@
+# ---- File A: manual include guard ----
+@ifndef _HAS_BEEN_INCLUDED # Include guard, just like C
+@define _HAS_BEEN_INCLUDED
+# ... Content ...
+@end

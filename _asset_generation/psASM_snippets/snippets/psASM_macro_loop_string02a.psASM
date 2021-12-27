@@ -1,0 +1,12 @@
+# Define a macro to save a string to RAM:
+@macro ascii_heap $str, $adr
+    PUSHA
+    @for $i, 0, $i<strlen($str), $i+1
+        LITA $str[$i] 
+        SVA $adr+$i
+    @end
+    POPA
+@end
+
+# Call it:
+ascii_heap "Hi!", 0
