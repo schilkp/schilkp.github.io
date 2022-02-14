@@ -31,7 +31,7 @@ class CustomLexer(RegexLexer):
             (r'(ANDL)|(AND)|(ORL)|(OR)|(XORL)|(XOR)|(SHFTRL)|(SHFTR)|(SHFTLL)|(SHFTL)', Keyword.Type),
             (r'(COMPBC)|(COMPB)|(ADDC)|(ADDLAC)|(ADDLA)|(ADDLBC)|(ADDLB)|(ADD)|(NOTA)', Keyword.Type),
             (r'(SUBLC)|(SUBC)|(SUBL)|(SUB)|(LITA)|(LITB)|(CPY)|(SWP)|(SVA)|(SVB)|(LDA)',Keyword.Type),
-            (r'(LDB)|(SVDP)|(SVDR)|(LDDP)|(LDDR)|(POPA)|(PUSHA)|(POPB)|(PUSHB)|(POPM)', Keyword.Type),
+            (r'(LDB)|(SVO)|(LDO)|(POPA)|(PUSHA)|(POPB)|(PUSHB)|(POPM)', Keyword.Type),
             (r'(PUSHM)|(GROW)|(SHRINK)|(STSA)|(STSB)|(STLA)|(STLB)', Keyword.Type),
             (r'@define', Name.Function),
             (r'@include_once', Name.Function),
