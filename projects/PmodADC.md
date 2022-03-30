@@ -17,8 +17,8 @@ A fully discrete, 14-bit, 41kHz, Successive-Approximation Analog-to-Digital conv
 controlled by an iCE40 FPGA. Audio can be streamed to and from the PC in real time 
 via USB.
 
-The converter interfaces with an iCEbreaker FPGA board using a standard PMOD connector - which is
-also where it takes it's name from.
+The converter interfaces with an iCEbreaker FPGA board using a standard Pmod connector - which is
+where it takes it's name from.
 
 Because a 14-bit R2R DAC sits at the core of this design, I also built a second dedicated
 audio DAC board: the PmodDAC. Details of this design are also included below.
