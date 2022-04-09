@@ -36,6 +36,14 @@ title: Fets & Crosses
 
 An implementation of the classic Tic-Tac-Toe / Knots and Crosses game built entirely from 2458 discrete transistors.
 
+## This documentation is still a work-in-progress.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Simulation
 
 ## Engine Implementation

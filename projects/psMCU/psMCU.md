@@ -18,7 +18,7 @@ USB programmer and assembler software.
 
 <br>
 
-**This project, just like this documentation, is still very much a work-in-progress. Watch this space.**
+## This project, just like this documentation, is still very much a work-in-progress.
 
 <br>
 <br>
