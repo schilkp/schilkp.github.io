@@ -5,7 +5,7 @@ all: asset_generation
 asset_generation: _asset_generation/env/exists
 	rm _includes/psASM_snippets/* -f
 	@(\
-	   . _asset_generation/env;\
+	   . _asset_generation/env/bin/activate;\
 	   python3	_asset_generation/psASM_snippets/run.py\
 	)
 
