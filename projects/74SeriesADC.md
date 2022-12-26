@@ -101,7 +101,7 @@ Below are two more oscilloscope captures showing conversion:
 
 ## Design
 
-A quick overview of the design is below. The full schematic can be seen [here](https://github.com/TheSchilk/74Logic_SA_ADC/releases/download/v0.3/Schematic.pdf).
+A quick overview of the design is below. The full schematic can be seen [here](https://github.com/schilkp/74Logic_SA_ADC/releases/download/v0.3/Schematic.pdf).
 
 ### Clock
 
@@ -139,8 +139,8 @@ for non-linearity could be:
 - Other comparator nonidealities close to the supply rails.
 
 ## Links
-- [📁 Repo](https://github.com/TheSchilk/74Logic_SA_ADC)
-- [📦 Production Files](https://github.com/TheSchilk/74Logic_SA_ADC/releases/)
-- [📝 Schematic](https://github.com/TheSchilk/74Logic_SA_ADC/releases/download/v0.3/Schematic.pdf)
-- [📃 Interactive BOM](https://github.com/TheSchilk/74Logic_SA_ADC/releases/download/v0.3/InteractiveBOM.html)
+- [📁 Repo](https://github.com/schilkp/74Logic_SA_ADC)
+- [📦 Production Files](https://github.com/schilkp/74Logic_SA_ADC/releases/)
+- [📝 Schematic](https://github.com/schilkp/74Logic_SA_ADC/releases/download/v0.3/Schematic.pdf)
+- [📃 Interactive BOM](https://github.com/schilkp/74Logic_SA_ADC/releases/download/v0.3/InteractiveBOM.html)
 

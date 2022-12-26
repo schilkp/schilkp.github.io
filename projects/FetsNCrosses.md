@@ -57,5 +57,5 @@ An implementation of the classic Tic-Tac-Toe / Knots and Crosses game built enti
 <br>
 
 ## Links
-- [📁 Repo](https://github.com/TheSchilk/Fets_and_Crosses)
-- [📦 Production Files](https://github.com/TheSchilk/Fets_and_Crosses/releases/)
+- [📁 Repo](https://github.com/schilkp/Fets_and_Crosses)
+- [📦 Production Files](https://github.com/schilkp/Fets_and_Crosses/releases/)

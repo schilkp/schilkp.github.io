@@ -61,8 +61,8 @@ more.
 
 ## Links
 
-- [📁 Repo](https://github.com/TheSchilk/VacTool)
-- [📦 Production Files](https://github.com/TheSchilk/VacTool/releases/)
+- [📁 Repo](https://github.com/schilkp/VacTool)
+- [📦 Production Files](https://github.com/schilkp/VacTool/releases/)
 - [📹 SDG Electronics Video 1](https://www.youtube.com/watch?v=9G510G2gmdo)
 - [📹 SDG Electronics Video 2](https://www.youtube.com/watch?v=1FnGqH_WkL4)
 - [🌍 SDG Electronics Website](https://sdgelectronics.co.uk/youtube-videos/a-diy-smd-pick-and-place-tool-for-electronics-assembly/)

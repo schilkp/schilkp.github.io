@@ -341,15 +341,15 @@ I would presume that this would not be as straight forward, but definitely worth
 ADC would also make for a fun challenge.
 
 ## Links
-- [📁 Repo](https://github.com/TheSchilk/PmodADC)
-- [📦 Production Files](https://github.com/TheSchilk/PmodADC/releases/)
+- [📁 Repo](https://github.com/schilkp/PmodADC)
+- [📦 Production Files](https://github.com/schilkp/PmodADC/releases/)
 
 - PmodADC
     - [📝 Schematic](https://github.com/TheSchilk/PmodADC/releases/download/v0.2/PmodADC_Schematic.pdf)
-    - [📃 Interactive BOM](https://github.com/TheSchilk/PmodADC/releases/download/v0.2/PmodADC_ibom.html)
+    - [📃 Interactive BOM](https://github.com/schilkp/PmodADC/releases/download/v0.2/PmodADC_ibom.html)
 - PmodDAC
-    - [📝 Schematic](https://github.com/TheSchilk/PmodADC/releases/download/v0.2/PmodDAC_Schematic.pdf)
-    - [📃 Interactive BOM](https://github.com/TheSchilk/PmodADC/releases/download/v0.2/PmodDAC_ibom.html)
+    - [📝 Schematic](https://github.com/schilkp/PmodADC/releases/download/v0.2/PmodDAC_Schematic.pdf)
+    - [📃 Interactive BOM](https://github.com/schilkp/PmodADC/releases/download/v0.2/PmodDAC_ibom.html)
 
 ## Other Notes
 
