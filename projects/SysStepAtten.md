@@ -148,14 +148,14 @@ restored for each input.
 
 ## Project Template
 
-As a starting point, [here](https://github.com/TheSchilk/SYS_ProjectTemplate) is a KiCad project for designing a project 
+As a starting point, [here](https://github.com/schilkp/SYS_ProjectTemplate) is a KiCad project for designing a project 
 that fits into a Schiit Sys enclosure:
 
 ## Links
 
-- [📁 Repo](https://github.com/TheSchilk/SYS_StepAtten)
-- [📦 Production Files](https://github.com/TheSchilk/SYS_StepAtten/releases/)
-- [📝 Schematic](https://github.com/TheSchilk/SYS_StepAtten/releases/download/pcb_v1.3/SYS_StepAtten_Schematic.pdf)
-- [📃 Interactive BOM](https://github.com/TheSchilk/SYS_StepAtten/releases/download/pcb_v1.3/InteractiveBOM.html)
-- [📁 Riser Repo](https://github.com/TheSchilk/3.5mm_RiserPCB)
-- [📁 Template Repo](https://github.com/TheSchilk/SYS_ProjectTemplate)
+- [📁 Repo](https://github.com/schilkp/SYS_StepAtten)
+- [📦 Production Files](https://github.com/schilkp/SYS_StepAtten/releases/)
+- [📝 Schematic](https://github.com/schilkp/SYS_StepAtten/releases/download/pcb_v1.3/SYS_StepAtten_Schematic.pdf)
+- [📃 Interactive BOM](https://github.com/schilkp/SYS_StepAtten/releases/download/pcb_v1.3/InteractiveBOM.html)
+- [📁 Riser Repo](https://github.com/schilkp/3.5mm_RiserPCB)
+- [📁 Template Repo](https://github.com/schilkp/SYS_ProjectTemplate)
