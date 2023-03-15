@@ -16,7 +16,7 @@ Hi.
 My name is Philipp Schilk. I'm <script src="/assets/js/dob.js"></script>.
 
 After growing up in a small village in Austria and spending many years in Istanbul, Turkey, I am currently
-living in Switzerland, where I am completing my Bachelor in Electrical Engineering 
+living in Switzerland, where I am completing my Masters in Electrical Engineering 
 at ETH Zürich.
 
 I have always been fascinated by both electronics and software, and have done a fair number of technical projects
