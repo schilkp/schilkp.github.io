@@ -31,9 +31,18 @@ In a second step I replaced this implementation with a purely combinatorial logi
 perfect play.
 
 <center>
+    <a href="/assets/img/fetsncrosses/sim.png">
+        <img src="/assets/img/fetsncrosses/sim.png" width="80%">
+    </a> <br>
+    The simulation in LOGISIM.
+</center>
+<br>
+
+<center>
     <a href="/assets/img/fetsncrosses/block.png">
         <img src="/assets/img/fetsncrosses/block.png" width="100%">
-    </a>
+    </a> <br>
+    A high-level block diagram of the system.
 </center>
 <br>
 
@@ -88,7 +97,7 @@ transistor footprints and vertical routing, while the bottom layer was used for 
     <a href="/assets/img/fetsncrosses/route.jpeg">
         <img src="/assets/img/fetsncrosses/route.jpeg" width="70%">
     </a> <br>
-    A close-up of some of the routing on the main board. Click to enlarge.
+    A close-up of some of the routing on the main board. 
 </center>
 <br>
 
@@ -111,12 +120,12 @@ transistor footprints and vertical routing, while the bottom layer was used for 
 <div class="row">
   <div class="column">
     <center>
-        Main PCB render. Click to enlarge.
+        Main PCB render. 
     </center>
   </div>
   <div class="column">
     <center>
-        Engine PCB render. Click to enlarge.
+        Engine PCB render. 
     </center>
   </div>
 </div>
