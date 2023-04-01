@@ -57,7 +57,7 @@ _Well._
 I reached this point just as the first corona lockdown started: So if there was one thing I had, it was time.
 
 In a workflow (very!) vaguely reminiscent of actual IC design, I first designed the set of basic cells I needed.
-This was done in KiCad, with each cell contained in an hierarchical schematic sheet.
+This was done in KiCad, with each cell contained in a hierarchical schematic sheet.
 
 For example, here is the basic NOT gate:
 
@@ -68,7 +68,7 @@ For example, here is the basic NOT gate:
 </center>
 <br>
 
-More complex gates are constructed from these basic cells. A 2-input AND gate is constructed from an NAND and NOT gate:
+I then systematically constructed more complex gates from these basic cells. For example, a 2-input AND gate was built from an NAND and NOT gate:
 
 <center>
     <a href="/assets/img/fetsncrosses/2and.svg">
@@ -89,7 +89,7 @@ for the engine against which a player can play. There is a slot for a large FLAS
 in the first iteration, can act as this engine. Alternatively the transistor-based engine, which is 
 built on a separate PCB, can be connected to a series of pin-headers on the top.
 
-The PCBs are both 2 layer, and the routing was done in a (Manhattan style), with the top layer used for all 
+The PCBs are both 2 layer, and the routing was done in a (Manhattan style)[https://en.wikipedia.org/wiki/Manhattan_wiring], with the top layer used for all 
 transistor footprints and vertical routing, while the bottom layer was used for all horizontal routing:
 
 <br>
