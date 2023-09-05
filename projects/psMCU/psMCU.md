@@ -18,20 +18,17 @@ USB programmer and assembler software.
 
 <br>
 
-## This project, just like this documentation, is still very much a work-in-progress.
+## This project, just like page documentation, is still very much a work-in-progress.
 
 <br>
 <br>
-<br>
-<br>
-<br>
 
-## The ISA
-
-## The Processor Hardware
-
-## Peripherals
-
+<!-- ## The ISA -->
+<!---->
+<!-- ## The Processor Hardware -->
+<!---->
+<!-- ## Peripherals -->
+<!---->
 ## The Assembler
 
 To make writing programs for the psMCU easier, I developed an assembler in python that generates 
@@ -41,11 +38,11 @@ I am particularly proud of the powerful C-style preprocessor it includes.
 
 [read more...]({% link projects/psMCU/psASM.md %})
 
-## Simulation
-
-## Utilities, Tools & Gadgets
-
-### Syntax Highlighting for Vim, Notepad++, and Pygments
-
-### psPROG
+<!-- ## Simulation -->
+<!---->
+<!-- ## Utilities, Tools & Gadgets -->
+<!---->
+<!-- ### Syntax Highlighting for Vim, Notepad++, and Pygments -->
+<!---->
+<!-- ### psPROG -->
 
