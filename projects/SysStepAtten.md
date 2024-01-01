@@ -21,7 +21,7 @@ title: Sys Step Attenuator
         <img src="/assets/img/sysstepatten/sysstepatten_full.jpeg">
     </a>
   </div>
-</div>        
+</div>
 <br>
 
 ## Overview
@@ -29,7 +29,7 @@ title: Sys Step Attenuator
 A 127-step relay audio attenuator with four-way input selector designed to fit into a [Schiit Sys](https://www.schiit.com/products/sys)
 enclosure.
 
-While browsing around for some audio gear I noticed that the "Passive Pre-amp" offered by Schiit was nothing but a 
+While browsing around for some audio gear I noticed that the "Passive Pre-amp" offered by Schiit was nothing but a
 stereo potentiometer and switch inside a fancy metal enclosure (Let's save the rant about
 a potentiometer being sold as a 'passive pre-amp' for another day).
 
@@ -39,7 +39,7 @@ at it, I might as well add a four-way input switcher and relay mute.
 
 <center>
     <div class="youtube-video-container">
-       <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/S0dtfcZPJ4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+       <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/S0dtfcZPJ4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </center>
 <br>
@@ -56,7 +56,7 @@ at it, I might as well add a four-way input switcher and relay mute.
 <br>
 
 The attenuator is a seven-stage constant input impedance relay design. It is nominally sized for a device representing
-a 10k impedance at the output. 
+a 10k impedance at the output.
 
 A small network on the output can be used for matching if the attached device has a (wildly) different
 input impedance.
@@ -87,7 +87,7 @@ Similarly, the signal and control ground are separate but can be connected via a
 
 ### External Remote
 
-The device is quite light, so I often ended up accidentally pushing it around while trying to adjust the volume or 
+The device is quite light, so I often ended up accidentally pushing it around while trying to adjust the volume or
 selecting a different input.
 
 I thought it would be fun to be able to adjust it with some larger knob that was easier to reach. To enable this,
@@ -97,7 +97,7 @@ Something like the [tc-electronic level pilot][https://www.tcelectronic.com/prod
 
 ### Power
 
-At first I thought it would make sense to power the unit from an AC adapter, matching the DAC and headphone amp
+At first, I thought it would make sense to power the unit from an AC adapter, matching the DAC and headphone amp
 available in the same enclosure. The power draw from the non-latching relays is however quite significant, and
 the bulk capacitance for AC/DC conversion would have taken up a lot of space. Therefor I decided to use a standard
 9V DC barrel jack input.
@@ -111,24 +111,24 @@ the bulk capacitance for AC/DC conversion would have taken up a lot of space. Th
 </center>
 <br>
 
-My design required four extra connectors (one DC Input, two 3.5mm audio inputs, and one 2-by-2 2.54mm pinheader for the 
+My design required four extra connectors (one DC Input, two 3.5mm audio inputs, and one 2-by-2 2.54 mm pin header for the
 external remote) and an on/off switch, but there was little space left at the back of the unit.
 
-To get everything to fit, I stacked the two 3.5mm connectors on top of the pinheaders using two small riser PCBs, and 
+To get everything to fit, I stacked the two 3.5 mm connectors on top of the pin headers using two small riser PCBs, and
 attached the power switch above the barrel jack, connecting it to the main board using a short cable.
 
 ### Software/UI features
 
-The STM32 software is very simple, and the chip overkill. But hey - I had some at home and the toolchain was setup. 
+The STM32 software is very simple, and the chip overkill. But hey - I had some at home and the tool chain was set up.
 A few notable details:
 
-The controller keeps the output muted for around a second during input changes. This prevents buzzing when.
+The controller keeps the output muted for around a second during input changes. This prevents buzzing when
 cycling past unconnected inputs.
 
 The selected input is saved to flash. To prevent the memory wearing out,
-some basic wear-leveling schemes are in place. First, the input is only saved once it remains unchanged for a short while to 
+some basic wear-leveling schemes are in place. First, the input is only saved once it remains unchanged for a short while to
 prevent repeated writes when quickly cycling through inputs. More importantly a simple journaling scheme is used: If the
-input changes, the value is not overwritten but appended after the last entry. Only once all sections are full are they 
+input changes, the value is not overwritten but appended after the last entry. Only once all sections are full are they
 erased and the scheme repeats from the beginning.
 
 ## Possible improvements
@@ -138,17 +138,17 @@ ground are kept isolated (Presumably due to some leakage/imperfections with the 
 could be improved, especially with smaller relays. A second possibility would be to stack two PCBs: The lower PCB could
 include all audio signaling/relays, while a second PCB (possibly at the height of the first 3.5mm jack) could handle the
 power supply and control electronics.
- 
+
 Using latching relays would drastically reduce the power consumption and remove the need for a switching supply.
-This would cause the unit retains to it's last setting once it loses power, which may be desired for some applications.
+This would cause the unit retains to its last setting once it loses power, which may be desired for some applications.
 If it is not, only the muting relay can be kept as a non-latching relay.
 
-Using an encoder for the internal controls would allow for the volume set-point to be 
+Using an encoder for the internal controls would allow for the volume set-point to be
 restored for each input.
 
 ## Project Template
 
-As a starting point, [here](https://github.com/schilkp/SYS_ProjectTemplate) is a KiCad project for designing a project 
+As a starting point, [here](https://github.com/schilkp/SYS_ProjectTemplate) is a KiCad project for designing a project
 that fits into a Schiit Sys enclosure:
 
 ## Links

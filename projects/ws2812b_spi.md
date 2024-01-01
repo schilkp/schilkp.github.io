@@ -12,17 +12,17 @@ title: PmodADC
 </center>
 <br>
 
-This simple driver allows the usage of a standard SPI peripheral to communicate with WS2812B-Style LEDs. 
+This simple driver allows the usage of a standard SPI peripheral to communicate with WS2812B-Style LEDs.
 It generates binary data, which, once transmitted, will form pulses with the appropriate timing to
-mimic the PWM/one-wire interface required. 
+mimic the PWM/one-wire interface required.
 
 The input of the first LED is connected to the SDO pin of the SPI peripheral. No other
 SPI outputs are needed.
 
 Because the exact timings of the output will depend on implementation details and
 the specific device used, a number of adjustment parameters can be used to compensate. Using these it
-should be possible to generate a usable signal using most SPI peripherals that are capable of running 
-fast enough. 
+should be possible to generate a usable signal using most SPI peripherals that are capable of running
+fast enough.
 
 This driver was written mostly as an excuse to try unit-testing in C.
 
