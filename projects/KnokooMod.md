@@ -16,21 +16,21 @@ title: Fume Extractor Mod
 Some time ago I bought a Knokoo FES150W fume extractor to use while soldering,
 especially when working under my microscope.
 
-Overall I am very happy with it. I have no way to to test the filtration of the 
-unit, but the suction is strong enough to be able to work a comfortable distance 
-away from the end of the  flexible arm, and I don't notice any fumes rising 
-directly towards my face. Also the smell in the room after an extended soldering 
+Overall I am very happy with it. I have no way to test the filtration of the
+unit, but the suction is strong enough to be able to work a comfortable distance
+away from the end of the flexible arm, and I don't notice any fumes rising
+directly towards my face. Also, the smell in the room after an extended soldering
 session is much less than before.
 
 It is, however, not the quietest unit. I don't mind the noise while I am working,
-but would rather only quickly have it run while I am actually soldering. I found 
+but would rather only quickly have it run while I am actually soldering. I found
 having to reach under my desk to turn the dial (or trying to do it with my foot)
-rather annoying, so I decided to design a small mod that would allow me to 
+rather annoying, so I decided to design a small mod that would allow me to
 control the unit with a foot pedal.
 
 ## Design
 
-Because the unit goes into standby when the power-dial on the front is turned 
+Because the unit goes into standby when the power-dial on the front is turned
 to 0, the easiest way to turn of the unit is to simply cut the 5V supply to the
 potentiometer making the unit think it has been turned down. This way the custom
 board can also simply be powered from the same 5V.
@@ -48,7 +48,7 @@ If no pedal is attached, the unit will function normally.
 
 <center>
     <div class="youtube-video-container">
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2ysy9WUZLiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2ysy9WUZLiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </center>
 <br>
@@ -86,7 +86,7 @@ to the board with an 8-pin JST XH cable:
 If the 1/4" jack does not have a switch, tie PEDC to GND (for example POT-). In this
 case the unit will *not* return to normal operation when no pedal is connected.
 
-The timer potentiometer can be replace by populating R6 and R7. In this case
+The timer potentiometer can be replaced by populating R6 and R7. In this case
 the timer will be fixed to approximately (15) * (R6 / (R6 * R7)) minutes.
 
 ## Possible future changes/improvements:
@@ -107,4 +107,3 @@ would make a lot more sense. That way a 4-pin to 4-pin cable could be used.
 - [📦 Production Files](https://github.com/schilkp/VacTool/releases/tag/pcb_v0.0)
 - [📝 Schematic](https://github.com/schilkp/VacTool/releases/download/pcb_v0.0/Schematic.pdf)
 - [📃 Interactive BOM](https://github.com/schilkp/VacTool/releases/download/pcb_v0.0/InteractiveBOM.html)
-
