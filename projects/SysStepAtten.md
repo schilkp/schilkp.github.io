@@ -149,7 +149,7 @@ restored for each input.
 ## Project Template
 
 As a starting point, [here](https://github.com/schilkp/SYS_ProjectTemplate) is a KiCad project for designing a project
-that fits into a Schiit Sys enclosure:
+that fits into a Schiit Sys enclosure.
 
 ## Links
 
