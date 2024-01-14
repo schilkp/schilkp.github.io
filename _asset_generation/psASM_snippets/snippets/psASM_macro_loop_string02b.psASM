@@ -1,9 +1,0 @@
-# This would expand to the following:
-PUSHA
-LITA 'H'
-SVA 0
-LITA 'i'
-SVA 1
-LITA '!'
-SVA 2
-POPA

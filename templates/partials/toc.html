@@ -1,0 +1,23 @@
+{% macro generate_toc(toc) %} {% if toc %}
+<!-- toc -->
+<div class="toc">
+  <h3 style="margin:0 0 6px;"> {{page.title}} </h3>
+  <ul>
+    {% for h1 in toc %}
+    <li>
+      <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+      {% if h1.children %}
+      <ul>
+        {% for h2 in h1.children %}
+        <li>
+          <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endif %} {% endmacro generate_toc %}

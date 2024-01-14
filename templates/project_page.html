@@ -1,0 +1,27 @@
+{% import "partials/toc.html" as toc%}
+<!doctype html>
+<html>
+  <head>
+    <title>{{ page.title }} | schilk</title>
+    {% include "partials/html_setup.html" %}
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        {% include "partials/header_common.html" %}
+        {% include "partials/main_menu.html" %}
+        <hr />
+        {{ toc::generate_toc(toc=page.toc) }}
+      </header>
+
+      <section>
+        <h1>{{page.title}}</h1>
+        {{ page.content | replace(from="<!-- $$toc$$ -->", to=toc::generate_toc(toc=page.toc)) | safe}}
+      </section>
+
+      <footer></footer>
+    </div>
+  </body>
+
+</html>

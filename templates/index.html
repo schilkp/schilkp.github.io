@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>home | schilk</title>
+    {% include "partials/html_setup.html" %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        {% include "partials/header_common.html" %}
+        {% include "partials/main_menu.html" %}
+      </header>
+      <section>
+        <h1>Projects</h1>
+        {% set projects = get_section(path="projects/_index.md") %}
+        <div class="project_table">
+          <!-- Projects with image: -->
+          {% for project in projects.pages %} 
+            {% if project.extra.thumbnail_img is not matching("^$") %}
+            <div class="project_table_inner">
+              <a href="{{project.permalink}}"><h2>{{project.title}}</h2></a>
+              <a href="{{project.permalink}}"><img src="{{project.path ~ project.extra.thumbnail_img}}"/></a>
+              <br />
+              {{project.description}}
+            </div>
+            {% endif %} 
+          {% endfor %}
+        </div>
+        <div class="project_table">
+          <!-- Projects without image: -->
+          {% for project in projects.pages %} 
+            {% if project.extra.thumbnail_img is matching("^$") %}
+            <div class="project_table_inner">
+              <a href="{{project.permalink}}"><h2>{{project.title}}</h2></a>
+              {{project.description}}
+            </div>
+            {% endif %} 
+          {% endfor %}
+        </div>
+      </section>
+      <footer></footer>
+    </div>
+  </body>
+</html>

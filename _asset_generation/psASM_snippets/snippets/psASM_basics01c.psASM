@@ -1,5 +1,0 @@
-# Once root.psASM is processed by the preprocessor, it will look like this:
-LITA 0
-LITB 1
-LITA 0
-LITB 1
