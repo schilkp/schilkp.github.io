@@ -1,3 +1,0 @@
-# ---- File B: 'once' directive ----
-@include_once 
-# ... Content ...

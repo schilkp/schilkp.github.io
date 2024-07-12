@@ -1,8 +1,0 @@
-@define global_var 1   # A global variable/label start with a letter
-global_label: JMP global_label
-
-@define .local_var 1   # A local variable/label start with a '.'
-.local_label: JMP local_label
-
-@define _file_var  1   # A file variable/label start with a '_'
-_file_label: JMP _file_label

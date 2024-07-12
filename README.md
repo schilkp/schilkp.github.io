@@ -1,4 +1,0 @@
-##  README TITLE
-
-README text
-

@@ -1,7 +1,0 @@
-# This is a comment!
-
-LITA 1         # Load 0x01 into register A
-LITA 0b1010    # Load 0x0A into register A
-LITB 0xFF      # Load 0xFF into register B
-ADDLA -1       # Calculate A + (-1), store in A
-AND            # Calculate A & B, store in A

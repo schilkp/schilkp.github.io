@@ -1,3 +1,0 @@
-# --- File 'root.psASM': ---
-@include "test.psASM" # Inline the file 'test.psASM'
-@include "test.psASM" # Twice!

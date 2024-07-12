@@ -1,7 +1,0 @@
-@define val 40
-# Basic math operations to determine operand:
-LITA ((val-10) * 2) + 5 
-# Bitwise operations to determine operand:
-LITA ((val & 0x0f) | ( 0xa << 2)         
-# Conditional operator:
-loop: JMP defined(label) ? label : loop  
