@@ -240,10 +240,10 @@ ADC would also make for a fun challenge.
 - 📦 [Production Files](https://github.com/schilkp/releases/)
 - PmodADC
     - 📝 [Schematic](https://github.com/TheSchilk/releases/download/v0.2/PmodADC_Schematic.pdf)
-    - 📃 [Interactive BOM](https://github.com/schilkp/releases/download/v0.2/PmodADC_ibom.html)
+    - 📃 [Interactive BOM](PmodADC_ibom.html)
 - PmodDAC
     - 📝 [Schematic](https://github.com/schilkp/releases/download/v0.2/PmodDAC_Schematic.pdf)
-    - 📃 [Interactive BOM](https://github.com/schilkp/releases/download/v0.2/PmodDAC_ibom.html)
+    - 📃 [Interactive BOM](PmodDAC_ibom.html)
 
 ## Other Notes
 
