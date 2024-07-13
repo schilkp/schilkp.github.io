@@ -134,7 +134,6 @@ ADC and played back by the DAC:
 
 {{ youtube(src="https://www.youtube-nocookie.com/embed/QIoPao8BHm0") }}
 
-<br>
 As a more direct comparison, the table below contains short music clips as they are, after being recorded by the ADC,
 and after playback by the DAC respectively.
 
