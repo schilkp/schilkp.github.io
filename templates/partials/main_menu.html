@@ -1,12 +1,12 @@
 {% macro main_menu_elem(emoji, name, link) %}
-<li>
+<div class="main_menu_elem">
   <h2 style="margin: 0 0 5px">
     <a href="{{link}}" style="color: black"> {{ emoji }} {{ name }} </a>
   </h2>
-</li>
+</div>
 {% endmacro input %}
 
-<ul style="list-style: none; padding-left: 0">
+<div class="main_menu">
   {% set root_section = get_section(path="_index.md") %} 
   {% for subsection in root_section.subsections %} 
     {% set section = get_section(path=subsection) %}
@@ -15,4 +15,6 @@
   {% for page in root_section.pages %}
     {{ self::main_menu_elem(emoji=page.extra.nav_emoji, name=page.title, link=page.permalink) }} 
   {% endfor %}
-</ul>
+</div>
+<br />
+<hr />

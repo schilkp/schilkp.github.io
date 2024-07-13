@@ -1,4 +1,4 @@
-/* Basic Page Layout */
+/* ==== Basic Page Layout =================================================== */
 
 .wrapper {
   width:960px;
@@ -80,7 +80,7 @@ section {
   }
 }
 
-/* Basic Element Styling */
+/* ==== Basic Element Styling =============================================== */
 
 h1, h2, h3, h4, h5, h6 {
   color:#222;
@@ -241,38 +241,23 @@ hr {
   height: 100%;
 }
 
-/* Project overview table (home page) */
-.project_table {
-  display: flex;
-  flex-wrap: wrap;
-}
+/* ==== Main Header Menu ==================================================== */
 
-.project_table_inner {
-  flex: 0 0 45%;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-@media print, screen and (max-width: 500px) {
-  .project_table {
-    display: block;
+@media print, screen and (max-width: 960px) {
+  .main_menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  .project_table_inner {
-    flex: 100% 1 0;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .project_table_inner img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 70%
+  
+  .main_menu_elem {
+    white-space: nowrap;
+    margin-right: 1em;
   }
 }
 
-/* Table of Contents */
+
+/* ==== Table of Contents =================================================== */
 
 /* Hide ToC in header when header is moved from sidepar to top of page.
    The header looks ugly here because it would appear before the page title.
@@ -315,7 +300,40 @@ section .toc {
   border-bottom: .5px solid #c1c1c1;
 }
 
-/* Code Blocks: Recommended Zola defaults */
+/* ==== Project overview table (home page) ================================== */
+
+.project_table {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project_table_inner {
+  flex: 0 0 45%;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media print, screen and (max-width: 500px) {
+  .project_table {
+    display: block;
+  }
+  .project_table_inner {
+    flex: 100% 1 0;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .project_table_inner img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 70%
+  }
+}
+
+
+/* ==== Code Blocks: Recommended Zola defaults ============================== */
 
 pre {
   padding: 1rem;
@@ -347,7 +365,7 @@ pre table {
   border-collapse: collapse;
 }
 
-/* Image Gallery */
+/* ==== Image Gallery ======================================================= */
 
 .gallery_row {
   display: flex;
