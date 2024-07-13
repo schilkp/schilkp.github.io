@@ -105,7 +105,7 @@ the engine never loses.
 ## Links
 - 📁 [Repo](https://github.com/schilkp/Fets_and_Crosses)
 - 📝 [LOGISIM File](https://github.com/schilkp/Fets_and_Crosses/tree/master/Logisim)
-- 📃 [Interactive BOM (Main Board)](/assets/img/fetsncrosses/ibom_main.html)
-- 📃 [Interactive BOM (Engine)](/assets/img/fetsncrosses/ibom_engine.html)
-- 📃 [Interactive BOM (Engine Tester)](/assets/img/fetsncrosses/ibom_engine_test.html)
+- 📃 [Interactive BOM (Main Board)](ibom_main.html)
+- 📃 [Interactive BOM (Engine)](ibom_engine.html)
+- 📃 [Interactive BOM (Engine Tester)](ibom_engine_test.html)
 - 📦 [Production Files (Schematics, Gerbers)](https://github.com/schilkp/Fets_and_Crosses/releases/)
