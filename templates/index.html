@@ -18,7 +18,7 @@
           {% for project in projects.pages %} 
             {% if project.extra.thumbnail_img is not matching("^$") %}
             {% set proj_img = resize_image(
-                path=project.path ~ project.extra.thumbnail_img,
+                path=project.colocated_path ~ project.extra.thumbnail_img,
                 width=700,
                 height=525,
                 op="fit",
