@@ -87,4 +87,3 @@ would make a lot more sense. That way a 4-pin to 4-pin cable could be used.
 - 📁 [Repo](https://github.com/schilkp/VacTool)
 - 📦 [Production Files](https://github.com/schilkp/VacTool/releases/tag/pcb_v0.0)
 - 📝 [Schematic](https://github.com/schilkp/VacTool/releases/download/pcb_v0.0/Schematic.pdf)
-- 📃 [Interactive BOM](https://github.com/schilkp/VacTool/releases/download/pcb_v0.0/InteractiveBOM.html)
