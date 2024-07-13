@@ -36,7 +36,7 @@ For the full schematics, see the [links](#links) section at the end of this page
 
 The schematic snippets below can be enlarged by clicking on them.
 
-### Analog Frontend, Sample & Hold
+### Frontend + Sample & Hold
 
 
 {{ centered_img(src="pmodadc_sch_input.svg") }}
@@ -61,7 +61,7 @@ are included below.
 
 {{ centered_img(src="pmodadc_s&h.png" width="50%") }}
 
-### DAC, Comparator, Voltage Reference
+### DAC + Comparator
 
 {{ centered_img(src="pmodadc_sch_adc.svg") }}
 
@@ -220,7 +220,7 @@ Some very rough THD measurement yields the following:
 A big thank-you again to Dr. Vogt and the ETH PBL Center for giving me the opportunity to put
 my design through its paces.
 
-## Future Ideas and Possible Improvements
+## Ideas + Possible Improvements
 
 The logical next step would probably be to integrate the ADC, DAC, FPGA and USB interface onto the
 same board. This could simplify the somewhat convoluted power architecture, possibly
