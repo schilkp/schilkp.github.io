@@ -108,7 +108,7 @@ for non-linearity could be:
 - Other comparator non-idealities close to the supply rails.
 
 ## Links
-- [📁 Repo](https://github.com/schilkp/74Logic_SA_ADC)
-- [📦 Production Files](https://github.com/schilkp/74Logic_SA_ADC/releases/)
-- [📝 Schematic](https://github.com/schilkp/74Logic_SA_ADC/releases/download/v0.3/Schematic.pdf)
-- [📃 Interactive BOM](https://github.com/schilkp/74Logic_SA_ADC/releases/download/v0.3/InteractiveBOM.html)
+- 📁 [Repo](https://github.com/schilkp/74Logic_SA_ADC)
+- 📦 [Production Files](https://github.com/schilkp/74Logic_SA_ADC/releases/)
+- 📝 [Schematic](https://github.com/schilkp/74Logic_SA_ADC/releases/download/v0.3/Schematic.pdf)
+- 📃 [Interactive BOM](https://github.com/schilkp/74Logic_SA_ADC/releases/download/v0.3/InteractiveBOM.html)

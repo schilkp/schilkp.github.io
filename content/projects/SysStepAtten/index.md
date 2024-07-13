@@ -127,9 +127,9 @@ that fits into a Schiit Sys enclosure.
 
 ## Links
 
-- [📁 Repo](https://github.com/schilkp/SYS_StepAtten)
-- [📦 Production Files](https://github.com/schilkp/SYS_StepAtten/releases/)
-- [📝 Schematic](https://github.com/schilkp/SYS_StepAtten/releases/download/pcb_v1.3/SYS_StepAtten_Schematic.pdf)
-- [📃 Interactive BOM](https://github.com/schilkp/SYS_StepAtten/releases/download/pcb_v1.3/InteractiveBOM.html)
-- [📁 Riser Repo](https://github.com/schilkp/3.5mm_RiserPCB)
-- [📁 Template Repo](https://github.com/schilkp/SYS_ProjectTemplate)
+- 📁 [Repo](https://github.com/schilkp/SYS_StepAtten)
+- 📦 [Production Files](https://github.com/schilkp/SYS_StepAtten/releases/)
+- 📝 [Schematic](https://github.com/schilkp/SYS_StepAtten/releases/download/pcb_v1.3/SYS_StepAtten_Schematic.pdf)
+- 📃 [Interactive BOM](https://github.com/schilkp/SYS_StepAtten/releases/download/pcb_v1.3/InteractiveBOM.html)
+- 📁 [Riser Repo](https://github.com/schilkp/3.5mm_RiserPCB)
+- 📁 [Template Repo](https://github.com/schilkp/SYS_ProjectTemplate)
