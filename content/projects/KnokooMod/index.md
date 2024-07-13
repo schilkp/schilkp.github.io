@@ -50,7 +50,7 @@ If no pedal is attached, the unit will function normally.
 
 {{ youtube(src="https://www.youtube-nocookie.com/embed/2ysy9WUZLiE")}}
 
-## Installation Reference:
+## Installation Reference
 
 Once the PCB is assembled and programmed, it can easily be mounted next to the actual PCB:
 
@@ -71,7 +71,7 @@ case the unit will *not* return to normal operation when no pedal is connected.
 The timer potentiometer can be replaced by populating R6 and R7. In this case
 the timer will be fixed to approximately (15) * (R6 / (R6 * R7)) minutes.
 
-## Possible future changes/improvements:
+## Possible Improvements
 
 I am currently working on a JBC-Compatible soldering station. If that works
 out I will probably add a second input to allow the soldering station to automatically
@@ -83,9 +83,8 @@ the current pedal/timer state and turns the extract on while it is active.
 Instead of using a 3-pin connector for the connection to the main board, a 4-pin
 would make a lot more sense. That way a 4-pin to 4-pin cable could be used.
 
-## Links:
-
-- [📁 Repo](https://github.com/schilkp/VacTool)
-- [📦 Production Files](https://github.com/schilkp/VacTool/releases/tag/pcb_v0.0)
-- [📝 Schematic](https://github.com/schilkp/VacTool/releases/download/pcb_v0.0/Schematic.pdf)
-- [📃 Interactive BOM](https://github.com/schilkp/VacTool/releases/download/pcb_v0.0/InteractiveBOM.html)
+## Links
+- 📁 [Repo](https://github.com/schilkp/VacTool)
+- 📦 [Production Files](https://github.com/schilkp/VacTool/releases/tag/pcb_v0.0)
+- 📝 [Schematic](https://github.com/schilkp/VacTool/releases/download/pcb_v0.0/Schematic.pdf)
+- 📃 [Interactive BOM](https://github.com/schilkp/VacTool/releases/download/pcb_v0.0/InteractiveBOM.html)

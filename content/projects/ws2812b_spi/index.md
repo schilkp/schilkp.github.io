@@ -34,4 +34,4 @@ A detailed guide on how to use this driver, the different adjustment parameters,
 can be found in the repository README file.
 
 ## Links
-- [📁 Repo](https://github.com/schilkp/ws2812b_spi)
+- 📁 [Repo](https://github.com/schilkp/ws2812b_spi)
