@@ -1,7 +1,7 @@
 {% macro main_menu_elem(emoji, name, link) %}
 <div class="main_menu_elem">
   <h2 style="margin: 0 0 5px">
-    <a href="{{link}}" style="color: black"> {{ emoji }} {{ name }} </a>
+    {{ emoji }} <a href="{{link}}" style="color: black">{{ name }}</a>
   </h2>
 </div>
 {% endmacro input %}

@@ -25,7 +25,7 @@
                 format="jpg",
                 quality=100)
              %}
-            <div class="project_table_inner">
+            <div class="project_table_inner" onclick="location.href='{{project.permalink}}'" style="cursor: pointer;">
               <a href="{{project.permalink}}"><h2>{{project.title}}</h2></a>
               <a href="{{project.permalink}}"><img src="{{proj_img.url}}"/></a>
               <br />
@@ -38,7 +38,7 @@
           <!-- Projects without image: -->
           {% for project in projects.pages %} 
             {% if project.extra.thumbnail_img is matching("^$") %}
-            <div class="project_table_inner">
+            <div class="project_table_inner" onclick="location.href='{{project.permalink}}'" style="cursor: pointer;">
               <a href="{{project.permalink}}"><h2>{{project.title}}</h2></a>
               {{project.description}}
             </div>
