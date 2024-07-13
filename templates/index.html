@@ -17,9 +17,17 @@
           <!-- Projects with image: -->
           {% for project in projects.pages %} 
             {% if project.extra.thumbnail_img is not matching("^$") %}
+            {% set proj_img = resize_image(
+                path=project.path ~ project.extra.thumbnail_img,
+                width=700,
+                height=525,
+                op="fit",
+                format="jpg",
+                quality=100)
+             %}
             <div class="project_table_inner">
               <a href="{{project.permalink}}"><h2>{{project.title}}</h2></a>
-              <a href="{{project.permalink}}"><img src="{{project.path ~ project.extra.thumbnail_img}}"/></a>
+              <a href="{{project.permalink}}"><img src="{{proj_img.url}}"/></a>
               <br />
               {{project.description}}
             </div>
