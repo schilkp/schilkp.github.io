@@ -136,23 +136,12 @@ h3, h4, h5, h6 {
 }
 
 a {
-  color:#39c;
+  color:#595959;
   text-decoration:none;
 }
 
 a:hover {
-  color:#069;
-}
-
-a small {
-  font-size:11px;
-  color:#777;
-  margin-top:-0.3em;
-  display:block;
-}
-
-a:hover small {
-  color:#777;
+  text-decoration: underline;
 }
 
 blockquote {
@@ -297,7 +286,6 @@ section .toc {
 
 .toc a {
   color:#595959;
-  border-bottom: .5px solid #c1c1c1;
 }
 
 /* ==== Project overview table (home page) ================================== */
@@ -305,6 +293,10 @@ section .toc {
 .project_table {
   display: flex;
   flex-wrap: wrap;
+}
+
+.project_table img:hover{
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .project_table_inner {
@@ -354,9 +346,9 @@ pre table td:nth-of-type(1) {
 }
 
 pre mark {
-  // If you want your highlights to take the full width.
+  /* If you want your highlights to take the full width. */
   display: block;
-  // The default background colour of a mark is bright yellow
+  /* The default background colour of a mark is bright yellow. */
   background-color: rgba(254, 252, 232, 0.9);
 }
 
