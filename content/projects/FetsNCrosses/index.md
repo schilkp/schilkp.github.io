@@ -71,7 +71,6 @@ built on a separate PCB, can be connected to a series of pin-headers on the top.
 The PCBs are both 2 layer, and the routing was done in a [Manhattan style](https://en.wikipedia.org/wiki/Manhattan_wiring), with the top layer used for all
 transistor footprints and vertical routing, while the bottom layer was used for all horizontal routing:
 
-<br>
 {{ centered_img(src="route.jpeg", desc="A close-up of some of the routing on the main board.") }}
 
 {{ gallery() }}
