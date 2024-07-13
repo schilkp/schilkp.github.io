@@ -68,7 +68,7 @@ for the engine against which a player can play. There is a slot for a large FLAS
 in the first iteration, can act as this engine. Alternatively the transistor-based engine, which is
 built on a separate PCB, can be connected to a series of pin-headers on the top.
 
-The PCBs are both 2 layer, and the routing was done in a (Manhattan style)[https://en.wikipedia.org/wiki/Manhattan_wiring], with the top layer used for all
+The PCBs are both 2 layer, and the routing was done in a [Manhattan style](https://en.wikipedia.org/wiki/Manhattan_wiring), with the top layer used for all
 transistor footprints and vertical routing, while the bottom layer was used for all horizontal routing:
 
 <br>
