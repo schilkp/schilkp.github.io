@@ -1,6 +1,9 @@
 +++
 title="About"
 
+
+weight=10
+
 [extra]
 nav_emoji="🗿"
 +++
