@@ -1,7 +1,19 @@
 {% if not no_br %} <br> {% endif %} 
 <center>
+    {% if downscale_to_width %}
+      {% set resized_image = resize_image(
+          path=src,
+          width=downscale_to_width,
+          op="fit_width",
+          format="jpg",
+          quality=100)
+       %}
+      {% set img = resized_image.url %}
+    {% else %}
+      {% set img = src %}
+    {% endif %}
     <a href="{{src}}">
-        <img src="{{src}}" {% if width %}width="{{width}}" {% else %} width="70%" {% endif %}>
+        <img src="{{img}}" {% if width %}width="{{width}}" {% else %} width="70%" {% endif %}>
     </a>
     {% if desc %} 
     <br>
