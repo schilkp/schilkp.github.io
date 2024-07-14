@@ -275,7 +275,39 @@ section .toc {
   color:#595959;
 }
 
+/* ==== Two-collumn layout =================================================== */
+
+.twocol {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.twocol_box {
+  flex: 0 0 45%;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.twocol h2 a {
+  color: black;
+}
+
+@media print, screen and (max-width: 500px) {
+  .twocol {
+    display: block;
+  }
+  .twocol_box {
+    flex: 100% 1 0;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
 /* ==== Project overview table (home page) ================================== */
+
+/* FIXME: Convert to SCSS + Inheritance of twocol */
 
 .project_table {
   display: flex;
