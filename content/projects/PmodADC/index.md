@@ -2,8 +2,7 @@
 title="PmodADC"
 description="A fully discrete 14bit, 41kHz, FPGA-controlled Successive-Approximation Audio ADC and R2R Audio DAC."
 template="project_page.html"
-
-weight=1
+weight=102
 
 [extra]
 thumbnail_img="pmodadc_full_board.jpeg"

@@ -3,7 +3,7 @@ title="VacTool"
 description="A simple manual SMD pick-and-place pen. "
 template="project_page.html"
 
-weight=3
+weight=403
 
 [extra]
 thumbnail_img="vactool_inside.jpeg"
