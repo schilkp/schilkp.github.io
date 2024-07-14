@@ -2,8 +2,7 @@
 title="Fets & Crosses"
 description="A game of Knots and Crosses (Tic Tac Toe) built from 2458 individual mosfets, featuring both player-vs-player and player-vs-computer modes. "
 template="project_page.html"
-
-weight=1
+weight=101
 
 [extra]
 thumbnail_img="fetsncrosses_header.jpeg"
