@@ -236,12 +236,12 @@ ADC would also make for a fun challenge.
 
 ## Links
 - 📁 [Repo](https://github.com/schilkp/PmodADC)
-- 📦 [Production Files](https://github.com/schilkp/releases/)
+- 📦 [Production Files](https://github.com/schilkp/PmodADC/releases/)
 - PmodADC
-    - 📝 [Schematic](https://github.com/TheSchilk/releases/download/v0.2/PmodADC_Schematic.pdf)
+    - 📝 [Schematic](https://github.com/schilkp/PmodADC/releases/download/v0.2/PmodADC_Schematic.pdf)
     - 📃 [Interactive BOM](PmodADC_ibom.html)
 - PmodDAC
-    - 📝 [Schematic](https://github.com/schilkp/releases/download/v0.2/PmodDAC_Schematic.pdf)
+    - 📝 [Schematic](https://github.com/schilkp/PmodADC/releases/download/v0.2/PmodDAC_Schematic.pdf)
     - 📃 [Interactive BOM](PmodDAC_ibom.html)
 
 ## Other Notes
