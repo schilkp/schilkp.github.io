@@ -1,4 +1,4 @@
-<br>
+{% if not no_br %} <br> {% endif %} 
 <center>
     <a href="{{src}}">
         <img src="{{src}}" {% if width %}width="{{width}}" {% else %} width="70%" {% endif %}>
@@ -8,5 +8,5 @@
     {{ desc | safe }}
     {% endif %}
 </center>
-<br>
+{% if not no_br %} <br> {% endif %} 
 
