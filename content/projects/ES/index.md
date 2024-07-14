@@ -8,7 +8,7 @@ weight=302
 thumbnail_img="header.jpg"
 +++
 
-{{ centered_img(src="header.jpg") }}
+{{ centered_img(src="projects/ES/header.jpg", downscale_to_width=1000) }}
 
 ## Overview
 
