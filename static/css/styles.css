@@ -381,3 +381,8 @@ pre table {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+/* ==== KaTeX =============================================================== */
+
+.katex { font-size: 1.0em; }
+
