@@ -22,9 +22,7 @@ at the ETH Zürich Department for Electrical Engineering and Information Science
 > improving many different aspects. We plan on publishing and open-sourcing all course materials once
 > they are ready.
 
-## Components
-
-### Hardware
+## Hardware
 
 My previous experience has shown me that most typical microcontroller development boards are
 hopelessly ineffective as a teaching tool. In general, manufacturer-provided boards fall into
@@ -73,7 +71,7 @@ learning and fun applications:
 - Finally, a Wuerth WIFI module (mounted on the bottom of the shield and not pictured above) allows
   students to explore a whole range of networking and integration topics.
 
-### Labs
+## Labs
 
 {{ gallery() }}
     {{ gallery_img(src="ex1.png", desc="Snake on the LED Matrix.") }}
@@ -111,7 +109,7 @@ Some examples include:
   use an FFT to identify the dominant frequency. The performance of a hardware-accelerated FFT routine
   is compared to a pure software implementation.
 
-### Software
+## Software
 
 {{ centered_img(src="/projects/tonbandgeraet/tband_banner.png" width="100%") }}
 
