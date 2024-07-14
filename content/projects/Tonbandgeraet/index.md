@@ -138,7 +138,7 @@ is also by UTF-8 for most numeric values:
 For example, consider the 32-bit value `0x5`. With the scheme above, it is encoded as a single
 byte:
 
-```text
+```
     +---> First 7 bits
  ___|___
 00000101
@@ -148,7 +148,7 @@ byte:
 
 The value `0xFF` requires more than seven bits and therefor is split into two bytes:
 
-```text
+```
     +---> First 7 bits          +---> Next 7 bits
  ___|___                     ___|___
 11111111                    00000001
@@ -170,7 +170,7 @@ Specifically, after COBS framing, an {{ katex(body=" N \neq 0") }} byte message 
 Please read the above article for a more precise specification, but roughly speaking this is done by replacing all zeroes with
 a pointer to the next zero:
 
-```text
+```
 Original values:          0x01  0x02  0x00  0x04  0x00  0x05
 
                       +-----> +3 -----+  +-> +2 --+  +-> +2 --+
@@ -185,7 +185,7 @@ Special care has to be given to a run of 254 or more consecutive non-zero bytes,
 to point beyond such a run. In this case, an additional pointer byte is added that does not correspond to a zero in the
 original data:
 
-```text
+```
 Original values:          0x00  0x01  0x02 ... 0xFD  0xFE         0xFF
 
                       +->-+  +----------> +255 ------------+  +--> +2 --+
