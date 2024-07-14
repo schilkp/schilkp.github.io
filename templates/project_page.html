@@ -1,9 +1,12 @@
-{% import "partials/toc.html" as toc%}
+{% import "partials/html_setup.html" as html_setup %}
+{% import "partials/toc.html" as toc %}
 <!doctype html>
 <html>
   <head>
     <title>{{ page.title }} | schilk</title>
-    {% include "partials/html_setup.html" %}
+    {% set katex_enabled = page.extra | get(key="katex", default=false) %}
+    {% set katex_auto_render = page.extra | get(key="katex_auto_render", default=false) %}
+    {{ html_setup::setup(katex_enabled=katex_enabled, katex_auto_render=katex_auto_render) }}
   </head>
 
   <body>

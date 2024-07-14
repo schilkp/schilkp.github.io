@@ -1,0 +1,23 @@
+{#
+  Joinked from https://github.com/getzola/even
+  
+  Katex itself is loaded in the html_setup macro - if the page enables it by setting extra.katex=true.
+
+  Usage:
+  {{ katex(body="\KaTeX") }}
+
+  {% katex(block=true) %}
+    \KaTeX
+  {% end %} 
+
+  This shortcode is not strictly needed if extra.katex_auto_render is set to false. Then the following
+  can be used:
+
+  Inline:
+    \\( \KaTeX \\) 
+  Block:
+    \\[ \KaTeX \\] 
+    $$ \KaTeX $$
+
+#}
+<script type="math/tex{% if block %};mode=display{% endif %}">{{body | safe}}</script>
