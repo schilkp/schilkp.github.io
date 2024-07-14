@@ -136,7 +136,7 @@ h3, h4, h5, h6 {
 }
 
 a {
-  color:#595959;
+  color:#39c;
   text-decoration:none;
 }
 
@@ -148,7 +148,6 @@ blockquote {
   border-left:1px solid #e5e5e5;
   margin:0;
   padding:0 0 0 20px;
-  font-style:italic;
 }
 
 code, pre {
@@ -304,6 +303,10 @@ section .toc {
   padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.project_table h2 a {
+  color: black;
 }
 
 @media print, screen and (max-width: 500px) {

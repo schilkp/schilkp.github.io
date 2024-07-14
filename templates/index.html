@@ -26,7 +26,7 @@
                 quality=100)
             %}
             <div class="project_table_inner">
-              <a href="{{project.permalink}}"><h2>{{project.title}}</h2></a>
+              <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
               <a href="{{project.permalink}}"><img src="{{proj_img.url}}"/></a>
               <br />
               {{project.description}}
@@ -39,7 +39,7 @@
           {% for project in projects.pages %} 
             {% if project.extra.thumbnail_img is matching("^$") %}
             <div class="project_table_inner">
-              <a href="{{project.permalink}}"><h2>{{project.title}}</h2></a>
+              <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
               {{project.description}}
             </div>
             {% endif %} 
