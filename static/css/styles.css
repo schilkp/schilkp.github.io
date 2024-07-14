@@ -150,18 +150,6 @@ blockquote {
   padding:0 0 0 20px;
 }
 
-code, pre {
-  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
-}
-
-pre {
-  padding:8px 15px;
-  background: #f8f8f8;
-  border-radius:5px;
-  border:1px solid #e5e5e5;
-  overflow-x: auto;
-}
-
 table {
   width:100%;
   border-collapse:collapse;
@@ -200,12 +188,6 @@ hr {
   background:#e5e5e5;
   height:1px;
   margin:0 0 20px;
-}
-
-@media print, screen and (max-width: 720px) {
-  pre, code {
-    word-wrap:normal;
-  }
 }
 
 /* Youtube */
@@ -327,12 +309,27 @@ section .toc {
   }
 }
 
+/* ==== Code Blocks: Based on Zola defaults ================================= */
 
-/* ==== Code Blocks: Recommended Zola defaults ============================== */
+pre, code {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  font-size: 85%;
+}
+
+/* Add background to all inline code snippets (that are not inside a pre) */
+code:not(pre *) {
+  padding: .2em .4em;
+  margin: 0;
+  background: #f8f8f8;
+  border-radius: 4px;
+}
 
 pre {
-  padding: 1rem;
-  overflow: auto;
+  padding:8px 15px;
+  background: #f8f8f8;
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
 }
 
 pre[data-linenos] {
@@ -358,6 +355,12 @@ pre mark {
 pre table {
   width: 100%;
   border-collapse: collapse;
+}
+
+@media print, screen and (max-width: 720px) {
+  pre, code {
+    word-wrap:normal;
+  }
 }
 
 /* ==== Image Gallery ======================================================= */
