@@ -46,40 +46,7 @@ The latter runs a WASM-version of the rust conversion tool directly in the brows
 This is a quick overview of the technical details that went into building Tonbandgerät. If you are interested in simply using it,
 take a look at the following resources:
 
-{{ twocol() }}
-
-{% twocol_box(block=true) %}
-## 📚 [Docs](https://schilk.co/Tonbandgeraet/docs/index.html)
-The [online documentation](https://schilk.co/Tonbandgeraet/docs/index.html) has everything you need to
-get started, API documentation, and a whole bunch of under-the-hood technical documentation.
-{% end %}
-
-
-{% twocol_box(block=true) %}
-## 📼 [Online Converter](https://schilk.co/Tonbandgeraet/)
-The online, in-browser [trace converter](https://schilk.co/Tonbandgeraet/) which can be used to
-quickly decode, convert, and view a Tonbandgerät trace.
-{% end %}
-
-{% twocol_box(block=true) %}
-## ✨ Demo
-If you want to have a quick look at how a Tonbandgerät trace can be viewed [perfetto](https://perfetto.dev), you can download
-a converted trace [here](/projects/tonbandgeraet/trace.proto). Simply head over to [perfetto](https://perfetto.dev) and upload
-it.
-{% end %}
-
-{% twocol_box(block=true) %}
-## 📃 [Project Page](/projects/tonbandgeraet)
-The [project page](/projects/tonbandgeraet) for Tonbandgerät here on [schilk.co](schilk.co). It contains a condensed overview of how Tonbandgerät works,
-including implementation detail highlights.
-{% end %}
-
-{% twocol_box(block=true) %}
-## 📁 [Repo](https://github.com/schilkp/Tonbandgeraet)
-The [repository](https://github.com/schilkp/Tonbandgeraet), which contains all source code including the target tracer, converter, documentation, and website.
-{% end %}
-
-{{ twocol_end() }}
+{{ include_markdown(path="content/tonbandgeraet-links/_links.mdsnippet") }}
 
 ---
 
@@ -171,7 +138,7 @@ is also by UTF-8 for most numeric values:
 For example, consider the 32-bit value `0x5`. With the scheme above, it is encoded as a single
 byte:
 
-```test
+```text
     +---> First 7 bits
  ___|___
 00000101
@@ -181,7 +148,7 @@ byte:
 
 The value `0xFF` requires more than seven bits and therefor is split into two bytes:
 
-```test
+```text
     +---> First 7 bits          +---> Next 7 bits
  ___|___                     ___|___
 11111111                    00000001
