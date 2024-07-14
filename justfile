@@ -9,3 +9,7 @@ check:
 
 check_drafts:
     zola check --drafts
+
+clean:
+    rm -rf public
+    rm -rf static/processed_images
