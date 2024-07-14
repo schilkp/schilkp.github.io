@@ -8,12 +8,7 @@ weight=10
 nav_emoji="🗿"
 +++
 
-<center>
-    <a href="/img/about.jpeg">
-        <img src="/img/about.jpeg" width="70%">
-    </a> <br>
-    <small> (📸 Leonard Lochte-Holtgreven, 2021) </small> </center>
-<br>
+{{ centered_img(src="/img/about.jpeg", width="70%", desc="<small> (📸 Leonard Lochte-Holtgreven, 2021) </small>") }}
 
 Hi.
 
