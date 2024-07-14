@@ -1,5 +1,5 @@
 <div class="twocol_box">
 {% if block %}
-{{ body | markdown | safe}}
+{{ body | markdown(inline=true) | safe }}
 </div>
 {% endif %}
