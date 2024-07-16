@@ -18,7 +18,7 @@ header {
   padding-right:20px;
   float:left;
   position:fixed;
-  overflow-y: scroll;
+  overflow: auto;
   height: 100%;
   -webkit-font-smoothing:subpixel-antialiased;
 }
