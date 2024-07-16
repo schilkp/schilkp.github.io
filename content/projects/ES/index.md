@@ -122,4 +122,4 @@ Unfortunately, I was not able to find an embedded system tracer that fulfilled a
 - Free to use
 - Does not require a specific debugger/programmer
 
-So I decided to build my own! You can read all about *Tonbandgerät* [here](/projects/tonbandgeraet/). It will be used in the upcoming semester.
+So I decided to build my own! You can read all about *Tonbandgerät* [here](@/projects/Tonbandgeraet/index.md). It will be used in the upcoming semester.
