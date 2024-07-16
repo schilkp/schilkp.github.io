@@ -1,0 +1,118 @@
+---
+# Keys:
+#  - title [REQUIRED]
+#  - authors [REQUIRED]
+#  - url
+#  - award
+#  - cite_info
+#  - zola_link
+#  - uni_link
+#  - doi
+#  - arxiv
+#  - abstract
+
+- title: "TinyssimoRadar: In-Ear Hand Gesture Recognition with Ultra-Low Power mmWave Radars"
+  authors: "Andrea Ronco, Philipp Schilk, and Michele Magno"
+  url: "https://doi.org/10.1109/IoTDI61053.2024.00021"
+  cite_info: "2024 IEEE/ACM Ninth International Conference on Internet-of-Things Design and Implementation (IoTDI), Hong Kong, pp. 192-202"
+  award: "Best Demo IoTDI'24"
+  zola_link: "@/projects/RadarBud/index.md"
+  doi: "10.1109/IoTDI61053.2024.00021"
+  abstract: |
+    Smart Internet of Things (IoT) devices are on the rise in popularity, with
+    innovative use cases and applications emerging every year. Including
+    intelligence in these novel systems presents the challenge of integrating
+    interaction and communication in scenarios where traditional interfaces are
+    not viable. Hand Gesture Recognition (HGR) has been proposed as an
+    intuitive Human-Machine Interface, potentially suitable for controlling
+    several classes of devices in the context of the Internet of Things. This
+    paper proposes a low-power in-ear HGR system based on mm-wave radars,
+    efficient spatial and temporal Convolutional Neural Networks and an
+    energy-optimized hardware design. 
+    <br> 
+    <br> 
+    The design is suitable for
+    battery-operated devices, with stringent size and energy constraints,
+    enabling user interaction with wearable devices, but also suitable for home
+    appliances and industrial applications. The proposed machine learning model
+    is characterized thoroughly for robustness and generalization capabilities,
+    achieving 94.9% (single subject) and 86.1% (Leave-One-Out Cross-validation)
+    accuracy on a set of 11+1 gestures with a model size of only 36KiB and
+    inference latency of 32.4ms on a 64MHz Cortex-M33 microcontroller, making
+    it compatible with real-time applications. The system is demonstrated in a
+    fully integrated, miniaturized in-ear device with a full-system average
+    power consumption of 18.4mW, a more than 6x improvement on the current
+    state of the art.
+
+- title: "In-Ear-Voice: Towards Milli-Watt Audio Enhancement With Bone-Conduction Microphones for In-Ear Sensing Platforms"
+  authors: "Philipp Schilk, Niccolò Polvani, Andrea Ronco, Milos Cernak, and Michele Magno"
+  url: "https://doi.org/10.1145/3576842.3582365"
+  doi: "10.1145/3576842.3582365"
+  cite_info: "2023 IEEE/ACM Eigth International Conference on Internet-of-Things Design and Implementation (IoTDI), San Antonio, Texas, pp. 1-12"
+  award: "Best Demo IoTDI'23"
+  arxiv: "https://arxiv.org/abs/2309.02393"
+  uni_link: "https://www.research-collection.ethz.ch/handle/20.500.11850/614017"
+  abstract: |
+    The recent ubiquitous adoption of remote conferencing has been accompanied 
+    by omnipresent frustration with distorted or otherwise unclear voice 
+    communication. Audio enhancement can compensate for low-quality input 
+    signals from, for example, small true wireless earbuds, by applying noise 
+    suppression techniques. Such processing relies on voice activity detection 
+    (VAD) with low latency and the added capability of discriminating the 
+    wearer’s voice from others - a task of significant computational complexity. 
+    The tight energy budget of devices as small as modern earphones, however, 
+    requires any system attempting to tackle this problem to do so with minimal 
+    power and processing overhead, while not relying on speaker-specific voice 
+    samples and training due to usability concerns.
+    <br> 
+    <br> 
+    This paper presents the design and implementation of a custom research 
+    platform for low-power wireless earbuds based on novel, commercial,
+    MEMS bone-conduction microphones. Such microphones can record the wearer’s 
+    speech with much greater isolation, enabling personalized voice activity 
+    detection and further audio enhancement applications. Furthermore, the 
+    paper accurately evaluates a proposed low-power personalized speech 
+    detection algorithm based on bone conduction data and a recurrent 
+    neural network running on the implemented research platform. This algorithm
+    is compared to an approach based on traditional microphone input. The 
+    performance of the bone conduction system, achieving detection of speech 
+    within 12.8ms at an accuracy of 95% is evaluated. Different SoC choices are
+    contrasted, with the final implementation based on the cutting-edge Ambiq 
+    Apollo 4 Blue SoC achieving 2.64mW average power consumption at 14uJ per 
+    inference, reaching 43h of battery life on a miniature 32mAh li-ion cell and 
+    without duty cycling.
+
+- title: "VitalPod: A Low Power In-Ear Vital Parameter Monitoring System"
+  authors: "Philipp Schilk, Kanika Dheman, Michele Magno"
+  url: "https://doi.org/10.1109/WIMOB55322.2022.9941646"
+  doi: "10.1109/WIMOB55322.2022.9941646"
+  cite_info: "2022 IEEE 18th International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob), Thessaloniki, Greece, pp. 94-99"
+  uni_link: "https://www.research-collection.ethz.ch/handle/20.500.11850/603855"
+  award: "Best Paper eHPWAS'22"
+  abstract: |
+    Monitoring of physiological parameters support early detection, prevention,
+    and management of adverse healthcare related events. In-ear wearable sensor
+    nodes that track changing bio-physiological signals can be advantageous
+    over traditional monitoring methods in being compact, unobtrusive, and
+    inconspicuous, increasing their appeal. However, in-ear ergonomics place
+    rigid constraints on a device’s physical design and size, limiting battery
+    lifetime and restricting the incorporation of multiple sensor modules. This
+    work presents the design and implementation of the wireless hearable
+    VitalPod, an in-ear multivital sign monitor that measures heart rate (HR),
+    respiratory rate (RR), blood oxygenation (SpO2), skin temperature and
+    activity. 
+    <br> 
+    <br> 
+    The VitalPod is designed with low power and energy efficiency in
+    mind, using novel sensing integrated circuits and processing modules that
+    achieve operational longevity of up to 42 hours using a small form factor
+    32mAh rechargeable Li-ion polymer battery. It has a compact design and form
+    factor, similar to many commercial wireless earbuds, featuring hardware
+    required for wireless music playback using a standard balanced armature
+    driver in addition to vital sign monitoring sensors. Experimental results
+    show high performance in estimating vital signs for HR (-0.061± 1.12 beats
+    per minute ), RR (0.87±1.48 breaths per minute) and change in SpO2
+    (0.21±0.82%). Additionally, the presented work also evaluates the
+    positional placement of sensors in the ear to reduce the effect of motion
+    induced artifacts. 
+

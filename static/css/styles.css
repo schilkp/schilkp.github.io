@@ -225,7 +225,7 @@ hr {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .main_menu_elem {
     white-space: nowrap;
     margin-right: 1em;
@@ -414,7 +414,56 @@ pre table {
   padding-bottom: 10px;
 }
 
+/* ==== Papers Page ========================================================= */
+
+.papers div.paper {
+  box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.1);
+}
+
+.papers a {
+  color:#595959;
+}
+
+.papers .paper strong a {
+  font-weight:600;
+}
+
+.papers div.paper {
+  border-width:1px;
+  border-style:solid;
+  border-radius: 4px;
+  border-color: #e5e5e5;
+  padding-top:     .5em;
+  padding-bottom:  .5em;
+  padding-left:     1em;
+  padding-right:    1em;
+  margin-bottom:    1em;
+}
+
+.papers div.paper_info_row {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.papers div.paper_button {
+  border-radius: 4px;
+  background-color: #efefef;
+  padding-top:     0.15em;
+  padding-bottom:  0.15em;
+  padding-left:    0.5em;
+  padding-right:   0.5em;
+  margin-top: 0.3em;
+  margin-right: 0.5em;
+}
+
+.papers div.paper_button:hover {
+  box-shadow:1px 2px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.papers .paper_info_panel {
+}
+
+
 /* ==== KaTeX =============================================================== */
 
 .katex { font-size: 1.0em; }
-

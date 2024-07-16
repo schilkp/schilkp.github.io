@@ -1,7 +1,5 @@
 +++
 title="About"
-
-
 weight=10
 
 [extra]
