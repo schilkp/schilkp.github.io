@@ -21,6 +21,10 @@ A small embedded systems tracer with support for bare-metal and FreeRTOS-based t
 
 {{ toc() }}
 
+<!-- FIXME -->
+<!-- Used to be used in multiple places, but now I still use the ident to prevent it from appearing in the table of contents.. -->
+{{ include_markdown(path="content/projects/Tonbandgeraet/_links.mdsnippet") }}
+
 ## Overview
 
 Tonbandgerät's [core](https://github.com/schilkp/Tonbandgeraet/tree/main/tband) is a small, portable, trace event generator
@@ -46,7 +50,6 @@ The latter runs a WASM-version of the rust conversion tool directly in the brows
 This is a quick overview of the technical details that went into building Tonbandgerät. If you are interested in simply using it,
 take a look at the following resources:
 
-{{ include_markdown(path="content/tonbandgeraet-links/_links.mdsnippet") }}
 
 ---
 
