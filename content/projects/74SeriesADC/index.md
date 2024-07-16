@@ -2,7 +2,7 @@
 title="74-Series SAR-ADC"
 description="A fully discrete 8bit, 300Hz, successive-approximation ADC controlled by a 74-series logic gate state machine."
 template="project_page.html"
-weight=301
+weight=401
 
 [extra]
 thumbnail_img="74seriesadc_full_board.jpeg"

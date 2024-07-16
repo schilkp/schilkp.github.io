@@ -2,7 +2,7 @@
 title="Tonbandgerät"
 description="A small embedded systems tracer with support for bare-metal and FreeRTOS-based targets."
 template="project_page.html"
-weight=401
+weight=301
 
 [extra]
 thumbnail_img="tband_titlepage.png"
