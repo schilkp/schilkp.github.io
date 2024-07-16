@@ -23,7 +23,7 @@ where it takes its name from.
 Because a 14-bit R2R DAC sits at the core of this design, I also built a second dedicated
 audio DAC board: the PmodDAC. Details of this design are also included below.
 
-This project is a continuation of my [previous SAR-ADC](TODO), which was a much simpler
+This project is a continuation of my [previous SAR-ADC](@/projects/74SeriesADC/index.md), which was a much simpler
 and slower converter controlled by a state machine implemented in discrete 74-series logic gates.
 
 
