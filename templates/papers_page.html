@@ -93,14 +93,13 @@
                 {% if ref.doi %}
                   <div class="paper_info_panel" id="doi_{{loop.index}}" style="display:none;">
                     <br>
-                    📇 DOI: <code> {{ref.doi}} </code>
+                    <a href="https://doi.org/{{ref.doi}}"> <code> https://doi.org/{{ref.doi}} </code></a>
                   </div>
                 {% endif %}
 
                 {% if ref.abstract %}
                   <div class="paper_info_panel" id="abstract_{{loop.index}}" style="display:none;">
                     <br>
-                    🔍  Abstract: 
                     <blockquote>
                       {{ ref.abstract | safe }}
                     </blockquote>
