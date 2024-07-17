@@ -88,6 +88,18 @@
                       🔍 <a onclick="toggle_div('abstract_{{loop.index}}')"> Abstract </a>
                     </div>
                   {% endif %}
+
+                  {% if ref.code %}
+                    <div class="paper_button">
+                      💻 <a href="{{ ref.code }}"> Code </a>
+                    </div>
+                  {% endif %}
+                  
+                  {% if ref.dataset %}
+                    <div class="paper_button">
+                      💾 <a href="{{ ref.dataset }}"> Dataset </a>
+                    </div>
+                  {% endif %}
                 </div>
                 
                 {% if ref.doi %}

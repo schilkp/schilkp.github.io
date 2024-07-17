@@ -10,6 +10,8 @@
 #  - doi
 #  - arxiv
 #  - abstract
+#  - code
+#  - dataset
 
 - title: "TinyssimoRadar: In-Ear Hand Gesture Recognition with Ultra-Low Power mmWave Radars"
   authors: "Andrea Ronco, Philipp Schilk, and Michele Magno"
@@ -18,6 +20,8 @@
   award: "Best Demo IoTDI'24"
   zola_link: "@/projects/RadarBud/index.md"
   doi: "10.1109/IoTDI61053.2024.00021"
+  code: "https://github.com/ETH-PBL/TinyssimoRadar"
+  dataset: "https://www.research-collection.ethz.ch/handle/20.500.11850/672242"
   abstract: |
     Smart Internet of Things (IoT) devices are on the rise in popularity, with
     innovative use cases and applications emerging every year. Including
