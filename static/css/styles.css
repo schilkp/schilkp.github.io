@@ -217,6 +217,14 @@ hr {
   height: 100%;
 }
 
+.content_box {
+  padding:8px 15px;
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
+  margin:0 0 20px;
+}
+
 /* ==== Main Header Menu ==================================================== */
 
 @media print, screen and (max-width: 960px) {
@@ -461,6 +469,7 @@ pre table {
 }
 
 .papers .paper_info_panel {
+  padding-top: 1em;
 }
 
 

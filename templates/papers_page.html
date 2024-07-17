@@ -77,12 +77,6 @@
                     </div>
                   {% endif %}
                   
-                  {% if ref.doi %}
-                    <div class="paper_button">
-                      📇 <a onclick="toggle_div('doi_{{loop.index}}')"> DOI </a>
-                    </div>
-                  {% endif %}
-
                   {% if ref.abstract %}
                     <div class="paper_button">
                       🔍 <a onclick="toggle_div('abstract_{{loop.index}}')"> Abstract </a>
@@ -100,21 +94,23 @@
                       💾 <a href="{{ ref.dataset }}"> Dataset </a>
                     </div>
                   {% endif %}
+
+                  {% if ref.bibtex %}
+                    <div class="paper_button">
+                      🎓 <a onclick="toggle_div('bibtex_{{loop.index}}')"> Cite </a>
+                    </div>
+                  {% endif %}
                 </div>
-                
-                {% if ref.doi %}
-                  <div class="paper_info_panel" id="doi_{{loop.index}}" style="display:none;">
-                    <br>
-                    <a href="https://doi.org/{{ref.doi}}"> <code> https://doi.org/{{ref.doi}} </code></a>
+
+                {% if ref.bibtex %}
+                  <div class="paper_info_panel" id="bibtex_{{loop.index}}" style="display:none;">
+                    {{ ref.bibtex | markdown(inline=true) | safe }}
                   </div>
                 {% endif %}
-
+                
                 {% if ref.abstract %}
                   <div class="paper_info_panel" id="abstract_{{loop.index}}" style="display:none;">
-                    <br>
-                    <blockquote>
-                      {{ ref.abstract | safe }}
-                    </blockquote>
+                    <div class="content_box"> {{ ref.abstract | markdown(inline=true) | safe }} </div>
                   </div>
                 {% endif %}
               </div>
