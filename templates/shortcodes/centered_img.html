@@ -9,10 +9,12 @@
           quality=100)
        %}
       {% set img = resized_image.url %}
+      {% set link = resized_image.url %}
     {% else %}
       {% set img = src %}
+      {% set link= src %}
     {% endif %}
-    <a href="{{src}}">
+    <a href="{{ link }}">
         <img src="{{img}}" {% if width %}width="{{width}}" {% else %} width="70%" {% endif %}>
     </a>
     {% if desc %} 
@@ -21,4 +23,3 @@
     {% endif %}
 </center>
 {% if not no_br %} <br> {% endif %} 
-
