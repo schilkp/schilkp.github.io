@@ -6,8 +6,6 @@
 </div>
 {% endmacro input %}
 
-<script>
-
 <!--  __  __ _____ _   _ _   _  -->
 <!-- |  \/  | ____| \ | | | | | -->
 <!-- | |\/| |  _| |  \| | | | | -->
@@ -19,26 +17,6 @@
 <!--     - Above 960px: In sidebar, stacked -->
 <!--     - Between 960px and 500px: In top header, next to each other -->
 <!--     - Below 500px: In toggleable menu, stacked. -->
-                          
-togglemenu_is_visible = false;
-
-function toggle_menu() { 
-  const div = document.getElementById('main_menu_div');
-  togglemenu_is_visible = togglemenu_is_visible ? false : true;
-  div.style.display = togglemenu_is_visible ? "block" : "none";
-}
-
-// If window is resized, correctly update the display-state of the menu:
-window.addEventListener('resize', function(event) {
-    const div = document.getElementById('main_menu_div');
-    if (window.innerWidth > 500) {
-        div.style.display = "block"
-    } else {
-        div.style.display = togglemenu_is_visible ? "block" : "none";
-    }
-}, true);
-
-</script>
 
 <div style="display:flex; align-items:center;">
  <div style="flex-grow:1;">
@@ -67,3 +45,30 @@ window.addEventListener('resize', function(event) {
 </div>
 <br />
 <hr />
+
+
+
+<script>
+togglemenu_is_visible = false;
+
+function toggle_menu() { 
+  const div = document.getElementById('main_menu_div');
+  togglemenu_is_visible = togglemenu_is_visible ? false : true;
+  div.style.display = togglemenu_is_visible ? "block" : "none";
+}
+
+// If window is resized, correctly update the display-state of the menu:
+function resize_menu_update() {
+  const div = document.getElementById('main_menu_div');
+  if (window.innerWidth > 500) {
+      div.style.display = "block"
+  } else {
+      div.style.display = togglemenu_is_visible ? "block" : "none";
+  }
+}
+window.addEventListener('resize', function(event) { resize_menu_update() }, true);
+
+// On some phones initial state is wrong - fix:
+resize_menu_update();
+</script>
+
