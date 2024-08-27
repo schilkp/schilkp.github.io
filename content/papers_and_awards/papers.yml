@@ -18,6 +18,7 @@
   url: "https://doi.org/10.1109/IoTDI61053.2024.00021"
   cite_info: "2024 IEEE/ACM Ninth International Conference on Internet-of-Things Design and Implementation (IoTDI), Hong Kong, pp. 192-202"
   award: "Best Demo IoTDI'24"
+  uni_link: "https://www.research-collection.ethz.ch/handle/20.500.11850/683459"
   zola_link: "@/projects/RadarBud/index.md"
   code: "https://github.com/ETH-PBL/TinyssimoRadar"
   dataset: "https://www.research-collection.ethz.ch/handle/20.500.11850/672242"
