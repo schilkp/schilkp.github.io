@@ -1,0 +1,166 @@
+{% import "partials/html_setup.html" as html_setup %}
+<!doctype html>
+<html>
+  <head>
+    <title>{{ page.title }} | schilk</title>
+    {% set katex_enabled = page.extra | get(key="katex", default=false) %}
+    {% set katex_auto_render = page.extra | get(key="katex_auto_render", default=false) %}
+    {{ html_setup::setup(katex_enabled=katex_enabled, katex_auto_render=katex_auto_render) }}
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        {% include "partials/header_common.html" %}
+        {% include "partials/main_menu.html" %}
+        <script>
+        function toggle_div(id) { 
+          const div = document.getElementById(id);
+          if (div != null) {
+              if (div.style.display === "none") {
+                div.style.display = "block"
+              } else {
+                div.style.display = "none"
+              }
+          }
+        }
+        </script>
+
+      </header>
+
+      <section>
+        <h1>📎 Papers</h1>
+        
+        {% set papers = load_data(path=page.colocated_path ~ "papers.yml", format="yaml", required=true) %}
+        <div class="papers">
+          {% for paper in papers %}
+            <div class="paper">
+              <strong> 
+                {% if paper.url %}<a href="{{paper.url}}">{% endif %}
+                    {{ paper.title }}
+                {% if paper.url %}</a>{% endif %} 
+              </strong> <br>
+
+              <em> {{paper.authors}} </em> <br>
+
+              {% if paper.cite_info %}
+                {{ paper.cite_info }} <br>
+              {% endif %}
+              
+              {% if paper.award %}
+              ⭐ {{ paper.award }}
+              {% endif %}
+               
+              <div class="paper_button_row">
+                {% if paper.url %}
+                  <div class="paper_button">
+                    📄 <a href="{{paper.url}}"> Paper </a>
+                  </div>
+                {% endif %}
+
+                {% if paper.zola_link %}
+                  <div class="paper_button">
+                    💡 <a href="{{ get_url(path=paper.zola_link) }}"> Info </a>
+                  </div>
+                {% endif %}
+                
+                {% if paper.arxiv %}
+                  <div class="paper_button">
+                    🗄️ <a href="{{ paper.arxiv }}"> arXiv </a>
+                  </div>
+                {% endif %}
+                
+                {% if paper.uni_link %}
+                  <div class="paper_button">
+                    🏛️ <a href="{{ paper.uni_link }}"> University </a>
+                  </div>
+                {% endif %}
+                
+                {% if paper.abstract %}
+                  <div class="paper_button">
+                    🔍 <a onclick="toggle_div('abstract_{{loop.index}}')"> Abstract </a>
+                  </div>
+                {% endif %}
+
+                {% if paper.code %}
+                  <div class="paper_button">
+                    💻 <a href="{{ paper.code }}"> Code </a>
+                  </div>
+                {% endif %}
+                
+                {% if paper.dataset %}
+                  <div class="paper_button">
+                    💾 <a href="{{ paper.dataset }}"> Dataset </a>
+                  </div>
+                {% endif %}
+
+                {% if paper.bibtex %}
+                  <div class="paper_button">
+                    🎓 <a onclick="toggle_div('bibtex_{{loop.index}}')"> Cite </a>
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if paper.bibtex %}
+                <div class="paper_info_panel" id="bibtex_{{loop.index}}" style="display:none;">
+                  {{ paper.bibtex | markdown(inline=true) | safe }}
+                </div>
+              {% endif %}
+              
+              {% if paper.abstract %}
+                <div class="paper_info_panel" id="abstract_{{loop.index}}" style="display:none;">
+                  <div class="content_box"> {{ paper.abstract | markdown(inline=true) | safe }} </div>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+
+        <h1>🏆 Awards</h1>
+        {% set awards = load_data(path=page.colocated_path ~ "awards.yml", format="yaml", required=true) %}
+        <div class="papers">
+          {% for award in awards %}
+            <div class="paper">
+              <strong> 
+                {% if award.url %}<a href="{{award.url}}">{% endif %}
+                    {{ award.title }} {% if award.year %} ({{ award.year }}) {% endif %}
+                {% if award.url %}</a>{% endif %} 
+              </strong> <br>
+
+              {% if award.descr %}
+                {{ award.descr | safe }} 
+                <br>
+              {% endif %}
+
+              <div class="paper_button_row">
+                {% if award.url %}
+                  <div class="paper_button">
+                    🌍 <a href="{{ award.url }}"> Website </a>
+                  </div>
+                {% endif %}
+                
+                {% if award.paper_url %}
+                  <div class="paper_button">
+                    📄 <a href="{{award.paper_url}}"> Paper </a>
+                  </div>
+                {% endif %}
+
+                {% if award.zola_link %}
+                  <div class="paper_button">
+                    💡 <a href="{{ get_url(path=award.zola_link) }}"> Info </a>
+                  </div>
+                {% endif %}
+              </div>
+
+            </div>
+          {% endfor %}
+        </div>
+
+      </section>
+
+      <footer></footer>
+    </div>
+  </body>
+
+</html>
+
