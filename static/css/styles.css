@@ -449,7 +449,7 @@ pre table {
   margin-bottom:    1em;
 }
 
-.papers div.paper_info_row {
+.papers div.paper_button_row {
   display:flex;
   flex-wrap: wrap;
 }
