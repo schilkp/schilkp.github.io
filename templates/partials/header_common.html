@@ -1,3 +1,69 @@
-<h1>
-  <a href="{{ get_url(path="") }}" style="color: black">schilk happens</a><br/>
-</h1>
+{% macro main_menu_elem(emoji, name, link) %}
+<div class="main_menu_elem">
+  <h2 style="margin: 0 0 5px">
+    {{ emoji }} <a href="{{link}}" style="color: black">{{ name }}</a>
+  </h2>
+</div>
+{% endmacro input %}
+
+<script>
+
+<!--  __  __ _____ _   _ _   _  -->
+<!-- |  \/  | ____| \ | | | | | -->
+<!-- | |\/| |  _| |  \| | | | | -->
+<!-- | |  | | |___| |\  | |_| | -->
+<!-- |_|  |_|_____|_| \_|\___/  -->
+<!--                            -->
+
+<!-- Menu has 3 states:  -->
+<!--     - Above 960px: In sidebar, stacked -->
+<!--     - Between 960px and 500px: In top header, next to each other -->
+<!--     - Below 500px: In toggleable menu, stacked. -->
+                          
+togglemenu_is_visible = false;
+
+function toggle_menu() { 
+  const div = document.getElementById('main_menu_div');
+  togglemenu_is_visible = togglemenu_is_visible ? false : true;
+  div.style.display = togglemenu_is_visible ? "block" : "none";
+}
+
+// If window is resized, correctly update the display-state of the menu:
+window.addEventListener('resize', function(event) {
+    const div = document.getElementById('main_menu_div');
+    if (window.innerWidth > 500) {
+        div.style.display = "block"
+    } else {
+        div.style.display = togglemenu_is_visible ? "block" : "none";
+    }
+}, true);
+
+</script>
+
+<div style="display:flex; align-items:center;">
+ <div style="flex-grow:1;">
+    <h1>
+      <a href="{{ get_url(path="") }}" style="color: black">schilk happens</a><br/>
+    </h1>
+  </div>
+  <div style="flex-grow:0;" class="main_menu_hamburger">
+    <a onclick="toggle_menu()"> 
+      <img style="transform: translateY(-30%);" src="/img/icon/icon_hamburger.svg" width="20px">
+    </a> 
+  </div>
+</div>
+
+<div class="main_menu" id="main_menu_div">
+  <div class="main_menu_elems">
+    {% set root_section = get_section(path="_index.md") %}
+    {% for subsection in root_section.subsections %}
+      {% set section = get_section(path=subsection) %}
+      {{ self::main_menu_elem(emoji=section.extra.nav_emoji, name=section.title, link=section.permalink) }}
+    {% endfor %}
+    {% for page in root_section.pages %}
+      {{ self::main_menu_elem(emoji=page.extra.nav_emoji, name=page.title, link=page.permalink) }}
+    {% endfor %}
+  </div>
+</div>
+<br />
+<hr />
