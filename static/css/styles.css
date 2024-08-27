@@ -74,7 +74,7 @@ section {
   }
 }
 
-@media print, screen and (max-width: 480px) {
+@media print, screen and (max-width: 500px) {
   body {
     padding:15px;
   }
@@ -228,8 +228,18 @@ hr {
 
 /* ==== Main Header Menu ==================================================== */
 
+
+/* Per default, hide menu hamburger button */
+.main_menu_hamburger {
+  display: none;
+}
+
+
+/* Note: The resize widths/breakpoints also need to be updated in header_common.html if changed */
+
+/* If on top and large - flow into one row */
 @media print, screen and (max-width: 960px) {
-  .main_menu {
+  .main_menu_elems {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -238,6 +248,21 @@ hr {
   .main_menu_elem {
     white-space: nowrap;
     margin-right: 1em;
+  }
+}
+
+/* Once very small, stack into column again and convert to hidden menu + reveal button */
+@media print, screen and (max-width: 500px) {
+  .main_menu_elems {
+    display: block;
+  }
+
+  .main_menu_hamburger {
+    display: block;
+  }
+
+  .main_menu {
+    display: none;
   }
 }
 
