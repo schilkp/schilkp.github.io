@@ -25,10 +25,8 @@
     For demonstrating a bone-conduction-microphone-based personalized voice activity detection system fully integrated into a wireless earbud. 
     <em> Demo accompanied the paper "In-Ear-Voice: Towards Milli-Watt Audio Enhancement With Bone-Conduction Microphones for In-Ear Sensing Platforms" (see above). </em>
   paper_url: "https://doi.org/10.1145/3576842.3582365"
-  # zola_link: "@/projects/InEarVoice/index.md"
 
 - title: Best Paper Award at IEEE WiMOB eHPWAS'22
   descr: "For the paper \"VitalPod: A Low Power In-Ear Vital Parameter Monitoring System\" (see above)."
   paper_url: "https://doi.org/10.1109/WIMOB55322.2022.9941646"
-  # zola_link: "@/projects/VitalPod/index.md"
-
+  zola_link: "@/projects/VitalPod/index.md"
