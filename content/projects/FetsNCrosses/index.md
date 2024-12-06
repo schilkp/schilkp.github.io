@@ -42,8 +42,6 @@ estimates put that around 2000 transistors when implemented in CMOS - how hard c
 
 _Well._
 
-I reached this point just as the first corona lockdown started: So if there was one thing I had, it was time.
-
 In a workflow (very!) vaguely reminiscent of actual IC design, I first designed the set of basic cells I needed.
 This was done in KiCad, with each cell contained in a hierarchical schematic sheet.
 
@@ -51,14 +49,17 @@ For example, here is the basic NOT gate:
 
 {{ centered_img(src="not.svg", width="40%") }}
 
+I should note that the specific mosfets models were chosen using the highly scientific process of "sorting by cheapest first" on [lcsc.com](https://www.lcsc.com).
+
 I then systematically constructed more complex gates from these basic cells. For example, a 2-input AND gate was built from an NAND and NOT gate:
 
 {{ centered_img(src="2and.svg", width="50%") }}
 
 Then, I re-drew the logic circuit in KiCad, using the hierarchical sheets instead of components. A similar
 procedure is used during layout: each basic cell is routed once, and then the layout applied to all instances
-of that gate using the [replicate layout](https://github.com/MitjaNemec/Kicad_action_plugins) plugin. Then all
-that is left to do is to assemble and route all connections between these cells.
+of that gate using the [replicate layout](https://github.com/MitjaNemec/Kicad_action_plugins) plugin (since 
+this project predates KiCad's mutlichannel design feature!). Then all that is left to do is to assemble and 
+route all connections between these cells.
 
 I split the design into two boards:
 
@@ -79,8 +80,7 @@ transistor footprints and vertical routing, while the bottom layer was used for 
 
 ## Assembly
 
-For some reason I decided to assemble these boards by hand. Like I said. Corona. Lots of time. Did I mention
-that it took 3 revisions to get this all to work?
+For some reason I decided to assemble these boards by hand. Did I mention that it took 3 revisions to get this all to work?
 
 To make the process a little easier, I built a [vacuum pick and place pen]({% link projects/VacTool.md %}) which
 allowed me to quickly transfer the components to the board directly from the reel. Since all transistors
@@ -91,6 +91,11 @@ Here is a timelapse of one such assembly:
 {{ youtube(src="https://www.youtube-nocookie.com/embed/Lz2p190qZ2Q") }}
 
 (~Not included is me dropping the board from the solder hot-plate around 5 minutes after I stopped filming.~)
+
+Only after three revisions and once I had convinced myself that everything worked, did I spend the money
+to have five engines and main boards assembled: The uneven heating of the PCB during my manual
+soldering had introduce such significant warpage that my prototypes would break randomly after a few 
+weeks due to tension breaking solder joints.
 
 ## Full Hardware Test
 
