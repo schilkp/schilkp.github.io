@@ -1,6 +1,6 @@
 +++
 title="RadarBud"
-description="A low-power in-ear Hand-Gesture Recognition system based on 50GHz mm-wave radars, efficient spatial and temporal Convolutional neural networks, and an energy-optimized hardware design."
+description="A low-power in-ear hand-gesture cecognition system based on 50GHz mm-wave radars, efficient spatial and temporal Convolutional neural networks, and an energy-optimized hardware design."
 template="project_page.html"
 weight=201
 

@@ -29,7 +29,7 @@
               <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
               <a href="{{project.permalink}}"><img src="{{proj_img.url}}"/></a>
               <br />
-              {{project.description}}
+              {{project.description | markdown | safe}}
             </div>
             {% endif %} 
           {% endfor %}
@@ -40,7 +40,7 @@
             {% if project.extra.thumbnail_img is matching("^$") %}
             <div class="project_table_inner">
               <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
-              {{project.description}}
+              {{project.description | markdown | safe}}
             </div>
             {% endif %} 
           {% endfor %}
