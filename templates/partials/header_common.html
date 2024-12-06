@@ -36,10 +36,14 @@
     {% set root_section = get_section(path="_index.md") %}
     {% for subsection in root_section.subsections %}
       {% set section = get_section(path=subsection) %}
-      {{ self::main_menu_elem(emoji=section.extra.nav_emoji, name=section.title, link=section.permalink) }}
+      {% if not section.extra | get(key="exclude_from_menu", default=false) %}
+        {{ self::main_menu_elem(emoji=section.extra.nav_emoji, name=section.title, link=section.permalink) }}
+      {% endif %}
     {% endfor %}
     {% for page in root_section.pages %}
-      {{ self::main_menu_elem(emoji=page.extra.nav_emoji, name=page.title, link=page.permalink) }}
+      {% if not page.extra | get(key="exclude_from_menu", default=false) %}
+        {{ self::main_menu_elem(emoji=page.extra.nav_emoji, name=page.title, link=page.permalink) }}
+      {% endif %}
     {% endfor %}
   </div>
 </div>
