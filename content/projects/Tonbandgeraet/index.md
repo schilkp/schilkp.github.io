@@ -1,6 +1,6 @@
 +++
 title="Tonbandgerät"
-description="A small embedded systems tracer with support for bare-metal and FreeRTOS-based targets."
+description="A small embedded systems tracer with support for bare-metal and FreeRTOS-based targets. Targets the _Perfetto_ trace viewer."
 template="project_page.html"
 weight=301
 

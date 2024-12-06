@@ -1,6 +1,6 @@
 +++
 title="Fume Extractor Mod"
-description="A small mod board to control a Knokoo Fume Extractor with a pedal."
+description="A small mod board to control a Knokoo fume extractor with a pedal."
 template="project_page.html"
 
 weight=404
