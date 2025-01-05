@@ -16,8 +16,8 @@ quickly decode, convert, and view a Tonbandgerät trace.
 {{ twocol_box(block=false) }}
 ## ✨ Demo
 If you want to have a quick look at how a Tonbandgerät trace can be viewed [perfetto](https://perfetto.dev), you can download
-a converted trace [here](/tonbandgeraet-links/trace.proto). Simply head over to [perfetto](https://perfetto.dev) and upload
-it.
+a converted trace [here](demo-trace.proto). Simply head over to [perfetto](https://perfetto.dev) to have a look
+at it.
 {{ twocol_box_end() }}
 
 {{ twocol_box(block=false) }}
