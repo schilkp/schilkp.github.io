@@ -1,5 +1,9 @@
 /* ==== Basic Page Layout =================================================== */
 
+:root {
+  scroll-behavior: smooth;
+}
+
 .wrapper {
   width:960px;
   margin:0 auto;
@@ -84,6 +88,7 @@ section {
 
 h1, h2, h3, h4, h5, h6 {
   color:#222;
+  scroll-margin-top:2em;
 }
 
 h1 {
