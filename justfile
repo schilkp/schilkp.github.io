@@ -1,3 +1,9 @@
+_default:
+    @just --list
+
+build:
+    zola build
+
 serve:
     zola serve --open
 
