@@ -386,6 +386,34 @@ section .toc {
   }
 }
 
+/* ==== Blog Overview Page ================================================== */
+
+.blog_table h2 a {
+  color: black;
+}
+
+.blog_table_inner {
+  position: relative;
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #f0f0f0;
+  overflow: hidden; /* Ensures content doesn't overflow */
+}
+
+.blog_table_inner h2 {
+  margin-right: 160px; /* Space for image */
+}
+
+.blog_table_inner .post_image {
+  float: right;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
 /* ==== Code Blocks: Based on Zola defaults ================================= */
 
 pre, code {

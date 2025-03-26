@@ -19,3 +19,10 @@ check_drafts:
 clean:
     rm -rf public
     rm -rf static/processed_images
+
+new_post name:
+    cp content/blog/x_template content/blog/"$(date +%Y-%m-%d)-{{name}}".md
+
+new_folder_post name:
+    mkdir content/blog/"$(date +%Y-%m-%d)-{{name}}"
+    cp content/blog/x_template content/blog/"$(date +%Y-%m-%d)-{{name}}"/index.md

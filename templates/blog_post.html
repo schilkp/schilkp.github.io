@@ -1,0 +1,28 @@
+{% import "partials/html_setup.html" as html_setup %}
+{% import "partials/toc.html" as toc %}
+<!doctype html>
+<html>
+  <head>
+    <title>{{ page.title }} | stuff | schilk</title>
+    {% set katex_enabled = page.extra | get(key="katex", default=false) %}
+    {% set katex_auto_render = page.extra | get(key="katex_auto_render", default=false) %}
+    {{ html_setup::setup(katex_enabled=katex_enabled, katex_auto_render=katex_auto_render) }}
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        {% include "partials/header_common.html" %}
+        {{ toc::generate_toc(toc=page.toc) }}
+      </header>
+
+      <section>
+        <h1>{{page.title}}</h1>
+        {{ page.content | replace(from="<!-- $$toc$$ -->", to=toc::generate_toc(toc=page.toc)) | safe}}
+      </section>
+
+      <footer></footer>
+    </div>
+  </body>
+
+</html>
