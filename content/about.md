@@ -1,9 +1,11 @@
 +++
 title="About"
-weight=10
 
 [extra]
 nav_emoji="🗿"
+
+# Position in menu:
+menu_pos=3
 +++
 
 {{ centered_img(src="/img/about.jpeg", width="70%", desc="<small> (📸 Leonard Lochte-Holtgreven, 2021) </small>") }}
