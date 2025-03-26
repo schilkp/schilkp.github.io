@@ -9,4 +9,7 @@ sort_by = "weight"
 
 [extra]
 nav_emoji="🔨"
+
+# Position in menu:
+menu_pos=0
 +++

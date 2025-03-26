@@ -34,17 +34,42 @@
 <div class="main_menu" id="main_menu_div">
   <div class="main_menu_elems">
     {% set root_section = get_section(path="_index.md") %}
+
+    {% set combined_items = [] %}
+
     {% for subsection in root_section.subsections %}
       {% set section = get_section(path=subsection) %}
       {% if not section.extra | get(key="exclude_from_menu", default=false) %}
-        {{ self::main_menu_elem(emoji=section.extra.nav_emoji, name=section.title, link=section.permalink) }}
+        {% set new_item = [
+          "section",
+          section.extra.nav_emoji,
+          section.title,
+          section.permalink,
+          section.extra | get(key="menu_pos", default=100)
+        ] %}
+        {% set_global combined_items = combined_items | concat(with=[new_item]) %}
       {% endif %}
     {% endfor %}
+
     {% for page in root_section.pages %}
       {% if not page.extra | get(key="exclude_from_menu", default=false) %}
-        {{ self::main_menu_elem(emoji=page.extra.nav_emoji, name=page.title, link=page.permalink) }}
+        {% set new_item = [
+          "page",
+          page.extra.nav_emoji,
+          page.title,
+          page.permalink,
+          page.extra | get(key="menu_pos", default=100)
+        ] %}
+        {% set_global combined_items = combined_items | concat(with=[new_item]) %}
       {% endif %}
     {% endfor %}
+
+    {% set sorted_items = combined_items | sort(attribute="4") %}
+
+    {% for item in sorted_items %}
+      {{ self::main_menu_elem(emoji=item.1, name=item.2, link=item.3) }}
+    {% endfor %}
+
   </div>
 </div>
 <br />
