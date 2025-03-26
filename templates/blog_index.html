@@ -1,0 +1,45 @@
+{% import "partials/html_setup.html" as html_setup %}
+<!doctype html>
+<html>
+  <head>
+    <title>stuff | schilk</title>
+    {{ html_setup::setup() }}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>{% include "partials/header_common.html" %}</header>
+      <section>
+        <h1>Stuff</h1>
+        <div class="blog_table">
+
+          {% for post in section.pages %}
+          <div class="blog_table_inner">
+            {% if post.extra.thumbnail_img %}
+              {% set post_img = resize_image(
+                  path=post.colocated_path ~ post.extra.thumbnail_img,
+                  width=500,
+                  height=500,
+                  op="fill",
+                  format="jpg",
+                  quality=100)
+              %}
+              <img
+                class="post_image"
+                src="{{ post_img.url }}"
+              />
+            {% endif %}
+
+            <h2><a href="{{post.permalink}}">{{post.title}}</a></h2>
+
+            {{ post.description }}
+
+            <!--TODO: Date, nice link, proper styling, tags?, RSS feed link (blog/atom.xml) -->
+
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      <footer></footer>
+    </div>
+  </body>
+</html>
