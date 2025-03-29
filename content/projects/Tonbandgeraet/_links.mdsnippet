@@ -9,20 +9,19 @@ get started, API documentation, and a whole bunch of under-the-hood technical do
 
 {{ twocol_box(block=false) }}
 ## 📼 [Online Converter](https://schilk.co/Tonbandgeraet/)
-The online, in-browser [trace converter](https://schilk.co/Tonbandgeraet/) which can be used to
+The online, in-browser [trace converter](https://schilk.co/Tonbandgeraet/) can be used to
 quickly decode, convert, and view a Tonbandgerät trace.
 {{ twocol_box_end() }}
 
 {{ twocol_box(block=false) }}
 ## ✨ Demo
-If you want to have a quick look at how a Tonbandgerät trace can be viewed [perfetto](https://perfetto.dev), you can download
-a converted trace [here](demo-trace.proto). Simply head over to [perfetto](https://perfetto.dev) to have a look
-at it.
+If you want to have a quick look at how a Tonbandgerät trace looks like, use the "Select a demo..."
+dropdown of the in-browser [trace converter](https://schilk.co/Tonbandgeraet/).
 {{ twocol_box_end() }}
 
 {{ twocol_box(block=false) }}
 ## 📁 [Repo](https://github.com/schilkp/Tonbandgeraet)
-The [repository](https://github.com/schilkp/Tonbandgeraet), which contains all source code including the target tracer, converter, documentation, and website.
+You can find the repository, which contains all source code including the target tracer, converter, documentation, and website, [here](https://github.com/schilkp/Tonbandgeraet).
 {{ twocol_box_end() }}
 
 {{ twocol_end() }}
