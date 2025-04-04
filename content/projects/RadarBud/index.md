@@ -35,7 +35,7 @@ features a fairly capable NRF53 SoC, full power and battery management, an IMU, 
 some extra flash. We extended it using a purpose-built "RadarPack" extension board, which features
 an Infinion radar and its supporting circuitry.
 
-{{ centered_img(src="render_lbl_master.svg", width="60%") }}
+{{ centered_img(src="render_lbl_master.svg", width="95%") }}
 This stack is then placed in a custom case that was manufactured using a resin 3D printer. Besides
 the PCBs, the case also holds a 70mAh battery, a charge connector, and a power switch.
 
