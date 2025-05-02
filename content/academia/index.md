@@ -6,5 +6,5 @@ template="academia_page.html"
 nav_emoji="🎓"
 
 # Position in menu:
-menu_pos=2
+menu_pos=1
 +++
