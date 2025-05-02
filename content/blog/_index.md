@@ -11,5 +11,5 @@ draft=true
 nav_emoji="✏️"
 
 # Position in menu:
-menu_pos=1
+menu_pos=2
 +++
