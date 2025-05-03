@@ -1,8 +1,10 @@
 +++
 title="[TODO: title]"
-description="[TODO: Description]"
+description="""
+[TODO: Description]
+"""
 template="blog_post.html"
 
 [extra]
-# thumbnail_img="header.jpg"
+# thumbnail_img="[TODO: Thumbnail].jpg"
 +++

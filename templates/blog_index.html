@@ -4,10 +4,13 @@
   <head>
     <title>stuff | schilk</title>
     {{ html_setup::setup() }}
+    <link rel="alternate" type="application/atomn+xml" title="RSS" href="{{ get_url(path=section.path ~ "atom.xml", trailing_slash=false) }}">
   </head>
   <body>
     <div class="wrapper">
-      <header>{% include "partials/header_common.html" %}</header>
+      <header>
+          {% include "partials/header_common.html" %}
+      </header>
       <section>
         <h1>Stuff</h1>
         <div class="blog_table">
@@ -30,16 +33,18 @@
             {% endif %}
 
             <h2><a href="{{post.permalink}}">{{post.title}}</a></h2>
-
-            {{ post.description }}
-
-            <!--TODO: Date, nice link, proper styling, tags?, RSS feed link (blog/atom.xml) -->
-
+            {{ post.date | date(format="%A, %d %B %Y") }}
+            <br>
+            <br>
+            {{ post.description | markdown | safe}}
+            <a href="{{post.permalink}}">Read More...</a>
           </div>
           {% endfor %}
         </div>
       </section>
-      <footer></footer>
+      <footer>
+        <a href="{{ get_url(path=section.path ~ "atom.xml", trailing_slash=false) }}" style="color:grey">📮 RSS Feed</a>
+      </footer>
     </div>
   </body>
 </html>
