@@ -18,7 +18,7 @@ at the ETH Zürich Department for Electrical Engineering and Information Science
 
 > 🚧 **Note**
 >
-> While the course run successfully run for its first semester, we are still working on updating and
+> While the course ran successfully for its first semester, we are still working on updating and
 > improving many different aspects. We plan on publishing and open-sourcing all course materials once
 > they are ready.
 
@@ -61,8 +61,8 @@ learning and fun applications:
 - The I2C temperature sensor is a perfect introduction to both I2C and external peripherals, with a 
   small enough register map and simple enough documentation to allow students to build up their own
   driver from scratch.
-- Two PDM microphones, who's high data rate makes for a great motivation for the introduction of DMA. Furthermore,
-  they naturally lend themselves to simple FTT-based signal processing that allows us to take a look
+- Two PDM microphones, whose high data rate makes for a great motivation for the introduction of DMA. Furthermore,
+  they naturally lend themselves to simple FFT-based signal processing that allows us to take a look
   at the advantages of hardware-accelerated DSP routines.
 - A SPI IMU is a good example of a more complicated external peripheral, and introduces students to 
   integrating a simple driver into their project.

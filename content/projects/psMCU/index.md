@@ -14,7 +14,7 @@ thumbnail_img="psmcu_header.jpeg"
 
 ## Overview
 
-This was my first significant hardware project, that started all the way back in highschool. It's an 
+This was my first significant hardware project, that started all the way back in high school. It's an 
 8-bit, 1MHz processor built from individual logic and memory ICs, featuring a custom ISA, peripheral interface, 
 USB programmer and macro assembler.
 

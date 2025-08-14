@@ -19,11 +19,11 @@ It is based on the [bleak](https://github.com/hbldh/bleak) cross-platform Blueto
 
 <!-- Fixme: Link to vitalcore, radarbud -->
 
-After having written one to many quick and dirty "receive and store BLE characteristic notification" python script,
-I took the time to write a generic BLE data logger that can adapted quickly to the most common requirements.
+After having written one too many quick and dirty "receive and store BLE characteristic notification" python script,
+I took the time to write a generic BLE data logger that can be adapted quickly to the most common requirements.
 
 *BLELog* will continuously scan for Bluetooth devices with a given address or a given name, connect to them,
-subscribe to a specified set of characteristics. Its exact behavior 
+subscribe to a specified set of characteristics for their notifications. Its exact behavior
 (such as the number of active connections to maintain and various timeouts) can be configured.
 
 Once connected, it will pass all received data to a set of user-provided and application specific characteristic decoder functions.

@@ -18,7 +18,7 @@ VitalCore is an open-source, highly integrated, miniaturized embedded systems pl
 a low-power wearable project usually requires - except application specific sensors
 and transducers. 
 
-Its small 17.6mm*12.6mm size allows it to be integrated even in the most constraint
+Its small 17.6mm*12.6mm size allows it to be integrated even in the most constrained
 applications, include in-ear and hearable projects. Built around an NRF5340 SoC, VitalCore features
 a dual-core Cortex-M33 processor running at up to 128 MHz, 1 MB of Flash, 512 KB RAM, and BLE 5.2
 complete with an on-board chip antenna.
