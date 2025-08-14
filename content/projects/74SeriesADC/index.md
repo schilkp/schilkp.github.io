@@ -80,7 +80,7 @@ disconnected using a jumper and manually controlled using a push-button.
 
 The current DAC set point is buffered by a 74HC245 IC in front of the actual R2R DAC.
 
-The DAC then feeds a LM358 being used as a comparator. Because the LM358 cannot compare signals close to it's input
+The DAC then feeds a LM358 being used as a comparator. Because the LM358 cannot compare signals close to its input
 rails and the highest DAC set-point is 5V, it is being powered from a slightly increased 6.2V rail. This voltage,
 besides being high enough to compare signals up to 5V, results in the comparator output-high state being very close to
 5V. To ensure the output interfaces nicely with the control logic, a Schmitt-trigger buffer follows the comparator, but

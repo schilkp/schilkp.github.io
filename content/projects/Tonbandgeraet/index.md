@@ -98,7 +98,7 @@ frames each containing a single trace event. The set of trace event types (each 
 
 ### Frame Structure
 
-Inside each COBS frame, each event type is structure as follows:
+Inside each COBS frame, each event type is structured as follows:
 
 - An 8-bit ID, which identifies the type of trace event and hence internal structure of the fields to follow.
 - Zero or more *required* known-length fields, which are always present in every event instance of this type.
