@@ -1,6 +1,6 @@
 +++
 title="RadarBud"
-description="A low-power in-ear hand-gesture cecognition system based on 50GHz mm-wave radars, efficient spatial and temporal Convolutional neural networks, and an energy-optimized hardware design."
+description="A low-power in-ear hand-gesture recognition system based on 50GHz mm-wave radars, efficient spatial and temporal Convolutional neural networks, and an energy-optimized hardware design."
 template="project_page.html"
 weight=201
 
@@ -43,7 +43,7 @@ the PCBs, the case also holds a 70mAh battery, a charge connector, and a power s
 
 {{ centered_img(src="soli_gestures.jpeg", desc="The set of gestures, as defined by [Wang et al](https://dl.acm.org/doi/10.1145/2984511.2984565). Figure taken from [Wang et al.](https://dl.acm.org/doi/10.1145/2984511.2984565)", width="90%") }}
 
-The RadarBud is capable of classifying within the set of 11 gesture, as defined by [Wang et al.](https://dl.acm.org/doi/10.1145/2984511.2984565) and pictured above. The
+The RadarBud is capable of classifying within the set of 11 gestures, as defined by [Wang et al.](https://dl.acm.org/doi/10.1145/2984511.2984565) and pictured above. The
 dataset that was acquired for this project with these gestures is available [here](https://www.research-collection.ethz.ch/handle/20.500.11850/672242).
 
 {{ gallery() }}
@@ -68,7 +68,7 @@ For more details on the algorithmic details, please take a look at our paper lin
     {{ gallery_img(src="power_profile.svg", desc="Power profile of an acquisition and inference.") }}
 {{ gallery_end() }}
 
-The final quanitized model is only 36KiB large, with a single inference time of 32.4ms on the VitalCore's NRF5340, and is 
+The final quantized model is only 36KiB large, with a single inference time of 32.4ms on the VitalCore's NRF5340, and is 
 capable of achieving a prediction accuracy of up to 94.9% under the right conditions. For all the details and caveats - 
 including a detailed power analysis - see our paper linked above.
 

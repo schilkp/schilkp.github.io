@@ -77,7 +77,7 @@ Something like the [tc-electronic level pilot](https://www.tcelectronic.com/prod
 
 At first, I thought it would make sense to power the unit from an AC adapter, matching the DAC and headphone amp
 available in the same enclosure. The power draw from the non-latching relays is however quite significant, and
-the bulk capacitance for AC/DC conversion would have taken up a lot of space. Therefor I decided to use a standard
+the bulk capacitance for AC/DC conversion would have taken up a lot of space. Therefore I decided to use a standard
 9V DC barrel jack input.
 
 ### Making the connectors fit
@@ -113,7 +113,7 @@ include all audio signaling/relays, while a second PCB (possibly at the height o
 power supply and control electronics.
 
 Using latching relays would drastically reduce the power consumption and remove the need for a switching supply.
-This would cause the unit retains to its last setting once it loses power, which may be desired for some applications.
+This would cause the unit to retain its last setting once it loses power, which may be desired for some applications.
 If it is not, only the muting relay can be kept as a non-latching relay.
 
 Using an encoder for the internal controls would allow for the volume set-point to be

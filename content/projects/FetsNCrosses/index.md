@@ -23,7 +23,7 @@ with a simple Tic-Tac-Toe game, featuring both a player-vs-player or player-vs-c
 all possible win/draw states, and features a move validator, allowing it to reject invalid inputs from the user.
 
 The 'Engine' against which a player can play was originally implemented using a parallel input/output ROM as a large lookup table:
-The current board state was applied to the 18-bit applied to the ROM address input, and the engine's move read from memory.
+The current board state was applied to the 18-bit address applied to the ROM address input, and the engine's move read from memory.
 This worked well, but was very inefficient: less than 5% of all possible inputs corresponded to possible game states.
 
 In a second step I replaced this implementation with a purely combinatorial logic-gate based module, also capable of
@@ -38,7 +38,7 @@ perfect play.
 
 The final circuit was much simpler than I first expected it to be: It only requires 19 Flip-Flops (18 for the
 current game state, and one to track the active player), and a handful of basic gates. Some quick
-estimates put that around 2000 transistors when implemented in CMOS - how hard could that be too implemented?
+estimates put that around 2000 transistors when implemented in CMOS - how hard could that be to implement?
 
 _Well._
 

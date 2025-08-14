@@ -33,7 +33,7 @@ control the unit with a foot pedal.
 ## Design
 
 Because the unit goes into standby when the power-dial on the front is turned
-to 0, the easiest way to turn of the unit is to simply cut the 5V supply to the
+to 0, the easiest way to turn off the unit is to simply cut the 5V supply to the
 potentiometer making the unit think it has been turned down. This way the custom
 board can also simply be powered from the same 5V.
 
@@ -60,7 +60,7 @@ A short 4-pin to 3-pin JST XH cable must be made to connect the board to the mai
 
 {{ centered_img(src="knokoomod_small_cable.jpeg", width="50%") }}
 
-The 1/4" jack for the pedal, status LED, and timer potentiometer are must be connected
+The 1/4" jack for the pedal, status LED, and timer potentiometer must be connected
 to the board with an 8-pin JST XH cable:
 
 {{ centered_img(src="knokoomod_large_cable.jpeg", width="50%") }}

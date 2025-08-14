@@ -44,7 +44,7 @@ The input stage takes care of buffering, amplification, filtering, and biasing, 
 sample & hold amplifier.
 
 First, the input signal (which is usually an audio signal with less than 1Vpp) is AC-coupled, buffered, and may
-be amplified with a variable gain of up to 20db.
+be amplified with a variable gain of up to 20dB.
 
 A second order 20kHz Sallen-Key low-pass filter to reduce aliasing is in turn
 followed by a passive biasing network. The bias point is derived from the same 5V reference that also feeds the R2R DAC. A small
@@ -72,7 +72,7 @@ It is controlled by the FPGA via two shift registers which also handle level shi
 3.3V FPGA signals to 5V. The shift register outputs are buffered by two octal logic buffers
 which are powered directly from the 5V reference.
 
-The DAC and sample & hold amplifier feed a LT1711 comparator, chosen for it's low offset voltage
+The DAC and sample & hold amplifier feed a LT1711 comparator, chosen for its low offset voltage
 and speed.
 
 ### Power
@@ -128,7 +128,7 @@ The quality of both the ADC and DAC were actually much better than I expected.
 When used to convert audio signals they both impart some conversion artifacts and
 add a very noticeable noise floor, but the audio remains of very acceptable quality.
 
-As a quick demonstration, below is a video of music coming being recorded by the
+As a quick demonstration, below is a video of music being recorded by the
 ADC and played back by the DAC:
 
 {{ youtube(src="https://www.youtube-nocookie.com/embed/QIoPao8BHm0") }}
@@ -172,7 +172,7 @@ measurements (below) feature a similar magnitude.
 
 ### ADC Noise
 
-With the input AC-coupled but shorted, the ADC will read as is show in the plot below.
+With the input AC-coupled but shorted, the ADC will read as shown in the plot below.
 
 The readings feature a standard deviation of 3.43
 

@@ -21,8 +21,8 @@ thumbnail_img="vactool_inside.jpeg"
 While planning to do some projects with a very large component count in the near future, I was looking for tools to aid in manual
 SMT assembly.
 
-Videos by Steve of SDG Electronics ([Video 1](https://www.youtube.com/watch?v=pdGSFc7VjBE),
-[Video 2](https://www.youtube.com/watch?v=pdGSFc7VjBE)) and Mike of mikeselectricstuff ([Video](https://www.youtube.com/watch?v=pdGSFc7VjBE))
+Videos by Steve of SDG Electronics ([Video 1](https://www.youtube.com/watch?v=9G510G2gmdo),
+[Video 2](https://www.youtube.com/watch?v=1FnGqH_WkL4)) and Mike of mikeselectricstuff ([Video](https://www.youtube.com/watch?v=pdGSFc7VjBE))
 inspired me to have a go at building a small, manual pick and place tool.
 
 It consists of a vacuum pen that is used to pick and place small components from a

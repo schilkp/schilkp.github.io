@@ -39,7 +39,7 @@ sensor modules that are connected to the main PCB: A PPG module based on the MAX
 For details on their operation, algorithms, and their performance, please see the paper.
 
 Because the Ambiq does not support BLE 5.3/audio via BLE, I also designed a second variant of the PCB that replaces
-the SoC with an NRF5340. Unfortunately, due to time constraitns, I never had time to bring-up that board and test audio
+the SoC with an NRF5340. Unfortunately, due to time constraints, I never had time to bring-up that board and test audio
 playback.
 
 {{ gallery() }}
@@ -47,7 +47,7 @@ playback.
     {{ gallery_img(src="pcb_coin.png", desc="Pictures of the front and back side of the main PCB, with a coin for scale.") }}
 {{ gallery_end() }}
 
-The main PCB featuring some *bodge wires* ™️ is shown above. It is a 6-layer HDI board with double-sided loaded that I
+The main PCB featuring some *bodge wires* ™️ is shown above. It is a 6-layer HDI board with double-sided loading that I
 hand-assembled.
 
 ## Mechanical Design
@@ -98,8 +98,8 @@ the susceptibility to different kinds of motion artifacts.
     {{ gallery_img(src="artif_nod.svg") }}
     {{ gallery_img(src="artif_side.svg") }}
 {{ gallery_end() }}
-Specifically, positions forward positions in the ear canal were much more susceptible to jaw
-movement, but less impact by head movement. For more details, please have a look at the paper.
+Specifically, forward positions in the ear canal were much more susceptible to jaw
+movement, but less impacted by head movement. For more details, please have a look at the paper.
 
 ## Links + References
 
