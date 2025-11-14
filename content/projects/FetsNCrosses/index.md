@@ -82,7 +82,7 @@ transistor footprints and vertical routing, while the bottom layer was used for 
 
 For some reason I decided to assemble these boards by hand. Did I mention that it took 3 revisions to get this all to work?
 
-To make the process a little easier, I built a [vacuum pick and place pen]({% link projects/VacTool.md %}) which
+To make the process a little easier, I built a [vacuum pick and place pen](@/projects/VacTool/index.md) which
 allowed me to quickly transfer the components to the board directly from the reel. Since all transistors
 shared the same orientation on the board, this was actually a pretty quick process.
 
