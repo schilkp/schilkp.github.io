@@ -1,20 +1,20 @@
 _default:
     @just --list
 
-build:
-    zola build
+build: check_zola
+    ./tools/zola build
 
-serve:
-    zola serve --open
+serve: check_zola
+    ./tools/zola serve --open
 
-serve_drafts:
-    zola serve --drafts --open
+serve_drafts: check_zola
+    ./tools/zola serve --drafts --open
 
-check:
-    zola check
+check: check_zola
+    ./tools/zola check
 
-check_drafts:
-    zola check --drafts
+check_drafts: check_zola
+    ./tools/zola check --drafts
 
 clean:
     rm -rf public
@@ -26,3 +26,15 @@ new_post name:
 new_folder_post name:
     mkdir content/blog/"$(date +%Y-%m-%d)-{{name}}"
     cp content/blog/x_template content/blog/"$(date +%Y-%m-%d)-{{name}}"/index.md
+
+check_zola:
+    #!/usr/bin/env bash
+    if [[ -x tools/zola ]]; then
+      exit 0
+    else
+      echo "Zola is NOT present in ./tools or not executable."
+      exit 1
+    fi
+
+download_zola:
+    ./tools/download_zola.bash
