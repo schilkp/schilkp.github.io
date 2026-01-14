@@ -4,10 +4,11 @@ build_search_index = false
 author = "Philipp Schilk"
 
 [markdown]
-highlight_code = true
-highlight_theme = "inspired-github"
-extra_syntaxes_and_themes = ["syntax"]
-error_on_missing_highlight = true
 render_emoji = true
+
+[markdown.highlighting]
+theme = "github-light"
+error_on_missing_language = true
+extra_grammars = ["syntax/psASM.json"]
 
 [extra]

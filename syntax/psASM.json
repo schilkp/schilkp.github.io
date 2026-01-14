@@ -1,0 +1,24 @@
+{
+  "name": "psASM",
+  "scopeName": "source.psASM",
+  "fileTypes": ["psASM"],
+  "patterns": [
+    {
+      "name": "keyword.control.psASM",
+      "match": "\\b(NOP|HALT|JMP|CALL|IFSA|IFRA|IFSM|IFRM|RTRN|RTRNI|AND|ANDL|OR|ORL|XOR|XORL|SHFTR|SHFTRL|SHFTL|SHFTLL|COMPB|COMPBC|ADD|ADDC|ADDLA|ADDLAC|ADDLB|ADDLBC|NOTA|SUB|SUBC|SUBL|SUBLC|LITA|LITB|CPY|SWP|SVA|SVB|LDA|LDB|SVDP|SVDR|LDDP|LDDR|POPA|PUSHA|POPB|PUSHB|POPM|PUSHM|GROW|SHRINK|STSA|STSB|STLA|STLB)\\b"
+    },
+    {
+      "name": "entity.name.function.psASM",
+      "match": "(@define|@include|@include_once|@print|@error|@if|@ifdef|@ifndef|@elif|@else|@for|@macro|@end)"
+    },
+    {
+      "name": "comment.line.psASM",
+      "match": "#.*$"
+    },
+    {
+      "name": "entity.name.label.psASM",
+      "match": "[a-zA-Z0-9_]+\\s*:"
+    }
+  ],
+  "uuid": "e4e017de-952b-4c89-b04e-b0b791d7b5a0"
+}

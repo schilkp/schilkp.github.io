@@ -8,8 +8,8 @@ SCRIPT_DIR="$(realpath "$(dirname "$0")")"
 cd "$SCRIPT_DIR"
 
 # Version:
-ZOLA_VERSION="v0.21.0"
-ZOLA_CHECKSUM="5c37a8f706567d6cad3f0dbc0eaebe3b9591cc301bd67089e5ddc0d0401732d6"
+ZOLA_VERSION="v0.22.0"
+ZOLA_CHECKSUM="f1d491f8956b94384c27d75cb6b2bf60d3916d1ade9564bcbfe7c03f0258aebf"
 
 # Cleanup
 rm -rf "zola.tar.gz"
