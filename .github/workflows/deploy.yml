@@ -26,8 +26,8 @@ jobs:
       contents: read
       packages: write
     env:
-      ZOLA_VERSION: v0.19.1
-      ZOLA_CHECKSUM: "90b49041ccab8fbb6955914c41e72774771a6dcbd58936fb107aa8409cb44aa0"
+      ZOLA_VERSION: v0.21.0
+      ZOLA_CHECKSUM: "5c37a8f706567d6cad3f0dbc0eaebe3b9591cc301bd67089e5ddc0d0401732d6"
     steps:
       - uses: actions/checkout@v4
 
