@@ -5,6 +5,9 @@ author = "Philipp Schilk"
 
 [markdown]
 render_emoji = true
+# Enable github-style `note`, `tip`, `important`, `warning`, or `caution`
+# callouts.
+github_alerts = true
 
 [markdown.highlighting]
 theme = "github-light"

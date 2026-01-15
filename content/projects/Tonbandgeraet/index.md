@@ -42,7 +42,7 @@ The latter runs a WASM-version of the rust conversion tool directly in the brows
 
 <br>
 
-> 🚧 Note
+> [!NOTE]
 >
 > Tonbandgerät is in early development and by no means considered stable. Everything - including the
 > binary trace format - is subject to change. Please report any issues [here](https://github.com/schilkp/Tonbandgeraet/issues).

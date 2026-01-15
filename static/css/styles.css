@@ -484,6 +484,55 @@ pre table {
     opacity: 0.8;
 }
 
+/* ==== Github-style Admonishmnets ========================================== */
+
+blockquote.markdown-alert-note {
+  border-left:4px solid #0969da;
+}
+blockquote.markdown-alert-note::before {
+  content: "Note";
+  font-weight: bold;
+  color: #0969da;
+}
+
+blockquote.markdown-alert-tip {
+  border-left:4px solid #008000;
+}
+blockquote.markdown-alert-tip::before {
+  content: "Tip";
+  font-weight: bold;
+  color: #008000;
+}
+
+blockquote.markdown-alert-important {
+  border-left:4px solid #8250df;
+}
+blockquote.markdown-alert-important::before {
+    content: "Important";
+    font-weight: bold;
+    color: #8250df;
+}
+
+blockquote.markdown-alert-warning {
+  border-left:4px solid #9a6700;
+}
+blockquote.markdown-alert-warning::before {
+    content: "Warning";
+    font-weight: bold;
+    color: #9a6700;
+}
+
+blockquote.markdown-alert-caution {
+  border-left:4px solid #b52731;
+}
+blockquote.markdown-alert-caution::before {
+    content: "Caution";
+    font-weight: bold;
+    color: #b52731;
+}
+
+// TODO: Icons?
+
 /* ==== Image Gallery ======================================================= */
 
 .gallery_row {
