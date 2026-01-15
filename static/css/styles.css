@@ -344,6 +344,13 @@ section .toc {
   }
 }
 
+/* ==== Pagination ========================================================== */
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* ==== Project overview table (home page) ================================== */
 
 /* FIXME: Convert to SCSS + Inheritance of twocol */
