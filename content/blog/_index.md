@@ -4,6 +4,7 @@ description=""
 template="blog_index.html"
 generate_feeds = true
 sort_by = "date"
+paginate_by = 8
 
 draft=true
 

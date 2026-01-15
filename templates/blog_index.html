@@ -15,7 +15,7 @@
         <h1>Stuff</h1>
         <div class="blog_table">
 
-          {% for post in section.pages %}
+          {% for post in paginator.pages %}
           <div class="blog_table_inner">
             {% if post.extra.thumbnail_img %}
               {% set post_img = resize_image(
@@ -41,6 +41,16 @@
           </div>
           {% endfor %}
         </div>
+
+        <nav class="pagination">
+            {% if paginator.previous %}
+                <a class="previous" href="{{ paginator.previous }}">‹ Newer</a>
+            {% else %} <span> <!-- placeholder --> </span> {% endif %}
+            {% if paginator.next %}
+                <a class="next" href="{{ paginator.next }}">Older ›</a>
+            {% else %} <span> <!-- placeholder --> </span> {% endif %}
+        </nav>
+
       </section>
       <footer>
         <a href="{{ get_url(path=section.path ~ "atom.xml", trailing_slash=false) }}" style="color:grey">📮 RSS Feed</a>
