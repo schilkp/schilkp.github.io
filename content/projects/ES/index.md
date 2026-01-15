@@ -16,7 +16,7 @@ During the 2023 Fall Semester, I had the incredible opportunity to build from sc
 the practical components of the Embedded Systems course taught annually for 250+ students
 at the ETH Zürich Department for Electrical Engineering and Information Science.
 
-> 🚧 **Note**
+> [!NOTE]
 >
 > While the course ran successfully for its first semester, we are still working on updating and
 > improving many different aspects. We plan on publishing and open-sourcing all course materials once
