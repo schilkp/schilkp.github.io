@@ -1,6 +1,6 @@
 base_url = "https://schilk.co"
 compile_sass = false
-build_search_index = false
+build_search_index = true
 author = "Philipp Schilk"
 exclude_paginated_pages_in_sitemap = "all"
 
@@ -12,6 +12,12 @@ render_emoji = true
 # Enable github-style `note`, `tip`, `important`, `warning`, or `caution`
 # callouts.
 github_alerts = true
+
+[search]
+include_title = true
+include_description = true
+include_content = true
+index_format = "elasticlunr_json"
 
 [markdown.highlighting]
 theme = "github-light"
