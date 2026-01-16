@@ -1,0 +1,10 @@
+{% macro generate(paginator) %}
+<nav class="pagination">
+  {% if paginator.previous %}
+      <a class="previous" href="{{ paginator.previous }}">‹ Newer</a>
+  {% else %} <span> <!-- placeholder --> </span> {% endif %}
+  {% if paginator.next %}
+      <a class="next" href="{{ paginator.next }}">Older ›</a>
+  {% else %} <span> <!-- placeholder --> </span> {% endif %}
+</nav>
+{% endmacro paginator %}

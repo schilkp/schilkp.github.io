@@ -11,4 +11,7 @@ template="blog_post.html"
 
 [extra]
 thumbnail_img="test.png"
+
+[taxonomies]
+tags=["rust"]
 +++

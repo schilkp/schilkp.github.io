@@ -1,0 +1,26 @@
+{% import "partials/html_setup.html" as html_setup %}
+<!doctype html>
+<html>
+  <head>
+    <title> tags | stuff | schilk</title>
+    {{ html_setup::setup() }}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        {% include "partials/header_common.html" %}
+      </header>
+      <section>
+        <h1>Stuff:</h1>
+
+        <ul>
+          {% for tag in terms %}
+            <li>
+              <a href="{{ tag.permalink }}">{{ tag.name }}</a> ({{ tag.pages | length }})
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
