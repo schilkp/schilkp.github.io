@@ -4,6 +4,9 @@ build_search_index = false
 author = "Philipp Schilk"
 exclude_paginated_pages_in_sitemap = "all"
 
+taxonomies = [{ name = "tags", paginate_by = 8, feed = true }]
+taxonomy_root = "blog"
+
 [markdown]
 render_emoji = true
 # Enable github-style `note`, `tip`, `important`, `warning`, or `caution`

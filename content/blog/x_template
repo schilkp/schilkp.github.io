@@ -7,4 +7,7 @@ template="blog_post.html"
 
 [extra]
 # thumbnail_img="[TODO: Thumbnail].jpg"
+
+[taxonomies]
+tags=[]
 +++

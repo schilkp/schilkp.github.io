@@ -1,0 +1,16 @@
+{% macro generate(tags) %}
+  {% if tags %}
+    <!-- Tag index -->
+    <div class="tag_index">
+      <h3 style="margin:0 0 6px;"> Tags: </h3>
+      <ul>
+        {% for tag in tags.items %}
+          <li>
+            <a href="{{ tag.permalink }}">{{ tag.name }}</a> ({{ tag.pages | length }})
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endmacro generate_toc %}
+
