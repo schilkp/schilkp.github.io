@@ -1,0 +1,38 @@
+{% import "partials/html_setup.html" as html_setup %}
+{% import "partials/toc.html" as toc %}
+<!doctype html>
+<html>
+  <head>
+    <title>{{ page.title }} | schilk</title>
+    {{ html_setup::setup(katex_enabled=false, katex_auto_render=false) }}
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        {% include "partials/header_common.html" %}
+      </header>
+
+      <section>
+        <h1>{{page.title}}</h1>
+
+        <input id="search" type="search" placeholder="Search Term..."> </input>
+
+        <br>
+        <br>
+
+        <div class="search-results" style="display: none;">
+            <h3> Results: </h3>
+            <div class="search-results__items"></div>
+        </div>
+        <div class="search-nothing-found" style="display: none;">
+            <h3> Nothing found...</h3>
+        </div>
+
+        <script src="/js/elasticlunr.min.js"></script>
+        <script src="/js/search.js"></script>
+      </section>
+      <footer></footer>
+    </div>
+  </body>
+</html>
