@@ -314,6 +314,28 @@ section .toc {
   color:#595959;
 }
 
+/* ==== Tag Index =========================================================== */
+
+/* Hide tag index in header when header is moved from sidepar to top of page.
+   The header looks ugly here because it would appear before the page title.
+   Instead, the tag index inside the page is revealed. This is kept hidden
+   while the sidebar tag index is active because it is redundant. */
+section .tag_index {
+  display: none;
+}
+@media print, screen and (max-width: 960px) {
+  header .tag_index {
+    display: none;
+  }
+  section .tag_index {
+    display: block;
+  }
+}
+
+.tag_index a {
+  color:#595959;
+}
+
 /* ==== Two-collumn layout =================================================== */
 
 .twocol {

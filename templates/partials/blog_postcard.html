@@ -1,0 +1,32 @@
+{% macro card(post) %}
+  <div class="blog_table_inner">
+    {% if post.extra.thumbnail_img %}
+      {% set post_img = resize_image(
+          path=post.colocated_path ~ post.extra.thumbnail_img,
+          width=500,
+          height=500,
+          op="fill",
+          format="jpg",
+          quality=100)
+      %}
+      <img
+        class="post_image"
+        src="{{ post_img.url }}"
+      />
+    {% endif %}
+
+    <h2><a href="{{post.permalink}}">{{post.title}}</a></h2>
+    {{ post.date | date(format="%A, %d %B %Y") }}
+    {% if post.taxonomies.tags %}
+      &nbsp;&nbsp; Tags:
+      {% for tag in post.taxonomies.tags %}
+        <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    <br>
+    <br>
+    {{ post.description | markdown | safe}}
+    <a href="{{post.permalink}}">Read More...</a>
+  </div>
+{% endmacro blog_post_card %}

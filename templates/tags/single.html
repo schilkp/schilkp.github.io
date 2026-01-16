@@ -1,25 +1,20 @@
 {% import "partials/html_setup.html" as html_setup %}
 {% import "partials/blog_postcard.html" as blog_postcard %}
-{% import "partials/tag_index.html" as tag_index %}
 {% import "partials/paginator_nav.html" as paginator_nav %}
-
-{% set tags = get_taxonomy(kind="tags") %}
-
 <!doctype html>
 <html>
   <head>
-    <title>stuff | schilk</title>
+    <title>{{ term.name }} | stuff | schilk</title>
     {{ html_setup::setup() }}
-    <link rel="alternate" type="application/atomn+xml" title="RSS" href="{{ get_url(path=section.path ~ "atom.xml", trailing_slash=false) }}">
   </head>
   <body>
     <div class="wrapper">
       <header>
-          {% include "partials/header_common.html" %}
-          {{ tag_index::generate(tags=tags) }}
+        {% include "partials/header_common.html" %}
+        <link rel="alternate" type="application/atomn+xml" title="RSS" href="{{ current_url ~ "/atom.xml" }}">
       </header>
       <section>
-        <h1>Stuff</h1>
+        <h1>Stuff: {{ term.name }} </h1>
         <div class="blog_table">
           {% for post in paginator.pages %}
             {{ blog_postcard::card(post=post) }}
@@ -28,12 +23,11 @@
 
         {{ paginator_nav::generate(paginator=paginator) }}
 
-        {{ tag_index::generate(tags=tags) }}
-
       </section>
       <footer>
-        <a href="{{ get_url(path=section.path ~ "atom.xml", trailing_slash=false) }}" style="color:grey">📮 RSS Feed</a>
+        <a href="{{ current_url ~ "/atom.xml" }}" style="color:grey">📮 RSS Feed for '{{term.name}}'</a>
       </footer>
     </div>
   </body>
 </html>
+
