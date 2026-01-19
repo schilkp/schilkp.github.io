@@ -439,10 +439,6 @@ section .tag_index {
   overflow: hidden; /* Ensures content doesn't overflow */
 }
 
-.blog_table_inner h2 {
-  margin-right: 160px; /* Space for image */
-}
-
 .blog_table_inner .post_image {
   float: right;
   margin-left: 15px;
