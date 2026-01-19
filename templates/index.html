@@ -1,4 +1,5 @@
 {% import "partials/html_setup.html" as html_setup %}
+{% import "partials/blog_postcard.html" as blog_postcard %}
 <!doctype html>
 <html>
   <head>
@@ -45,6 +46,16 @@
             {% endif %}
           {% endfor %}
         </div>
+
+        <h1>Recent Blog Posts</h1>
+        <div class="blog_table">
+          {% set blog = get_section(path="blog/_index.md") %}
+          {% for post in blog.pages | slice(start=0, end=3) %}
+            {{ blog_postcard::card(post=post) }}
+          {% endfor %}
+        </div>
+        <a href="{{ get_url(path="@/blog/_index.md") }}"> More Posts ... </a>
+
       </section>
       <footer></footer>
     </div>
