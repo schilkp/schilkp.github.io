@@ -231,6 +231,16 @@ hr {
   margin:0 0 20px;
 }
 
+/* If an h1 is followed by a subtitle, remove the large bottom margin on the
+   title proper */
+h1:has(+ div.subtitle) {
+  margin:0 0 2px;
+}
+/* But add margin below the subtitle: */
+.subtitle {
+  margin:0 0 20px;
+}
+
 /* ==== Main Header Menu ==================================================== */
 
 

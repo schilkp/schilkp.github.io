@@ -18,14 +18,15 @@
 
       <section>
         <h1>{{page.title}}</h1>
-        {{ page.date | date(format="%A, %d %B %Y") }}
-        {% if page.taxonomies.tags %}
-          &nbsp;&nbsp; Tags:
-          {% for tag in page.taxonomies.tags %}
-            <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
-          {% endfor %}
-        {% endif %}
-
+        <div class="subtitle">
+          {{ page.date | date(format="%A, %d %B %Y") }}
+          {% if page.taxonomies.tags %}
+            &nbsp;&nbsp; Tags:
+            {% for tag in page.taxonomies.tags %}
+              <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
         {{ page.content | replace(from="<!-- $$toc$$ -->", to=toc::generate_toc(toc=page.toc)) | safe}}
       </section>
 
