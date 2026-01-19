@@ -20,6 +20,10 @@
         <h1>{{page.title}}</h1>
         <div class="subtitle">
           {{ page.date | date(format="%A, %d %B %Y") }}
+          {% if page.updated %}
+            &nbsp;&nbsp; Last Updated:
+            {{ page.updated | date(format="%d %B %Y") }}
+          {% endif %}
           {% if page.taxonomies.tags %}
             &nbsp;&nbsp; Tags:
             {% for tag in page.taxonomies.tags %}
