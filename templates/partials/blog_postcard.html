@@ -17,6 +17,10 @@
 
     <h2><a href="{{post.permalink}}">{{post.title}}</a></h2>
     {{ post.date | date(format="%A, %d %B %Y") }}
+    {% if post.updated %}
+      &nbsp;&nbsp; Last Updated:
+      {{ post.updated | date(format="%d %B %Y") }}
+    {% endif %}
     {% if post.taxonomies.tags %}
       &nbsp;&nbsp; Tags:
       {% for tag in post.taxonomies.tags %}
