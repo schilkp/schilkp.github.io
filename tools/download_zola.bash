@@ -8,8 +8,8 @@ SCRIPT_DIR="$(realpath "$(dirname "$0")")"
 cd "$SCRIPT_DIR"
 
 # Version:
-ZOLA_VERSION="v0.22.0"
-ZOLA_CHECKSUM="f1d491f8956b94384c27d75cb6b2bf60d3916d1ade9564bcbfe7c03f0258aebf"
+ZOLA_VERSION="v0.22.1"
+ZOLA_CHECKSUM="0ca09aa40376aaa9ddfb512ff9ad963262ef95edb0d0f2d5ec6961b6f5cf22ef"
 
 # Cleanup
 rm -rf "zola.tar.gz"
@@ -26,3 +26,6 @@ echo "Ok!"
 echo "Extracting.."
 tar -zxf zola.tar.gz
 rm -rf "zola.tar.gz"
+
+rm LICENSE
+rm -rf artifacts
