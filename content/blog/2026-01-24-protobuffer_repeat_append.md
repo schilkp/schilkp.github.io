@@ -1,11 +1,10 @@
 +++
 title="Progressive encoding and decoding of 'repeated' protobuffer fields."
 description="""
-I have found Google's [_Perfetto_](perfetto.dev) trace viewer to be a really
-useful tool to visualize arbitrary time-based traces by converting them
-into the protobuffer-based format that Perfetto uses.
-This is how both [Tonbandgerät](@/projects/Tonbandgeraet/index.md) and
-[CircumSpect](https://github.com/schilkp/circumspect) work.
+I have found Google's _Perfetto_ trace viewer to be a really useful tool to
+visualize arbitrary time-based traces by converting them into the
+protobuffer-based format that Perfetto uses. This is how both _Tonbandgerät_
+and _CircumSpect_ work.
 
 Especially with CircumSpect, the traces I am generating quickly reach into the
 millions of `TracePacket` messages, and upwards of a gigabyte in size. This
