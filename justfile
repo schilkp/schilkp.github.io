@@ -38,3 +38,8 @@ check_zola:
 
 download_zola:
     ./tools/download_zola.bash
+
+strip_metadata:
+    rm -rf **/*exiftool_tmp
+    exiftool -all= -r -ext jpg -ext jpeg -ext png -overwrite_original .
+    rm -rf **/*exiftool_tmp
