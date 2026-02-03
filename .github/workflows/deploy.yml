@@ -28,6 +28,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install exiftool
+        shell: bash
+        run: |
+          echo "set man-db/auto-update false" | sudo debconf-communicate
+          sudo dpkg-reconfigure man-db
+          sudo apt-get install libimage-exiftool-perl
+      
+      - name: Check for image metadata
+        working-directory: ${{github.workspace}}
+        run: |
+          echo "Stripping metadata..."
+          exiftool -all= -r -ext jpg -ext jpeg -ext png -overwrite_original .
+
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Image with metadata found. Please strip."
+            git status --porcelain
+            exit 1
+          fi
+            
+          echo "No image metadata found. Ok."
+
       - name: Install Zola
         run: ./tools/download_zola.bash
 
