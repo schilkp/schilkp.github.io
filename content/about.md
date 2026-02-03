@@ -6,7 +6,7 @@ in_search_index=false
 nav_emoji="🗿"
 
 # Position in menu:
-menu_pos=4
+menu_pos=5
 +++
 
 {{ centered_img(src="/img/about.jpeg", width="70%", desc="<small> (📸 Leonard Lochte-Holtgreven, 2021) </small>") }}

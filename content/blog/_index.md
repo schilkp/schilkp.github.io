@@ -10,5 +10,5 @@ paginate_by = 8
 nav_emoji="✏️"
 
 # Position in menu:
-menu_pos=2
+menu_pos=3
 +++
