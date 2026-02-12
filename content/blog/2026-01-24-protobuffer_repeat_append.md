@@ -13,6 +13,7 @@ decoded in a single pass infeasible, which lead me to dig into the encoding
 scheme to manually implement a streaming encoder and decoder.
 """
 template="blog_post.html"
+updated="2026-02-12"
 
 [taxonomies]
 tags=[]
@@ -415,6 +416,17 @@ pub fn append_trace_package(pckg: &TracePacket, buf: &mut Vec<u8>) -> anyhow::Re
 Similarly, for decoding, we skip the `0x0A` byte, decode the varlen-encoded length
 field, and then pass that number of bytes to the protobuffer-generated `TracePacket`
 decoder. In rust this would look roughly as follows:
+
+> [!CAUTION]
+> Parsing the length of the embedded message to determine which range of bytes makes
+> up one `TracePacket` is absolutely necessary.
+> Protobuffer's wire format is not self-delimiting, so if you try to decode a nested
+> message without trimming away the bytes of successive messages, decoding will
+> very likely produce garbage data.
+>
+> You also cannot simply search for all `0x0A` bytes and assume that they
+> delimit individual `TracePacket` messages: Encoded nested messages can
+> contain arbitrary bytes, including `0x0A`.
 
 ```rust
 /// Attempt to "consume" the first byte from the buffer and advance the pointer.
