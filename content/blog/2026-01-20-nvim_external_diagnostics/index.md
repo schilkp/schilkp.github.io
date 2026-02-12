@@ -132,7 +132,7 @@ It consists of the following components:
 [`:h error-file-format`](https://neovim.io/doc/user/quickfix.html#error-file-format)
 contains documentation about how `errorformat` strings are interpreted, including
 many more placeholders and tools.
-Consider also having a look at existing compiler plugins as a reference.
+Consider also having a look at existing compiler plugins as a reference (see below).
 
 > [!NOTE]
 > The above `errorformat` does not cover all possible verilator warnings and
