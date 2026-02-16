@@ -17,15 +17,15 @@ tags=["nvim", "rtl"]
 
 While most modern programming languages feature very advanced editor
 integrations especially through LSP server implementations, VLSI, RTL, and
-(System)Verilog tooling is always a bit ... let's say _different_.
+(System)Verilog tooling is always a bit ... _different_.
 
 Fortunately, these tools are not inherently bad, but rather a little more
 old-fashioned. This means that while they might not be as straightforward
 to use, the tools and techniques for an efficient workflow are already
-well known and out there.
+out there.
 
 In particular, I was interested in being able to quickly see and navigate to
-all the numerous warnings and errors they produce directly in my editor `nvim`.
+all the numerous warnings and errors they produce directly in neovim.
 
 I will use [verilator](https://www.veripool.org/verilator/) - an open-source
 SystemVerilog simulator that works by transpiling RTL models to C++ code - as
