@@ -21,15 +21,15 @@ tags=["nvim"]
 ## One size fits not quite all
 
 While my [neovim configuration](https://github.com/schilkp/dot/tree/main/neovim/.config/nvim)
-works out of the box for most of my projects, I have increasingly encountered
+works out of the box for most of the projects I work on, I have increasingly encountered
 situations where I need to adjust certain aspects on a per-project basis.
 
 For example, while doing some work with LLVM, I wanted to make use of the
 MLIR and TableGen LSP servers.
-While I could install these locally and add them to my configuration, I found
-it quite beneficial to use the specific binaries built from the LLVM tree I was
-working on - that way any changes I made to, for example, an MLIR dialect,
-would immediately be available in the MLIR LSP after a quick re-compile.
+While I could install these on my machine and add them to my main neovim configuration,
+it is in many ways much better to use the specific binaries built from the LLVM tree I am
+currently editing - that way any changes I make to, for example, an MLIR dialect,
+are immediately available in the MLIR LSP after a quick re-compile.
 
 There is nothing stopping me from adding such edge-case checks to my
 main configuration - but that does not scale nicely and inevitably leaves
