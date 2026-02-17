@@ -38,7 +38,7 @@ and warnings that are attached to a file location.
 As is so often the case, this exact feature is already supported in (neo)vim
 without any external plugins.
 
-In fact, for a simple C project built with a `Makefile`, you don't even have to
+In fact, for a simple C project using a `Makefile`, you don't even have to
 configure anything!
 The command `:make` will cause vim to call `make` with no arguments, capture
 its output and parse it into the so-called quickfix list, which you can open
@@ -69,7 +69,8 @@ Any arguments you provide to the `:make` command will be appended to the end of
 arguments should be inserted:
 ```vimscript
 :set makeprg=make\ $*\ verilate
-:make MYDEFINE=1 " -> make MYDEFINE=1 verilate
+:make MYDEFINE=1
+make MYDEFINE=1 verilate
 ```
 
 The `%` placeholder will be replaced with the path of the current file,
@@ -118,7 +119,7 @@ It consists of the following components:
 | -                     | -                                                                                                        |
 | `%%`                  | Matches a single `%` character.                                                                          |
 | `%t`                  | Matches a single character which determines the error type. (**E**rror, **W**arning, **I**nfo, **N**ote) |
-| `%*[a-zA-Z]`          | Matches one or more lower or uppercase letters.                                                          |
+| `%*[a-zA-Z]`          | Matches one or more lower or uppercase letters. This "consumes" the rest of E**rror**, W**arning**, I**nfo**, or N**ote**. |
 | `-`                   | Matches a single `-` character.                                                                          |
 | `%*[^:]`              | Matches one or more characters that are not a `:`.                                                       |
 | `:`                   | Matches a single `:` character.                                                                          |
@@ -126,7 +127,7 @@ It consists of the following components:
 | `%f`                  | Matches a file path.                                                                                     |
 | `%l`                  | Matches a line number.                                                                                   |
 | `%c`                  | Matches a column number.                                                                                 |
-| `%m`                  | Matches an error message.                                                                                |
+| `%m`                  | Matches an error message (a string).                                                                     |
 
 
 [`:h error-file-format`](https://neovim.io/doc/user/quickfix.html#error-file-format)
@@ -153,8 +154,8 @@ For a list of compiler plugins available in your current (neo)vim instance you c
 :for f in globpath(&rtp, 'compiler/*.vim', 0, 1) | echo fnamemodify(f, ':t:r') | endfor
 ```
 
-In typical vim fashion, the set of compiler plugins spans from different
-`fortran` flavours to slightly more modern tools such as `gleam-build`.
+In typical vim fashion, the set of compiler plugins spans from slightly older tools,
+such as different `fortran` flavours, to slightly more modern tools such as `gleam-build`.
 
 A few that might be of interest:
 - `cargo` and `rustc` for rust development.
