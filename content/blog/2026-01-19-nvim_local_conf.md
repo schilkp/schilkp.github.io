@@ -12,6 +12,8 @@ not be immediately obvious.
 """
 template="blog_post.html"
 
+updated="2026-03-12"
+
 [taxonomies]
 tags=["nvim"]
 +++
@@ -76,7 +78,7 @@ Have a look at [`:h exrc`](https://neovim.io/doc/user/options.html#'exrc') for m
 
 As executing arbitrary code when opening your editor in some repository you
 just cloned from the internet is not an amazing idea, neovim introduced
-`vim.secure.read()` and the associated `trust` list in `v0.11.5`
+`vim.secure.read()` and the associated `trust` list in `v0.9.0`
 (released in 2022 - [`f1922e7`](https://github.com/neovim/neovim/commit/f1922e78a1df1b1d32779769432fb5586edf5fbb)).
 
 When attempting to read a file for the first time using `vim.secure.read()`, neovim will
@@ -155,17 +157,26 @@ function M.source()
   if not file or file == "" then
     return
   end
-  local content = vim.secure.read(file)
-  if content ~= nil then
-    vim.api.nvim_command("source " .. file)
-    vim.defer_fn(function()
-      vim.notify("[local_config]: loaded local config file", vim.log.levels.INFO)
-    end, 250)
-  else
-    vim.defer_fn(function()
-      vim.notify("[local_config]: local config file found but not trusted!", vim.log.levels.WARN)
-    end, 250)
+
+  local content = vim.secure.read(file) --[[@as string|nil]]
+  if not content then
+    vim.notify("[local_config]: local config file found but not trusted!", vim.log.levels.WARN)
+    return
   end
+
+  local config_fn, err_load = loadstring(content, "@" .. file)
+  if not config_fn then
+    vim.notify("[local_config]: failed to load local config file: " .. err_load, vim.log.levels.ERROR)
+    return
+  end
+
+  local success, err_call = pcall(config_fn)
+  if not success then
+    vim.notify("[local_config]: failed to load local config file: " .. err_call, vim.log.levels.ERROR)
+    return
+  end
+
+  vim.notify("[local_config]: loaded local config file", vim.log.levels.INFO)
 end
 
 return M
@@ -183,6 +194,22 @@ is initialized:
 -- init.lua
 require("local_config").source()
 ```
+
+Because I want the `vim.notify` status messages to show up in the notification feed of the
+[`fidget`](https://github.com/j-hui/fidget.nvim) plugin instead of the default
+nvim message list, I tend to wrap the calls to `vim.notify` above in a `vim.defer_fn` with
+a short timeout, to make them appear after the `fidget` has been loaded:
+
+```lua
+local function defer_notif(msg, level)
+  vim.defer_fn(function()
+    vim.notify(msg, level)
+  end, 250)
+end
+
+```
+
+Very hacky - I know.
 
 ### Local Config Files
 
@@ -255,4 +282,11 @@ using a global `.gitignore`:
 ## Notes
 
 You can find my complete setup directly in my neovim configuration
-[here](https://github.com/schilkp/dot/blob/main/neovim/.config/nvim/lua/schilk/local_config/init.lua)
+[here](https://github.com/schilkp/dot/blob/main/neovim/.config/nvim/lua/schilk/local_config/init.lua).
+
+## Changes
+
+- `13-03-2026`:
+    - Fixed the version of `nvim` in which `vim.secure.read()` was introduced - thanks justinmk!
+    - Updated the example snippet to use the actual content read by `vim.secure.read()` instead of just using said function to check if the file is trusted before sourcing from the file.
+    - Add explaination about defered `notify` calls.
