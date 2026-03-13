@@ -20,11 +20,11 @@
             {% if project.extra.thumbnail_img is not matching("^$") %}
             {% set proj_img = resize_image(
                 path=project.colocated_path ~ project.extra.thumbnail_img,
-                width=700,
-                height=525,
+                width=500,
+                height=375,
                 op="fill",
                 format="jpg",
-                quality=100)
+                quality=95)
             %}
             <div class="project_table_inner">
               <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
