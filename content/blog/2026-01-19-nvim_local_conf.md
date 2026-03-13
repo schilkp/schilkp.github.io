@@ -136,7 +136,7 @@ Instead, I opted to implement a simple version of the `exrc` option directly
 in my configuration:
 
 ```lua
---- localconfig.lua
+--- local_config.lua
 local M = {}
 
 M.CONFIG_FILE_NAMES = { ".schilk.nvim.lua" }
@@ -184,7 +184,7 @@ return M
 
 This module looks for a file called `.schilk.nvim.lua` in the current or
 any parent directories.
-If one is found, the `vim.secure.read()` function is used, to allow me to
+If one is found the `vim.secure.read()` function is used to load it, allowing me to
 manually review and approve the content before it is actually sourced.
 
 In my main `init.lua`, I can then use this module even before my plugin manager `lazy`
