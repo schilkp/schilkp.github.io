@@ -1,9 +1,9 @@
 +++
-title="Working with external warnings and diagnostics in NVIM."
+title="Working with external warnings and diagnostics in NVIM"
 description="""
 Compilers and tools in the VLSI and RTL world often produce a very large number
 of warnings and errors when run.
-I was interested in being able to quickly see all and navigate these diagnostics 
+I was interested in being able to quickly see and navigate all these diagnostics
 directly in (Neo)Vim.
 
 This is easily achievable using the `:make` command and compiler plugins, or by

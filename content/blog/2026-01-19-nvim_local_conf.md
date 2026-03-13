@@ -1,5 +1,5 @@
 +++
-title="Managing project-specific NVIM configuration."
+title="Managing project-specific NVIM configuration"
 description="""
 While my neovim configuration works out of the box for most of my projects, I
 have increasingly encountered situations where I need to adjust certain aspects
@@ -44,12 +44,12 @@ As with anything related to neovim configuration there are about 50 different
 ways this can be achieved, and because neovim is usually configured
 with executable code instead of declarative config files, there are a few gotchas that
 might not be immediately obvious.
-Therefore I thought it might be useful to quickly write-up how the setup I
+Therefore I thought it might be useful to quickly write up how the setup I
 landed on works, and my thoughts behind why I built it in this way.
 
 ## Notable built-in features & plugins
 
-First, a quick overview of some related built-in features and plugins that
+First, a quick overview of some built-in features and plugins that
 are related to this subject:
 
 ### (Neo)Vim's `exrc` option
@@ -62,8 +62,8 @@ set exrc
 ```
 
 On startup, when this option is set, vim will look for a `.vimrc` or `.exrc`
-vimscript file in the current directory, while neovim will look for `.nvimrc`
-or `.exrc` vimscript file or a `.nvim.lua` lua script file.
+vimscript file in the current directory, while neovim will look for a `.nvimrc`
+or `.exrc` vimscript file, or a `.nvim.lua` lua script file.
 If one such file is found, after the system and main user configuration is
 loaded, (neo)vim will `:source` this file, executing whatever code it contains.
 
@@ -209,7 +209,7 @@ end
 
 ```
 
-Very hacky - I know.
+That workaround is very hacky - I know.
 
 ### Local Config Files
 
@@ -249,7 +249,7 @@ require("lazy").setup(plugins)
 
 For reference, here are some of the things which I often do in my local config files:
 - Install and enable additional plugins, as shown above.
-- Enable additional LSP servers from `lsp-config.nvim`.
+- Enable additional LSP servers from `nvim-lspconfig`.
 - Disable LSP servers that I have usually enabled.
 - Configure local, project-specific LSP servers, such as the aforementioned MLIR and TableGen LSPs.
 
@@ -271,11 +271,11 @@ juggling that change around locally, I just ignore these files in all git repos
 using a global `.gitignore`:
 
 ```
-// ~/.gitconfig:
+# ~/.gitconfig:
 [core]
     excludesfile = /home/schilkp/.gitignore_global
 
-// ~/.gitignore_global:
+# ~/.gitignore_global:
 .schilk.nvim.lua
 ```
 
@@ -287,6 +287,6 @@ You can find my complete setup directly in my neovim configuration
 ## Changes
 
 - `13-03-2026`:
-    - Fixed the version of `nvim` in which `vim.secure.read()` was introduced - thanks justinmk!
+    - Fixed the version of `nvim` in which `vim.secure.read()` was introduced - thanks, justinmk!
     - Updated the example snippet to use the actual content read by `vim.secure.read()` instead of just using said function to check if the file is trusted before sourcing from the file.
-    - Add explaination about defered `notify` calls.
+    - Add explanation about deferred `notify` calls.

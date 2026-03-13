@@ -22,7 +22,7 @@ It is in a semi-working state: I programmed a simple game of Snake in my custom 
 using my custom LED matrix and keypad peripherals, but there are some hardware bugs and faults. Unfortunately,
 once university started, I no longer had the time to revise and finish it completely. Maybe someday.
 
-Besides being ridiculous, it is suboptimal and strange in so many ways, because I designed it before 
+Besides being ridiculous, it is suboptimal and strange in so many ways because I designed it before 
 learning much about computer architecture and digital design 😎.
 
 ## Hardware
@@ -163,7 +163,7 @@ _file_label: JMP _file_label
 LITA ((val-10) * 2) + 5 
 
 # Bitwise operations to determine operand:
-LITA ((val & 0x0f) | ( 0xa << 2)         
+LITA ((val & 0x0f) | (0xa << 2))
 
 # Conditional operator:
 loop: JMP defined(label) ? label : loop  

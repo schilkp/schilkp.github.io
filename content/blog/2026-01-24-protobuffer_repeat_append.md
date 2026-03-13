@@ -9,7 +9,7 @@ and _CircumSpect_ work.
 Especially with CircumSpect, the traces I am generating quickly reach into the
 millions of `TracePacket` messages, and upwards of a gigabyte in size. This
 makes bundling them all into a single `Trace` message that gets encoded or 
-decoded in a single pass infeasible, which lead me to dig into the encoding
+decoded in a single pass infeasible, which led me to dig into the encoding
 scheme to manually implement a streaming encoder and decoder.
 """
 template="blog_post.html"
@@ -35,7 +35,7 @@ katex=true
 > [here](https://github.com/protocolbuffers/protobuf/blob/main/docs/third_party.md)),
 > all of which share a common binary message ("wire") format.
 >
-> If you are curious, have a look at [protobuf.dev](protobuf.dev) for
+> If you are curious, have a look at [protobuf.dev](https://protobuf.dev) for
 > documentation and tutorials.
 
 ## Motivation: Interfacing with Perfetto
@@ -120,7 +120,7 @@ Instead of having to load a whole trace into memory by deserialising a complete
 file into a `Trace` struct, I would much prefer to be able to read individual
 packets, process them, and write them back out to disk.
 
-This is not directly supported by most protobuffer libarries.
+This is not directly supported by most protobuffer libraries.
 
 ## Protobuffer wire format
 
@@ -158,7 +158,7 @@ longer worst-case message size.
 
 This is achieved by first splitting the value into 7-bit septets, which are each
 encoded, starting with the least significant septet, as an 8-bit value, consisting
-of the septet in the lower bits, and and a control bit in the most significant
+of the septet in the lower bits, and a control bit in the most significant
 bit position.
 This control bit is set to `1` if there are more non-zero bits to follow,
 or `0` if this is the last septet with non-zero bits and all following bits
@@ -175,7 +175,7 @@ encoded as a single byte:
 +--> No more bits to follow.
 ```
 
-The value `0xFF` requires more than seven bits and therefor is split into two bytes:
+The value `0xFF` requires more than seven bits and therefore is split into two bytes:
 
 ```
     +---> First 7 bits          +---> Next 7 bits
@@ -210,7 +210,7 @@ containing the encoding scheme, and all other bits containing the field number:
 ```
 
 This 32-bit key is then encoded using the varlen scheme discussed above,
-and immediatly followed by the encoded field value.
+and immediately followed by the encoded field value.
 
 For example, consider a message with the following structure:
 
@@ -234,7 +234,7 @@ Serialised, it looks as follows:
 
 The data field has a field number of `1` and its `uint64` data type, as is
 listed in the table above, is encoded using varint encoding which has an
-encoding id of `0`. Therefor, the key value is `key = (1 << 3) | 0 = 0x08`,
+encoding id of `0`. Therefore, the key value is `key = (1 << 3) | 0 = 0x08`,
 which is varlen-encoded as `0x08`, since it is less than `128.`
 The value of `42` (`0x2a` in hex) is also directly encoded as `0x2a` in using
 the varlen scheme, as it too is less than `128`.
@@ -405,7 +405,7 @@ pub fn append_trace_package(pckg: &TracePacket, buf: &mut Vec<u8>) -> anyhow::Re
 > See 
 > [`Message::encode_length_delimited()`](https://docs.rs/prost/latest/prost/trait.Message.html#method.encode_length_delimited),
 > and 
-> [`ecnode_length_delimiter()`](https://docs.rs/prost/latest/prost/fn.encode_length_delimiter.html).
+> [`encode_length_delimiter()`](https://docs.rs/prost/latest/prost/fn.encode_length_delimiter.html).
 > For decoding, have a look at 
 > [`Message::decode_length_delimited()`](https://docs.rs/prost/latest/prost/trait.Message.html#method.decode_length_delimited),
 > and 

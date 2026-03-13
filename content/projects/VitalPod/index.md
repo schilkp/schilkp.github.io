@@ -14,7 +14,7 @@ thumbnail_img="header.jpeg"
 
 ## Overview
 
-The design, construction, and evaluation of the VitalPod was the subject of my bachelor thesis at ETH, and the first of a series of 
+The design, construction, and evaluation of the VitalPod was the subject of my bachelor's thesis at ETH, and the first of a series of 
 earbud-related projects. It is a BLE-enabled true-wireless earbud, that features a number
 of sensors capable of sensing body temperature, heart rate, and blood oxygen concentration.
 

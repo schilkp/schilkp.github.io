@@ -42,7 +42,7 @@ I designed a small PCB with a PIC12F1572 to handle all this.
 By pressing the foot pedal once, the extractor will run for a set duration
 controlled by a potentiometer and automatically turn off after.
 
-By pressing the pedal twice, the extract will run until the pedal is pressed again.
+By pressing the pedal twice, the extractor will run until the pedal is pressed again.
 
 An additional LED blinks while in timer mode, or remains on while running indefinitely.
 
@@ -69,7 +69,7 @@ If the 1/4" jack does not have a switch, tie PEDC to GND (for example POT-). In 
 case the unit will *not* return to normal operation when no pedal is connected.
 
 The timer potentiometer can be replaced by populating R6 and R7. In this case
-the timer will be fixed to approximately (15) * (R6 / (R6 * R7)) minutes.
+the timer will be fixed to approximately (15) * (R6 / (R6 + R7)) minutes.
 
 ## Possible Improvements
 

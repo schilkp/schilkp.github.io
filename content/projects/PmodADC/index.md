@@ -174,7 +174,7 @@ measurements (below) feature a similar magnitude.
 
 With the input AC-coupled but shorted, the ADC will read as shown in the plot below.
 
-The readings feature a standard deviation of 3.43
+The readings feature a standard deviation of 3.43 LSB.
 
 {{ centered_img(src="pmodadc_adc_noise.svg" width="50%") }}
 

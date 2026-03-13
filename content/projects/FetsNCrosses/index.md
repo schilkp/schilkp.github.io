@@ -57,8 +57,8 @@ I then systematically constructed more complex gates from these basic cells. For
 
 Then, I re-drew the logic circuit in KiCad, using the hierarchical sheets instead of components. A similar
 procedure is used during layout: each basic cell is routed once, and then the layout applied to all instances
-of that gate using the [replicate layout](https://github.com/MitjaNemec/Kicad_action_plugins) plugin (since 
-this project predates KiCad's mutlichannel design feature!). Then all that is left to do is to assemble and 
+of that gate using the [replicate layout](https://github.com/MitjaNemec/Kicad_action_plugins) plugin (since
+this project predates KiCad's multichannel design feature!). Then all that is left to do is to assemble and
 route all connections between these cells.
 
 I split the design into two boards:
@@ -94,7 +94,7 @@ Here is a timelapse of one such assembly:
 
 Only after three revisions and once I had convinced myself that everything worked, did I spend the money
 to have five engines and main boards assembled: The uneven heating of the PCB during my manual
-soldering had introduce such significant warpage that my prototypes would break randomly after a few 
+soldering had introduced such significant warpage that my prototypes would break randomly after a few
 weeks due to tension breaking solder joints.
 
 ## Full Hardware Test

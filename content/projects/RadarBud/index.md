@@ -16,7 +16,7 @@ thumbnail_img="radarbud_in_hand.jpeg"
 
 A low-power in-ear Hand-Gesture Recognition system based on 50GHz mm-wave radars, efficient spatial and temporal Convolutional neural networks and an energy-optimized hardware design.
 
-This project was spearheaded by Andrea Ronco, who developed the whole algorithm and software during his master thesis. You can find his write-up of the project [here](https://www.andrearonco.com/posts/2024/06/tinyssimoradar/).
+This project was spearheaded by Andrea Ronco, who developed the whole algorithm and software during his master's thesis. You can find his write-up of the project [here](https://www.andrearonco.com/posts/2024/06/tinyssimoradar/).
 I contributed the main controller board (a [VitalCore](@/projects/VitalCore/index.md)), physical design, and some firmware components.
 
 ## Paper

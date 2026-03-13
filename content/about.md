@@ -31,5 +31,5 @@ Here are a few places that you can find me on the internet:
 </center>
 <p>
 
-This page is built using [zola](https://github.com/getzola/zola) and hosted on Github Pages. 
+This page is built using [zola](https://github.com/getzola/zola) and hosted on GitHub Pages. 
 It is open-source, with all sources available [here](https://github.com/schilkp/schilkp.github.io).

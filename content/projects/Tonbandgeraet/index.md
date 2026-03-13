@@ -119,7 +119,7 @@ This restrictive format stems from the fact that there are no field IDs or other
 relies on the field types and framing. Specifically, the
 first block of required known-length fields can directly be decoded because the length of each field is fixed or can
 be determined based on its [varlen encoding](#field-encoding). If an event type specifies optional fields, the 
-decoder will continue decoding until the frame ends. if an event type ends with a variable-length field, all bytes
+decoder will continue decoding until the frame ends. If an event type ends with a variable-length field, all bytes
 beyond the last required field are attributed to it.
 
 ### Field Encoding
@@ -130,7 +130,7 @@ at most have a few hundred interrupts. This would mean that most bytes of most n
 fields are zero most of the time, wasting trace storage capacity or transfer bandwidth.
 
 To combat this, Tonbandgerät uses the same specific form of variable-length (varlen) encoding that
-is also by UTF-8 for most numeric values:
+is also used by UTF-8 for most numeric values:
 
 > Values are split into 7-bit septets, and are encoding starting with the least significant
 > septet. Each septet is encoded as an 8-bit value, consisting of the septet in the lower bits,
