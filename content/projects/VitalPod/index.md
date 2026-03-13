@@ -68,7 +68,7 @@ A 32mAh Panasonic battery is housed in the stem, the sensors are installed in th
 
 ## Device 
 
-{{ centered_img(src="projects/VitalPod/in_hand.jpg", downscale_to_width=1000) }}
+{{ centered_img(src="projects/VitalPod/in_hand.jpg") }}
 
 The final device is pictured above. All modules were connected manually using enamel wire. The firmware is FreeRTOS based,
 and currently limited to transmitting the raw sensor data over Bluetooth. I used my [BLELog](@/projects/BLELog/index.md) script
