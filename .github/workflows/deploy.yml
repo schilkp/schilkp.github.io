@@ -64,6 +64,10 @@ jobs:
 
       - name: Install Zola
         run: ./tools/download_zola.bash
+      
+      - name: Check
+        working-directory: ${{github.workspace}}
+        run: ./tools/zola check --skip-external-links
 
       - name: Build
         working-directory: ${{github.workspace}}
