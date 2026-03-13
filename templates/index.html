@@ -1,10 +1,8 @@
-{% import "partials/html_setup.html" as html_setup %}
-{% import "partials/blog_postcard.html" as blog_postcard %}
 <!doctype html>
 <html>
   <head>
     <title>home | schilk</title>
-    {{ html_setup::setup() }}
+    {{< base.html_setup  />}}
   </head>
   <body>
     <div class="wrapper">
@@ -17,28 +15,28 @@
         <div class="project_table">
           <!-- Projects with image: -->
           {% for project in projects.pages %}
-            {% if project.extra.thumbnail_img is not matching("^$") %}
-            {% set proj_img = resize_image(
-                path=project.colocated_path ~ project.extra.thumbnail_img,
-                width=500,
-                height=375,
-                op="fill",
-                format="jpg",
-                quality=95)
-            %}
-            <div class="project_table_inner">
-              <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
-              <a href="{{project.permalink}}"><img src="{{proj_img.url}}"/></a>
-              <br />
-              {{project.description | markdown | safe}}
-            </div>
+            {% if project.extra.thumbnail_img %}
+              {% set proj_img = resize_image(
+                  path=project.colocated_path ~ project.extra.thumbnail_img,
+                  width=500,
+                  height=375,
+                  op="fill",
+                  format="jpg",
+                  quality=95)
+              %}
+              <div class="project_table_inner">
+                <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
+                <a href="{{project.permalink}}"><img src="{{proj_img.url}}"/></a>
+                <br />
+                {{project.description | markdown | safe}}
+              </div>
             {% endif %}
           {% endfor %}
         </div>
         <div class="project_table">
           <!-- Projects without image: -->
           {% for project in projects.pages %}
-            {% if project.extra.thumbnail_img is matching("^$") %}
+            {% if not project.extra.thumbnail_img %}
             <div class="project_table_inner">
               <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
               {{project.description | markdown | safe}}
@@ -50,8 +48,8 @@
         <h1>Recent Blog Posts</h1>
         <div class="blog_table">
           {% set blog = get_section(path="blog/_index.md") %}
-          {% for post in blog.pages | slice(start=0, end=3) %}
-            {{ blog_postcard::card(post=post) }}
+          {% for post in blog.pages[:3] %}
+            {{< blog.postcard post />}}
           {% endfor %}
         </div>
         <a href="{{ get_url(path="@/blog/_index.md") }}"> More Posts ... </a>

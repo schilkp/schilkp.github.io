@@ -1,4 +1,4 @@
-{% macro generate(paginator) %}
+{% component pagination.nav(paginator) %}
 <nav class="pagination">
   {% if paginator.previous %}
       <a class="previous" href="{{ paginator.previous }}">‹ Newer</a>
@@ -7,4 +7,4 @@
       <a class="next" href="{{ paginator.next }}">Older ›</a>
   {% else %} <span> <!-- placeholder --> </span> {% endif %}
 </nav>
-{% endmacro paginator %}
+{% endcomponent pagination.nav %}

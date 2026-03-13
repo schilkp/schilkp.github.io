@@ -17,13 +17,38 @@ katex=true
 
 A small embedded systems tracer with support for bare-metal and FreeRTOS-based targets.
 
-{{ centered_img(src="tband_banner.png" width="100%") }}
+{{ <img.centered src="tband_banner.png" width="100%"/> }}
 
-{{ toc() }}
+{{ <toc.inline_toc/> }}
 
-<!-- FIXME -->
-<!-- Used to be used in multiple places, but now I still use the ident to prevent it from appearing in the table of contents.. -->
-{{ include_markdown(path="content/projects/Tonbandgeraet/_links.mdsnippet") }}
+{% <layout.two_col> %}
+  {% <layout.two_col.box> %}
+  <h2> 📚 <a href="https://schilk.co/Tonbandgeraet/docs/index.html">Docs</a> </h2>
+
+  The [online documentation](https://schilk.co/Tonbandgeraet/docs/index.html) has everything you need to
+  get started, API documentation, and a whole bunch of under-the-hood technical documentation.
+  {% </layout.two_col.box> %}
+
+  {% <layout.two_col.box> %}
+  <h2> 📼 <a href="https://schilk.co/Tonbandgeraet/">Online Converter</a> </h2>
+
+  The online, in-browser [trace converter](https://schilk.co/Tonbandgeraet/) can be used to
+  quickly decode, convert, and view a Tonbandgerät trace.
+  {% </layout.two_col.box> %}
+
+  {% <layout.two_col.box> %}
+  <h2> ✨ Demo </h2>
+
+  If you want to have a quick look at how a Tonbandgerät trace looks like, use the "Select a demo..."
+  dropdown of the in-browser [trace converter](https://schilk.co/Tonbandgeraet/).
+  {% </layout.two_col.box> %}
+
+  {% <layout.two_col.box> %}
+  <h2> 📁 <a href="https://github.com/schilkp/Tonbandgeraet">Repo</a> </h2>
+
+  You can find the repository, which contains all source code including the target tracer, converter, documentation, and website, [here](https://github.com/schilkp/Tonbandgeraet).
+  {% </layout.two_col.box> %}
+{% </layout.two_col> %}
 
 ## Overview
 
@@ -60,7 +85,7 @@ of these events is encoded into a [custom binary format](#trace-format) and then
 
 ### Snapshot Backend
 
-The snapshot backend, once triggered, fills a RAM buffer with tracing events until it is full. The trace data can then be sent to the 
+The snapshot backend, once triggered, fills a RAM buffer with tracing events until it is full. The trace data can then be sent to the
 PC for analysis using a user-provided communication interface.
 
 ### Streaming Backend
@@ -68,7 +93,7 @@ PC for analysis using a user-provided communication interface.
 The streaming backend immediately passes every trace event to the user-provided communication interface to be sent to the PC
 in real time. Note that this requires a fast interface: RTT is recommended.
 
-### Postmortem Backend 
+### Postmortem Backend
 
 🚧 Not yet implemented 🚧
 
@@ -77,9 +102,9 @@ backend was stopped can then be sent to the PC for analysis using a user-provide
 
 ### Trace Converter
 
-Next, the binary trace stream is decoded and interpreted using a rust-based conversion tool 🦀. A CLI is provided. 
+Next, the binary trace stream is decoded and interpreted using a rust-based conversion tool 🦀. A CLI is provided.
 To keep the overhead of trace event generation and handling as low as possible, only absolutely necessary information
-is included in each event. The conversion tool takes care of connecting the dots between the different events to 
+is included in each event. The conversion tool takes care of connecting the dots between the different events to
 generate a rich trace representation.
 
 This trace representation is then converted into the native protobuffer-based input format of Google's in-browser [*perfetto* trace viewer](https://perfetto.dev).
@@ -107,18 +132,19 @@ Inside each COBS frame, each event type is structured as follows:
     - One variable-length field.
     - Nothing
 
-Importantly, an instance of an event type that permits some {{ katex(body="N") }} optional fields, may only omit the last {{ katex(body="0 \leq n \leq N") }} optional
-fields. In other words, if an event type contains the optional fields {{ katex(body="\{ A, B, C \}") }} valid
+Importantly, an instance of an event type that permits some {% <katex.inline> %}N{% </katex.inline> %} optional fields, may only omit the last {% <katex.inline> %}0 \leq n \leq N{% </katex.inline> %} optional
+fields. In other words, if an event type contains the optional fields {% <katex.inline> %}\{ A, B, C \}{% </katex.inline> %} valid
 event instances could only take on one of the following layouts:
-{{ katex(body="\emptyset") }},
-{{ katex(body="\{A\}") }},
-{{ katex(body="\{A, B\}") }}, or
-{{ katex(body="\{A, B, C\}") }}.
+
+- {% <katex.inline> %}\emptyset{% </katex.inline> %}
+- {% <katex.inline> %}\{A\}{% </katex.inline> %}
+- {% <katex.inline> %}\{A, B\}{% </katex.inline> %}
+- {% <katex.inline> %}\{A, B, C\}{% </katex.inline> %}
 
 This restrictive format stems from the fact that there are no field IDs or other metadata encoded in the frame, and the decoder
 relies on the field types and framing. Specifically, the
 first block of required known-length fields can directly be decoded because the length of each field is fixed or can
-be determined based on its [varlen encoding](#field-encoding). If an event type specifies optional fields, the 
+be determined based on its [varlen encoding](#field-encoding). If an event type specifies optional fields, the
 decoder will continue decoding until the frame ends. If an event type ends with a variable-length field, all bytes
 beyond the last required field are attributed to it.
 
@@ -159,7 +185,7 @@ The value `0xFF` requires more than seven bits and therefor is split into two by
 +--> More bits to follow.   +--> No more bits to follow.
 ```
 
-This system trades a much improved average message length for a longer worst-case 
+This system trades a much improved average message length for a longer worst-case
 message size.
 
 ### COBS Framing
@@ -168,8 +194,8 @@ The tracer uses COBS (Consistent Overhead Byte Stuffing, [wikipedia](https://en.
 separate binary trace events that have been stored or transmitted together. Specifically, the COBS algorithm removes all zeroes from a binary message
 in a reversible fashion, with only minimal overhead. Zeroes are then used to delimit individual trace messages.
 
-Specifically, after COBS framing, an {{ katex(body=" N \neq 0") }} byte message will be at most
-{{ katex(body=" 1 + \left\lceil \frac{N}{254} \right\rceil + N") }} bytes long, including a trailing zero for delimination.
+Specifically, after COBS framing, a {% <katex.inline> %} N \neq 0{% </katex.inline> %}
+byte message will be at most {% <katex.inline> %} 1 + \left\lceil \frac{N}{254} \right\rceil + N{% </katex.inline> %} bytes long, including a trailing zero for delimination.
 Please read the above article for a more precise specification, but roughly speaking this is done by replacing all zeroes with
 a pointer to the next zero:
 
@@ -199,7 +225,7 @@ COBS framed:       0x01   0xFF  0x01  0x02 ... 0xFD  0xFE  0x02   0xFF  0x00
 
 ```
 
-When decoding, the value pointed at by a `0xFF` pointer must therefor not be decoded to a zero but only be interpreted as a 
+When decoding, the value pointed at by a `0xFF` pointer must therefor not be decoded to a zero but only be interpreted as a
 another pointer. Because trace events are usually very short, this means that most can be framed with only two bytes of overhead.
 
 ### Code Generator
@@ -258,4 +284,3 @@ impl BaseIsrNameEvt {
 - 📁 [Repo](https://github.com/schilkp/Tonbandgeraet)
 - 📼 [Online Converter](https://schilk.co/Tonbandgeraet/)
 - 📚 [Docs](https://schilk.co/Tonbandgeraet/docs/index.html)
-

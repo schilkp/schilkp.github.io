@@ -8,9 +8,9 @@ weight=104
 thumbnail_img="header.jpg"
 +++
 
-{{ centered_img(src="projects/ES/header.jpg") }}
+{{ <img.centered src="projects/ES/header.jpg"/> }}
 
-{{ toc () }}
+{{ <toc.inline_toc/> }}
 
 ## Overview
 
@@ -46,13 +46,13 @@ the complicated schematics and documentation tend to lead to much confusion.
 Because of this, we opted to develop a custom hardware platform for our course. At first,
 we investigated a completed board with an integrated programmer, but quickly dropped the idea
 because the programmer firmware licenses of different manufacturers would make this
-either rather difficult or completely illegal. 
+either rather difficult or completely illegal.
 
 Instead, we opted to develop a "shield" that is connected to an otherwise bare-bones NUCLEO-L476RG
 board. It features many rather simple peripherals, each of which provides both opportunities for
 learning and fun applications:
 
-- Two basic LEDs for the essential "Blinky" exercise. This covers everything from the compilation and programming 
+- Two basic LEDs for the essential "Blinky" exercise. This covers everything from the compilation and programming
   flow, GPIOs, schematic reading to the low-level details of registers and bit manipulation.
 - Five buttons, placed in a game-pad arrangement. This provides much more flexibility for fun games and interactive
   exercises than the usual one or two switches found on most other boards.
@@ -60,13 +60,13 @@ learning and fun applications:
   of creativity. The shift registers lend themselves as a great introduction to serial communication and SPI.
 - A potentiometer, serving as another control input for interactive exercises and a great application for learning
   about ADC operation.
-- The I2C temperature sensor is a perfect introduction to both I2C and external peripherals, with a 
+- The I2C temperature sensor is a perfect introduction to both I2C and external peripherals, with a
   small enough register map and simple enough documentation to allow students to build up their own
   driver from scratch.
 - Two PDM microphones, whose high data rate makes for a great motivation for the introduction of DMA. Furthermore,
   they naturally lend themselves to simple FFT-based signal processing that allows us to take a look
   at the advantages of hardware-accelerated DSP routines.
-- A SPI IMU is a good example of a more complicated external peripheral, and introduces students to 
+- A SPI IMU is a good example of a more complicated external peripheral, and introduces students to
   integrating a simple driver into their project.
 - Two mikroBUS connectors make expansion very easy, should students want to explore other sensors
   and peripherals.
@@ -75,18 +75,18 @@ learning and fun applications:
 
 ## Labs
 
-{{ gallery() }}
-    {{ gallery_img(src="ex1.png", desc="Snake on the LED Matrix.") }}
-    {{ gallery_img(src="ex2.png", desc="Tic-Tac-Toe on the LED Matrix.") }}
-    {{ gallery_img(src="ex3.png", desc="Golf and racing game.") }}
-{{ gallery_end() }}
+{% <img.gallery> %}
+    {% <img.gallery.img src="ex1.png"> %}Snake on the LED Matrix.{% </img.gallery.img> %}
+    {% <img.gallery.img src="ex2.png"> %}Tic-Tac-Toe on the LED Matrix.{% </img.gallery.img> %}
+    {% <img.gallery.img src="ex3.png"> %}Golf and racing game.{% </img.gallery.img> %}
+{% </img.gallery> %}
 
 With our new hardware in hand, I developed a set of 10 labs, each with multiple practical and theoretical
 exercises, code handouts, slides, and hundreds of pages of documentation.
 
 Some examples include:
 
-- A number of basic and low level exercises, tackling bitwise operations, GPIOs, the manufacturer-provided library and 
+- A number of basic and low level exercises, tackling bitwise operations, GPIOs, the manufacturer-provided library and
   direct register manipulation.
 - A task where students have to correctly interface with the four on-board buttons, allowing them to play a game of
   SNAKE! on the LED matrix.
@@ -99,7 +99,7 @@ Some examples include:
 - Detailed theoretical exercises covering the operation of a Successive-Approximation ADC.
 - A task where students learn about ADC calibration, including the concept of a transfer standard.
 - Various timer exercises.
-- Practical exercises that allow students to experiment with different RTOS scheduling algorithms and 
+- Practical exercises that allow students to experiment with different RTOS scheduling algorithms and
   topics, such as task priorities, preemption, time slicing, priority inheritance, and deadlock.
 - A task where students see RTOS stack-overflow protection in action - including some of its limitations.
 - A series of tasks guiding students in developing an RTOS-compatible logging system.
@@ -113,9 +113,9 @@ Some examples include:
 
 ## Software
 
-{{ centered_img(src="/projects/tonbandgeraet/tband_banner.png" width="100%") }}
+{{ <img.centered src="/projects/tonbandgeraet/tband_banner.png" width="100%"/> }}
 
-Last semester, I found that students had a hard time understanding what exactly was happening inside 
+Last semester, I found that students had a hard time understanding what exactly was happening inside
 the microcontroller - especially when dealing with more complicated RTOS setups.
 
 Unfortunately, I was not able to find an embedded system tracer that fulfilled all my requirements:

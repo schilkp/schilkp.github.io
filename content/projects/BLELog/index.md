@@ -5,14 +5,14 @@ template="project_page.html"
 weight=2
 
 [extra]
-thumbnail_img=""
+#thumbnail_img=""
 disable_toc=true
 +++
 
 A simple python BLE data logger which receives, decodes, stores, and plots characteristic data in real time, that has proven quite convenient and flexible.
 It is based on the [bleak](https://github.com/hbldh/bleak) cross-platform Bluetooth library.
 
-{{ centered_img(src="blelog.png", width="50%") }}
+{{ <img.centered src="blelog.png" width="50%"/> }}
 
 ---
 

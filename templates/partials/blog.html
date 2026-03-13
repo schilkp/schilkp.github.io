@@ -1,4 +1,4 @@
-{% macro card(post) %}
+{% component blog.postcard(post) %}
   <div class="blog_table_inner">
     {% if post.extra.thumbnail_img %}
       {% set post_img = resize_image(
@@ -33,4 +33,4 @@
     {{ post.description | markdown | safe}}
     <a href="{{post.permalink}}">Read More...</a>
   </div>
-{% endmacro blog_post_card %}
+{% endcomponent blog.postcard %}

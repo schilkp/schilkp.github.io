@@ -9,7 +9,9 @@ nav_emoji="🗿"
 menu_pos=4
 +++
 
-{{ centered_img(src="/img/about.jpeg", width="70%", desc="<small> (📸 Leonard Lochte-Holtgreven, 2021) </small>") }}
+{% <img.centered src="/img/about.jpeg" width="70%"> %}
+  <small> (📸 Leonard Lochte-Holtgreven, 2021) </small>
+{% </img.centered> %}
 
 Hi.
 

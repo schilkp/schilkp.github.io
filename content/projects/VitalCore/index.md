@@ -7,26 +7,28 @@ weight=200
 [extra]
 thumbnail_img="vitalcore_paper_small.jpeg"
 +++
-    
-{{ centered_img(src="vitalcore_paper_small.jpeg", no_br="true", width="60%", desc="<small> (📸 Frank K. Gürkaynak, 2022) </small>") }}
 
-{{ toc() }}
+{% <img.centered src="vitalcore_paper_small.jpeg" br={false} width="60%"> %}
+<small> (📸 Frank K. Gürkaynak, 2022) </small>
+{% </img.centered> %}
+
+{{ <toc.inline_toc/> }}
 
 ## Overview
 
 VitalCore is an open-source, highly integrated, miniaturized embedded systems platform that includes everything
 a low-power wearable project usually requires - except application specific sensors
-and transducers. 
+and transducers.
 
 Its small 17.6mm*12.6mm size allows it to be integrated even in the most constrained
 applications, including in-ear and hearable projects. Built around an NRF5340 SoC, VitalCore features
 a dual-core Cortex-M33 processor running at up to 128 MHz, 1 MB of Flash, 512 KB RAM, and BLE 5.2
 complete with an on-board chip antenna.
 
-{{ gallery() }}
-    {{ gallery_img(src="vitalcore_paper.jpg", desc="") }}
-    {{ gallery_img(src="lego.jpg", desc="") }}
-{{ gallery_end() }}
+{% <img.gallery> %}
+    {{ <img.gallery.img src="vitalcore_paper.jpg"/> }}
+    {{ <img.gallery.img src="lego.jpg"/> }}
+{% </img.gallery> %}
 
 <!-- FIXME Link to other projects that use it: VitalPod, In-Ear Voice, RadarBud -->
 
@@ -52,11 +54,11 @@ the VitalPack) can be used:
 
 ## Power
 
-{{ centered_img(src="VC_Power.svg", width="80%") }}
+{{ <img.centered src="VC_Power.svg" width="80%"/> }}
 
 A MAX77654 PMIC provides a full power subsystem, including a software-controlled battery charger with power path
 switching and up to 300mA charge current, a battery monitor, three software-controllable switch mode buck-boost converters each
-with an output range of 0.8V to 5.5V, and two software-controlled LDOs each with an output range of 1.71V to 5.3V. 
+with an output range of 0.8V to 5.5V, and two software-controlled LDOs each with an output range of 1.71V to 5.3V.
 
 All on-board devices (SoC and peripherals) are powered using a dedicated 1.8V buck converter, leaving all SMPS and LDO
 outputs available for application-specific circuitry via the VitalPack connector.
@@ -72,7 +74,7 @@ The VitalCore comes equipped with the following peripherals:
 
 ## Panel
 
-{{ centered_img(src="broken_panel.JPG", width="50%") }}
+{{ <img.centered src="broken_panel.JPG" width="50%"/> }}
 
 The VitalCore Altium project and gerber files include a panel to be used during development.
 It exposes the NRF's SWD programming interface, USB port, power inputs, and power rail test points. It

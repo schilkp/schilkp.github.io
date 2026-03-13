@@ -1,26 +1,33 @@
-{% macro generate_toc(toc, is_header) %} 
-  {% if toc %}
-    <!-- toc -->
-    <div class="toc">
-       {% if is_header %}
-        <h3 style="margin:0 0 6px;"> Table of Contents </h3>
-      {% else %}
-        <h2> Table of Contents </h2>
-      {% endif %}
-      <ul>
-        {% for h1 in toc %}
-        <li>
-          <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-          {% if h1.children %}
-          <ul>
-            {% for h2 in h1.children %}
-            <li> <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a> </li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-{% endmacro generate_toc %}
+{% component toc.toc(toc, is_header: bool) %}
+  <div class="toc">
+    {% if is_header %}
+      <h3 style="margin:0 0 6px;"> Table of Contents </h3>
+    {% else %}
+      <h2> Table of Contents </h2>
+    {% endif %}
+    <ul>
+      {% for h1 in toc %}
+      <li>
+        <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+        {% if h1.children %}
+        <ul>
+          {% for h2 in h1.children %}
+          <li> <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a> </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endcomponent toc.toc %}
+
+{% component toc.inline_toc() %}
+  {# Note:
+     ToC cannot be rendered into the page using templating, as it is only
+     available/known after the page has been generated.
+     Instead, the comment below is replaced by the project_page template after
+     markdown and shortcode expansion.
+  #}
+  <!-- $$toc$$ -->
+{% endcomponent toc.inline_toc %}

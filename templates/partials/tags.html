@@ -1,4 +1,4 @@
-{% macro generate(tags, is_header) %}
+{% component tags.index(tags, is_header: bool) %}
   {% if tags %}
     <!-- Tag index -->
     <div class="tag_index">
@@ -16,5 +16,4 @@
       </ul>
     </div>
   {% endif %}
-{% endmacro generate %}
-
+{% endcomponent tags.index %}

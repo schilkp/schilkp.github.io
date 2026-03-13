@@ -1,12 +1,10 @@
-{% import "partials/html_setup.html" as html_setup %}
-{% import "partials/toc.html" as toc %}
 <!doctype html>
 <html>
   <head>
     <title>{{ page.title }} | schilk</title>
     {% set katex_enabled = page.extra | get(key="katex", default=false) %}
     {% set katex_auto_render = page.extra | get(key="katex_auto_render", default=false) %}
-    {{ html_setup::setup(katex_enabled=katex_enabled, katex_auto_render=katex_auto_render) }}
+    {{< base.html_setup katex_enabled katex_auto_render />}}
   </head>
 
   <body>
@@ -16,7 +14,7 @@
       <header>
         {% include "partials/header_common.html" %}
         {% if not disable_toc %}
-          {{ toc::generate_toc(toc=page.toc, is_header=true) }}
+          {{ <toc.toc toc={page.toc} is_header={true}/> }}
         {% endif %}
       </header>
 
@@ -27,13 +25,12 @@
           {{ page.content | safe}}
         {% else %}
           {% if "<!-- $$toc$$ -->" in page.content %}
-            {{ page.content | replace(from="<!-- $$toc$$ -->", to=toc::generate_toc(toc=page.toc, is_header=false)) | safe}}
+            {{ page.content | replace(from="<!-- $$toc$$ -->", to=<toc.toc toc={page.toc} is_header={false}/>) | safe }}
           {% else %}
-            {{ toc::generate_toc(toc=page.toc, is_header=false) }}
+            {{ <toc.toc toc={page.toc} is_header={false}/> }}
             {{ page.content | safe}}
           {% endif %}
         {% endif %}
-
       </section>
 
       <footer></footer>

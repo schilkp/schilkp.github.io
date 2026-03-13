@@ -1,11 +1,8 @@
-{% import "partials/html_setup.html" as html_setup %}
 <!doctype html>
 <html>
   <head>
     <title>{{ page.title }} | schilk</title>
-    {% set katex_enabled = page.extra | get(key="katex", default=false) %}
-    {% set katex_auto_render = page.extra | get(key="katex_auto_render", default=false) %}
-    {{ html_setup::setup(katex_enabled=katex_enabled, katex_auto_render=katex_auto_render) }}
+    {{< base.html_setup />}}
   </head>
 
   <body>
@@ -162,4 +159,3 @@
   </body>
 
 </html>
-

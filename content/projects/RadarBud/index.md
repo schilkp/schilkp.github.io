@@ -8,9 +8,9 @@ weight=201
 thumbnail_img="radarbud_in_hand.jpeg"
 +++
 
-{{ centered_img(src="projects/RadarBud/radarbud_in_hand.jpeg") }}
+{{ <img.centered src="projects/RadarBud/radarbud_in_hand.jpeg"/> }}
 
-{{ toc() }}
+{{ <toc.inline_toc/> }}
 
 ## Overview
 
@@ -28,29 +28,31 @@ radar and hand gesture recognition pipeline.
 
 ## Hardware
 
-{{ centered_img(src="spin_master.svg") }}
+{{ <img.centered src="spin_master.svg"/> }}
 
 The RadarBud is built on my [VitalCore](/projects/vitalcore/) platform: a tiny controller board that
 features a fairly capable NRF53 SoC, full power and battery management, an IMU, a BLE antenna, and
 some extra flash. We extended it using a purpose-built "RadarPack" extension board, which features
 an Infinion radar and its supporting circuitry.
 
-{{ centered_img(src="render_lbl_master.svg", width="95%") }}
+{{ <img.centered src="render_lbl_master.svg" width="95%"/> }}
 This stack is then placed in a custom case that was manufactured using a resin 3D printer. Besides
 the PCBs, the case also holds a 70mAh battery, a charge connector, and a power switch.
 
 ## Operation
 
-{{ centered_img(src="soli_gestures.jpeg", desc="The set of gestures, as defined by [Wang et al](https://dl.acm.org/doi/10.1145/2984511.2984565). Figure taken from [Wang et al.](https://dl.acm.org/doi/10.1145/2984511.2984565)", width="90%") }}
+{% <img.centered src="soli_gestures.jpeg" width="90%"> %}
+The set of gestures, as defined by [Wang et al](https://dl.acm.org/doi/10.1145/2984511.2984565). Figure taken from [Wang et al.](https://dl.acm.org/doi/10.1145/2984511.2984565)
+{% </img.centered> %}
 
 The RadarBud is capable of classifying within the set of 11 gestures, as defined by [Wang et al.](https://dl.acm.org/doi/10.1145/2984511.2984565) and pictured above. The
 dataset that was acquired for this project with these gestures is available [here](https://www.research-collection.ethz.ch/handle/20.500.11850/672242).
 
-{{ gallery() }}
-    {{ gallery_img(src="range_doppler.svg", desc="Example of a raw radar frame, and the generated Range-Doppler map.") }}
-    {{ gallery_img(src="sequence_doppler.svg", desc="A sequence of Range-Doppler maps, which are the input to the CNN.") }}
-    {{ gallery_img(src="radar_gesture_nn.svg", desc="Depiction of the two convolutional stages, and final multi-layer perceptron.") }}
-{{ gallery_end() }}
+{% <img.gallery> %}
+    {% <img.gallery.img src="range_doppler.svg"> %}Example of a raw radar frame, and the generated Range-Doppler map.{% </img.gallery.img> %}
+    {% <img.gallery.img src="sequence_doppler.svg"> %}A sequence of Range-Doppler maps, which are the input to the CNN.{% </img.gallery.img> %}
+    {% <img.gallery.img src="radar_gesture_nn.svg"> %}Depiction of the two convolutional stages, and final multi-layer perceptron.{% </img.gallery.img> %}
+{% </img.gallery> %}
 The radar generates a sequence of frames, each of which contains a number of radar chirps. Through an FFT, each radar frame
 is first converted into the Range-Doppler domain, yielding a two-dimensional range versus relative speed mapping.
 
@@ -63,13 +65,13 @@ For more details on the algorithmic details, please take a look at our paper lin
 
 ## Performance
 
-{{ gallery() }}
-    {{ gallery_img(src="cm.svg", desc="Confusion Matrix of the quantized Network.") }}
-    {{ gallery_img(src="power_profile.svg", desc="Power profile of an acquisition and inference.") }}
-{{ gallery_end() }}
+{% <img.gallery> %}
+    {% <img.gallery.img src="cm.svg"> %}Confusion Matrix of the quantized Network.{% </img.gallery.img> %}
+    {% <img.gallery.img src="power_profile.svg"> %}Power profile of an acquisition and inference.{% </img.gallery.img> %}
+{% </img.gallery> %}
 
-The final quantized model is only 36KiB large, with a single inference time of 32.4ms on the VitalCore's NRF5340, and is 
-capable of achieving a prediction accuracy of up to 94.9% under the right conditions. For all the details and caveats - 
+The final quantized model is only 36KiB large, with a single inference time of 32.4ms on the VitalCore's NRF5340, and is
+capable of achieving a prediction accuracy of up to 94.9% under the right conditions. For all the details and caveats -
 including a detailed power analysis - see our paper linked above.
 
 ## Links + References

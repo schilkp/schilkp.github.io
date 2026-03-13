@@ -8,21 +8,21 @@ weight=103
 thumbnail_img="psmcu_header.jpeg"
 +++
 
-{{ centered_img(src="psmcu_header.jpeg") }}
+{{ <img.centered src="psmcu_header.jpeg"/> }}
 
-{{ toc() }}
+{{ <toc.inline_toc/> }}
 
 ## Overview
 
-This was my first significant hardware project, that started all the way back in high school. It's an 
-8-bit, 1MHz processor built from individual logic and memory ICs, featuring a custom ISA, peripheral interface, 
+This was my first significant hardware project, that started all the way back in high school. It's an
+8-bit, 1MHz processor built from individual logic and memory ICs, featuring a custom ISA, peripheral interface,
 USB programmer and macro assembler.
 
 It is in a semi-working state: I programmed a simple game of Snake in my custom assembler that is able to run
 using my custom LED matrix and keypad peripherals, but there are some hardware bugs and faults. Unfortunately,
 once university started, I no longer had the time to revise and finish it completely. Maybe someday.
 
-Besides being ridiculous, it is suboptimal and strange in so many ways because I designed it before 
+Besides being ridiculous, it is suboptimal and strange in so many ways because I designed it before
 learning much about computer architecture and digital design 😎.
 
 ## Hardware
@@ -40,22 +40,22 @@ as lookup tables.
 
 ### Control
 
-{{ gallery() }}
-    {{ gallery_img(src="ctrl.jpeg", desc="The psMCU control panel.") }}
-    {{ gallery_img(src="prog.jpeg", desc="The USB Programmer.") }}
-{{ gallery_end() }}
-psMCU features a hardware breakpoint, and can single step both clock cycles and instructions using the 
+{% <img.gallery> %}
+    {% <img.gallery.img src="ctrl.jpeg"> %}The psMCU control panel.{% </img.gallery.img> %}
+    {% <img.gallery.img src="prog.jpeg"> %}The USB Programmer.{% </img.gallery.img> %}
+{% </img.gallery> %}
+psMCU features a hardware breakpoint, and can single step both clock cycles and instructions using the
 control panel shown above. The clock frequency can also be controlled here.
 A USB programmer board is used to load a program into the onboard flash. It is based on an STM32 with an
 FTDI chip for USB communication.
 
 ### Peripherals
 
-{{ gallery() }}
-    {{ gallery_img(src="matrix.jpeg", desc="The LED Matrix Peripheral.") }}
-    {{ gallery_img(src="numpad.jpeg", desc="The Numpad Peripheral.") }}
-{{ gallery_end() }}
-I built a number of peripherals for the processor, including the 8x8 LED matrix and numpad shown above. They can be 
+{% <img.gallery> %}
+    {% <img.gallery.img src="matrix.jpeg"> %}The LED Matrix Peripheral.{% </img.gallery.img> %}
+    {% <img.gallery.img src="numpad.jpeg"> %}The Numpad Peripheral.{% </img.gallery.img> %}
+{% </img.gallery> %}
+I built a number of peripherals for the processor, including the 8x8 LED matrix and numpad shown above. They can be
 chained together and connected to the memory bus connector on the main board.
 
 ## psASM
@@ -63,7 +63,7 @@ chained together and connected to the memory bus connector on the main board.
 ### Overview
 
 Because it features a custom ISA, I developed a fairly full-featured macro assembler in python called *psASM*.
-It features a Turing-complete C-style preprocessor with global and local label resolution, 
+It features a Turing-complete C-style preprocessor with global and local label resolution,
 file inclusion/multi-file programs, macros to reduce code duplication, conditional compilation, and calculations.
 
 Here is a short excerpt of the snake game I developed for the processor, written for psASM:
@@ -72,9 +72,9 @@ Here is a short excerpt of the snake game I developed for the processor, written
 @define RNDR_bit 0x46
 @define RNDR_val 0x47
 
-RENDER: 
+RENDER:
     # Start with the LSB
-    LITA 0x01 
+    LITA 0x01
     SVA RNDR_bit
 
     # Start at the beginning of the board
@@ -86,12 +86,12 @@ RENDER:
     SVA RNDR_val
 
     # State: A = 0, B = ptr
-    RENDER_LOOP: 
+    RENDER_LOOP:
         LDDR         # Load board into A (A = Board, B = Ptr)
         SVB RNDR_ptr # Save the current Pointer
         LDB RNDR_bit # Load the current bit (A= Board, B = Bit)
 
-        # If A is 0, skip ahead 
+        # If A is 0, skip ahead
         IFSM SYS3, S3_A0
             JMP RENDER_ADVANCE_BIT
 
@@ -128,7 +128,7 @@ RENDER:
 
         JMP RENDER_LOOP
 
-    RENDER_LOOP_DONE: 
+    RENDER_LOOP_DONE:
     # -- snip --
 ```
 
@@ -137,9 +137,9 @@ Here are some short snippets that show some of the cooler macro assembler featur
 @ifndef _HAS_BEEN_INCLUDED # Include guard, just like C
 @define _HAS_BEEN_INCLUDED
 
-@if defined(DEBUG) || defined(TESTING) 
-    LITA 1        
-@else 
+@if defined(DEBUG) || defined(TESTING)
+    LITA 1
+@else
     LITA 0
 @end
 
@@ -160,27 +160,27 @@ _file_label: JMP _file_label
 @define val 40
 
 # Basic math operations to determine operand:
-LITA ((val-10) * 2) + 5 
+LITA ((val-10) * 2) + 5
 
 # Bitwise operations to determine operand:
 LITA ((val & 0x0f) | (0xa << 2))
 
 # Conditional operator:
-loop: JMP defined(label) ? label : loop  
+loop: JMP defined(label) ? label : loop
 
 # -- FILE INCLUSION --
 @include "test.psASM" # Inline the file 'test.psASM'
 
 # -- LOOPS --
 @for $i, 0, $i<10, $i+1
-    LITA $i 
+    LITA $i
 @end
 
 # -- MACROS & STRINGS --
 @macro ascii_heap $str, $adr
     PUSHA
     @for $i, 0, $i<strlen($str), $i+1
-        LITA $str[$i] 
+        LITA $str[$i]
         SVA $adr+$i
     @end
     POPA
@@ -197,8 +197,8 @@ psASM is written in python using an ANTLR4 frontend. The bulk of the complexity
 is in the preprocessor, which is effectively a tree-walking interpreter that executes
 the directives in multiple passes.
 
-It has a variety of additional debug features, including the ability to output 
-annotated listings and maps. I also developed a testing setup that executes psASM 
+It has a variety of additional debug features, including the ability to output
+annotated listings and maps. I also developed a testing setup that executes psASM
 with a set of short input snippets, and compares both the output and intermediate
 steps against golden reference files.
 

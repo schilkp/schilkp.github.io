@@ -8,12 +8,12 @@ weight=401
 thumbnail_img="74seriesadc_full_board.jpeg"
 +++
 
-{{ gallery() }}
-    {{ gallery_img(src="74seriesadc_full_board.jpeg") }}
-    {{ gallery_img(src="74seriesadc_render.jpeg") }}
-{{ gallery_end() }}
+{% <img.gallery> %}
+    {{ <img.gallery.img src="74seriesadc_full_board.jpeg"/> }}
+    {{ <img.gallery.img src="74seriesadc_render.jpeg"/> }}
+{% </img.gallery> %}
 
-{{ toc() }}
+{{ <toc.inline_toc/> }}
 
 ## What and Why?
 A discrete SAR (Successive-Approximation-Register) ADC controlled by a state machine implemented in
@@ -46,7 +46,7 @@ It also makes for an approachable demonstration of how such ADCs function.
 Here is a short demonstration of the ADC running at a very slow speed, with the input voltage (in yellow) and DAC output voltage (in cyan) shown
 on the oscilloscope. The output register is in the bottom right.
 
-{{ youtube(src="https://www.youtube-nocookie.com/embed/ZFlC2hURkEs") }}
+{{ <yt.video src="https://www.youtube-nocookie.com/embed/ZFlC2hURkEs"/> }}
 
 At such a low speed, the successive-approximation algorithm can be seen in action:
 
@@ -62,10 +62,10 @@ At such a low speed, the successive-approximation algorithm can be seen in actio
 
 Below are two more oscilloscope captures showing conversion:
 
-{{ gallery() }}
-    {{ gallery_img(src="74seriesadc_trace1.png") }}
-    {{ gallery_img(src="74seriesadc_trace2.png") }}
-{{ gallery_end() }}
+{% <img.gallery> %}
+    {{ <img.gallery.img src="74seriesadc_trace1.png"/> }}
+    {{ <img.gallery.img src="74seriesadc_trace2.png"/> }}
+{% </img.gallery> %}
 
 ## Design
 

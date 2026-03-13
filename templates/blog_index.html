@@ -1,34 +1,28 @@
-{% import "partials/html_setup.html" as html_setup %}
-{% import "partials/blog_postcard.html" as blog_postcard %}
-{% import "partials/tag_index.html" as tag_index %}
-{% import "partials/paginator_nav.html" as paginator_nav %}
-
 {% set tags = get_taxonomy(kind="tags") %}
-
 <!doctype html>
 <html>
   <head>
     <title>stuff | schilk</title>
-    {{ html_setup::setup() }}
+    {{< base.html_setup  />}}
     <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path=section.path ~ "atom.xml", trailing_slash=false) }}">
   </head>
   <body>
     <div class="wrapper">
       <header>
         {% include "partials/header_common.html" %}
-        {{ tag_index::generate(tags=tags, is_header=true) }}
+        {{< tags.index tags is_header={true} />}}
       </header>
       <section>
         <h1>Stuff</h1>
         <div class="blog_table">
           {% for post in paginator.pages %}
-            {{ blog_postcard::card(post=post) }}
+            {{< blog.postcard post />}}
           {% endfor %}
         </div>
 
-        {{ paginator_nav::generate(paginator=paginator) }}
+        {{< pagination.nav paginator />}}
 
-        {{ tag_index::generate(tags=tags, is_header=false) }}
+        {{< tags.index tags is_header={false}/>}}
 
       </section>
       <footer>

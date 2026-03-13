@@ -9,7 +9,7 @@ and _CircumSpect_ work.
 Especially with CircumSpect, the traces I am generating quickly reach into the
 millions of `TracePacket` messages, and upwards of a gigabyte in size. This
 makes bundling them all into a single `Trace` message that gets encoded or
-decoded in a single pass infeasible, which led me to dig into the encoding
+decoded in a single pass infeasible, which lead me to dig into the encoding
 scheme to manually implement a streaming encoder and decoder.
 """
 template="blog_post.html"
@@ -143,19 +143,18 @@ At the heart of protobuffer encoding sit variable-length ("varlen") encoded
 This is an optimization that builds on the observation that in many applications,
 while it is beneficial to support full 32 or 64 bit numbers, most of the time only
 small numbers are used.
-For example, in protobuffer messages, tags all the way up to
-{{ katex(body="2^{29} - 1") }} are supported, while the majority of messages
-have fewer than 100 fields.
+For example, in protobuffer messages, tags all the way up
+to {% <katex.inline> %} 2^{29} - 1 {% </katex.inline> %} are supported,
+while the majority of messages have fewer than 100 fields.
 If protobuffer were to use a fixed 32-bit field for encoding all tags, most
 messages would contain a large number of redundant zeros.
 
-Instead, varints enable us to encode an unsigned number {{ katex(body="N") }} using
-{{ katex(body="\max{\left\lparen \left\lceil \frac{\log_2(N)}{7} \right\rceil, 1 \right\rparen}") }}
-bytes.
+Instead, varints enable us to encode an unsigned number
+using {% <katex.inline> %} \max{\left\lparen \left\lceil \frac{\log_2(N)}{7} \right\rceil, 1 \right\rparen} {% </katex.inline> %} bytes.
 This system trades a shorter average message length for a longer worst-case
 message size, assuming a relatively high frequency of small values.
 For example, any value less than or equal to 127 can be encoded in a single byte, while
-the value {{ katex(body="2^{32}-1") }} requires 5 bytes instead of the usual 4.
+the value {% <katex.inline> %} 2^{32}-1 {% </katex.inline> %} requires 5 bytes instead of the usual 4.
 
 This is achieved by first splitting the value into 7-bit septets which are each
 encoded, starting with the least significant septet, as an 8-bit value consisting

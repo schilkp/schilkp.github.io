@@ -9,12 +9,18 @@ thumbnail_img="patchit_hand.jpeg"
 disable_toc=true
 +++
 
-{{ centered_img(src="patchit_explode.png", no_br="true", width="85%", desc="Exploded View.") }}
+{% <img.centered src="patchit_explode.png" width="85%"> %}
+  Exploded View.
+{% </img.centered> %}
 
-{{ gallery() }}
-    {{ gallery_img(src="patchit_hand.jpeg", desc="<small> (📸 Frank K. Gürkaynak, 2023) </small>") }}
-    {{ gallery_img(src="patchit_hand2.jpeg", desc="<small> (📸 Frank K. Gürkaynak, 2023) </small>") }}
-{{ gallery_end() }}
+{% <img.gallery> %}
+  {% <img.gallery.img src="patchit_hand.jpeg"> %}
+    <small> (📸 Frank K. Gürkaynak, 2023) </small>
+  {% </img.gallery.img> %}
+  {% <img.gallery.img src="patchit_hand2.jpeg"> %}
+    <small> (📸 Frank K. Gürkaynak, 2023) </small>
+  {% </img.gallery.img> %}
+{% </img.gallery> %}
 
 A modular chest-patch with integrated PPG, ECG, bio impedance, body temperature, and seismocardiographical sensors.
 Based around the [VitalCore](@/projects/VitalCore/index.md) controller.

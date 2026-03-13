@@ -7,25 +7,22 @@ set -euo pipefail
 SCRIPT_DIR="$(realpath "$(dirname "$0")")"
 cd "$SCRIPT_DIR"
 
-# Version:
-ZOLA_VERSION="v0.22.1"
-ZOLA_CHECKSUM="0ca09aa40376aaa9ddfb512ff9ad963262ef95edb0d0f2d5ec6961b6f5cf22ef"
-
 # Cleanup
-rm -rf "zola.tar.gz"
 rm -rf "zola"
 
-# Download zola
-echo "Downloading zola.."
-curl -L -o zola.tar.gz "https://github.com/getzola/zola/releases/download/${ZOLA_VERSION}/zola-${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
+# Clone zola
+if [ ! -f repo/Cargo.toml ]; then
+    echo "Cloning..."
+    git clone git@github.com:getzola/zola.git repo
+fi
 
-echo "Checking.."
-echo "${ZOLA_CHECKSUM}  zola.tar.gz" | sha256sum -c
-echo "Ok!"
+# Checkout
+echo "Checkout..."
+pushd repo
+git checkout 2508f4b
 
-echo "Extracting.."
-tar -zxf zola.tar.gz
-rm -rf "zola.tar.gz"
+echo "Building..."
+cargo build --release
+popd
 
-rm LICENSE
-rm -rf artifacts
+mv ./repo/target/release/zola ./zola

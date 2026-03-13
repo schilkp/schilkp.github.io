@@ -1,4 +1,4 @@
-{% macro setup(katex_enabled=false, katex_auto_render=false) %}
+{% component base.html_setup(katex_enabled: bool = false, katex_auto_render: bool = false) %}
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -15,4 +15,4 @@
 
   <!-- goatcounter analytics: -->
   <script data-goatcounter="https://analytics.schilk.co/count" async src="//analytics.schilk.co/count.js"></script>
-{% endmacro setup %}
+{% endcomponent base.html_setup %}

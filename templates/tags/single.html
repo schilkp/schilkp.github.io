@@ -1,11 +1,8 @@
-{% import "partials/html_setup.html" as html_setup %}
-{% import "partials/blog_postcard.html" as blog_postcard %}
-{% import "partials/paginator_nav.html" as paginator_nav %}
 <!doctype html>
 <html>
   <head>
     <title>{{ term.name }} | stuff | schilk</title>
-    {{ html_setup::setup() }}
+    {{< base.html_setup />}}
   </head>
   <body>
     <div class="wrapper">
@@ -17,11 +14,11 @@
         <h1>Stuff: {{ term.name }} </h1>
         <div class="blog_table">
           {% for post in paginator.pages %}
-            {{ blog_postcard::card(post=post) }}
+            {{< blog.postcard post />}}
           {% endfor %}
         </div>
 
-        {{ paginator_nav::generate(paginator=paginator) }}
+        {{< pagination.nav paginator />}}
 
       </section>
       <footer>
@@ -30,4 +27,3 @@
     </div>
   </body>
 </html>
-

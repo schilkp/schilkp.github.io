@@ -5,11 +5,11 @@ template="project_page.html"
 weight=8
 
 [extra]
-thumbnail_img=""
+# thumbnail_img=""
 disable_toc=true
 +++
 
-{{ centered_img(src="ws2812b.svg", width="95%") }}
+{{ <img.centered src="ws2812b.svg" width="95%"/> }}
 
 ## Overview
 
