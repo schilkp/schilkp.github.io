@@ -27,6 +27,19 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Check for large images
+        working-directory: ${{github.workspace}}
+        run: |
+          echo "Looking for large images..."
+        
+          if [ -n "$(find content/ -type f -size +5M)" ]; then
+            echo "Files larger than 5MB found! Files:"
+            find content/ -type f -size +5M -exec du -h {} +
+            exit 1
+          fi
+
+          echo "No excessively large images found. Ok."
 
       - name: Install exiftool
         shell: bash
@@ -38,11 +51,11 @@ jobs:
       - name: Check for image metadata
         working-directory: ${{github.workspace}}
         run: |
-          echo "Stripping metadata..."
+          echo "Looking for image metadata..."
           exiftool -all= -r -ext jpg -ext jpeg -ext png -overwrite_original .
 
           if [ -n "$(git status --porcelain)" ]; then
-            echo "Image with metadata found. Please strip."
+            echo "Image with metadata found. Please strip (`just strip_metadata`)."
             git status --porcelain
             exit 1
           fi
