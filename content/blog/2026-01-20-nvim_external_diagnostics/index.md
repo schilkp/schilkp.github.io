@@ -15,6 +15,8 @@ template="blog_post.html"
 tags=["nvim", "rtl"]
 +++
 
+{{ toc() }}
+
 While most modern programming languages feature very advanced editor
 integrations especially through LSP server implementations, VLSI, RTL, and
 (System)Verilog tooling is always a bit ... _different_.

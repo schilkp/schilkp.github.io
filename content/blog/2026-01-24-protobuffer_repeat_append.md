@@ -22,6 +22,8 @@ tags=[]
 katex=true
 +++
 
+{{ toc() }}
+
 > [!NOTE]
 > This post assumes a basic familiarity with the user-facing aspects of
 > Google's open-source [protobuffer](https://protobuf.dev/) suite.
