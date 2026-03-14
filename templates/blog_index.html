@@ -15,8 +15,8 @@
   <body>
     <div class="wrapper">
       <header>
-          {% include "partials/header_common.html" %}
-          {{ tag_index::generate(tags=tags) }}
+        {% include "partials/header_common.html" %}
+        {{ tag_index::generate(tags=tags, is_header=true) }}
       </header>
       <section>
         <h1>Stuff</h1>
@@ -28,7 +28,7 @@
 
         {{ paginator_nav::generate(paginator=paginator) }}
 
-        {{ tag_index::generate(tags=tags) }}
+        {{ tag_index::generate(tags=tags, is_header=false) }}
 
       </section>
       <footer>

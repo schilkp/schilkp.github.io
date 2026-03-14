@@ -1,8 +1,12 @@
-{% macro generate(tags) %}
+{% macro generate(tags, is_header) %}
   {% if tags %}
     <!-- Tag index -->
     <div class="tag_index">
-      <h3 style="margin:0 0 6px;"> Tags: </h3>
+      {% if is_header %}
+        <h3 style="margin:0 0 6px;"> Tags </h3>
+      {% else %}
+        <h2> Tags: </h2>
+      {% endif %}
       <ul>
         {% for tag in tags.items %}
           <li>
