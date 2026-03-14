@@ -8,7 +8,7 @@ and _CircumSpect_ work.
 
 Especially with CircumSpect, the traces I am generating quickly reach into the
 millions of `TracePacket` messages, and upwards of a gigabyte in size. This
-makes bundling them all into a single `Trace` message that gets encoded or 
+makes bundling them all into a single `Trace` message that gets encoded or
 decoded in a single pass infeasible, which led me to dig into the encoding
 scheme to manually implement a streaming encoder and decoder.
 """
@@ -24,7 +24,7 @@ katex=true
 
 > [!NOTE]
 > This post assumes a basic familiarity with the user-facing aspects of
-> google's open-source [protobuffer](https://protobuf.dev/) suite.
+> Google's open-source [protobuffer](https://protobuf.dev/) suite.
 >
 > In short, protobuffer allows you to define a set of messages which you
 > would like to exchange using a simple DSL in a `.proto` file.
@@ -40,7 +40,7 @@ katex=true
 
 ## Motivation: Interfacing with Perfetto
 
-I have found Google's [_Perfetto_](perfetto.dev) trace viewer to be a really
+I have found Google's [_Perfetto_](https://perfetto.dev) trace viewer to be a really
 useful tool to visualize arbitrary time-based traces by converting them
 into the protobuffer-based format that Perfetto uses.
 This is how both [Tonbandgerät](@/projects/Tonbandgeraet/index.md) and
@@ -48,7 +48,7 @@ This is how both [Tonbandgerät](@/projects/Tonbandgeraet/index.md) and
 
 In particular, Perfetto traces are a very long sequence of individual `TracePacket`
 messages, which describe the tracks and the events on them.
-Below follows a greatly simplified version of this `TracePacket`
+What follows below is a greatly simplified version of this `TracePacket`
 message. The full definition can be found in the Perfetto source code
 [here](https://github.com/google/perfetto/tree/main/protos/perfetto).
 ```proto
@@ -79,10 +79,10 @@ message Trace {
 }
 ```
 
-Because, unlike in zero-copy frameworks such as [Cap'n Proto](https://capnproto.org/),
+Unlike in zero-copy frameworks such as [Cap'n Proto](https://capnproto.org/),
 protobuffer's serialised format does not double as an in-memory representation,
-all serialisation and deserialisation operations move and convert data in between
-a binary buffer containing the wire representation, and an in-memory data structure
+all serialisation and deserialisation operations move and convert data between
+a binary buffer containing the wire representation and an in-memory data structure
 with which the program interacts.
 
 In short, this means that to serialise a large `Trace`, the full trace needs
@@ -97,12 +97,12 @@ pub struct Trace {
     packet: Vec<TracePacket>,
 }
 
-pub collect_trace(..) {
+pub fn collect_trace(..) {
     let mut trace = Trace::new();
 
     while not_finished() {
         let pkt: TracePacket = collect_trace_packet();
-        Trace.packet.push(pkt);
+        trace.packet.push(pkt);
     }
 
     trace.serialise_to_file("trace.pftrace");
@@ -110,9 +110,9 @@ pub collect_trace(..) {
 ```
 
 For a large stream of `TracePacket`s reaching into the gigabytes, this requires
-an incredible amount of memory or is outright impossible.
+an incredible amount of memory, or is outright impossible.
 Rather, it would be much better if `TracePacket`s could be written to disk
-continously as they are generated.
+continuously as they are generated.
 
 Because CircumSpect can post-process traces after they are recorded, I also run
 into this problem in the opposite direction:
@@ -125,9 +125,9 @@ This is not directly supported by most protobuffer libraries.
 ## Protobuffer wire format
 
 To understand how difficult this would be to achieve, we have to have a look at
-how a message containing a single repeated message is serialised.
+how a message containing a single repeated message field is serialised.
 Fortunately, the protobuf wire format for a simple message like `Trace` is
-not all too complicated!
+not all that complicated!
 
 What follows below is an overview of the aspects of protobuffer encoding that
 are relevant for achieving this "streaming" encoding and decoding of a `Trace`
@@ -140,8 +140,8 @@ If you want more detailed information, have a look at the
 At the heart of protobuffer encoding sit variable-length ("varlen") encoded
 64 bit integers, referred to as _varints_.
 
-This is an optimization that builds on the observation that in my applications,
-while it is benefitial to support full 64 bit numbers, most of the time only
+This is an optimization that builds on the observation that in many applications,
+while it is beneficial to support full 32 or 64 bit numbers, most of the time only
 small numbers are used.
 For example, in protobuffer messages, tags all the way up to
 {{ katex(body="2^{29} - 1") }} are supported, while the majority of messages
@@ -149,15 +149,16 @@ have fewer than 100 fields.
 If protobuffer were to use a fixed 32-bit field for encoding all tags, most
 messages would contain a large number of redundant zeros.
 
-Instead, varints enable us to encode unsigned numbers using
+Instead, varints enable us to encode an unsigned number {{ katex(body="N") }} using
 {{ katex(body="\max{\left\lparen \left\lceil \frac{\log_2(N)}{7} \right\rceil, 1 \right\rparen}") }}
 bytes.
-For example, any value less than or equal to 127 can be encoded in a single byte.
-In other words, this system trades a much improved average message length for a
-longer worst-case message size.
+This system trades a shorter average message length for a longer worst-case
+message size, assuming a relatively high frequency of small values.
+For example, any value less than or equal to 127 can be encoded in a single byte, while
+the value {{ katex(body="2^{32}-1") }} requires 5 bytes instead of the usual 4.
 
-This is achieved by first splitting the value into 7-bit septets, which are each
-encoded, starting with the least significant septet, as an 8-bit value, consisting
+This is achieved by first splitting the value into 7-bit septets which are each
+encoded, starting with the least significant septet, as an 8-bit value consisting
 of the septet in the lower bits, and a control bit in the most significant
 bit position.
 This control bit is set to `1` if there are more non-zero bits to follow,
@@ -220,7 +221,8 @@ message Msg {
 }
 ```
 
-Consider an instance of `Msg` with a value of `42` for the `data` field:
+Assume we want to encode an instance of `Msg` with a value of `42` for the `data` field:
+
 
 ```json
 { "data": 42 }
@@ -235,13 +237,13 @@ Serialised, it looks as follows:
 The data field has a field number of `1` and its `uint64` data type, as is
 listed in the table above, is encoded using varint encoding which has an
 encoding id of `0`. Therefore, the key value is `key = (1 << 3) | 0 = 0x08`,
-which is varlen-encoded as `0x08`, since it is less than `128.`
-The value of `42` (`0x2a` in hex) is also directly encoded as `0x2a` in using
+which is varlen-encoded as `0x08`, since it is less than `128`.
+The value of `42` (`0x2a` in hex) is also directly encoded as `0x2a` using
 the varlen scheme, as it too is less than `128`.
 
 ### Nested messages
 
-Now consider a new message type `Parent`, which contains a single `Msg` field,
+Now consider a new message type `Parent`, which contains a single `Msg` field
 with a field number of `1`:
 
 ```proto
@@ -256,9 +258,9 @@ message Parent {
 
 In protobufs, such "embedded" messages are encoded using the `LEN` scheme
 listed in the table above, which has an id of `2`.
-Quite simply, the length of the encoded child message in bytes is first
-serialised as a varlen-encoded value, followed by the normal encoding of
-the child message.
+Quite simply, after the key value, the length of the encoded child message in
+bytes is first serialised as a varlen-encoded value, followed by the normal
+encoding of the child message.
 
 For example, consider an instance of `Parent`, which contains a `Msg` instance
 with `data = 42` as above in its `child` field:
@@ -268,7 +270,7 @@ with `data = 42` as above in its `child` field:
 ```
 
 From above, we know that such a `Msg` is encoded as `0x08 0x2a`, which is
-of length 2, which gives us the following encoding for `Parent`:
+of length 2, giving us the following encoding for `Parent`:
 
 ```text
 KEY   LEN   CHILD.....
@@ -289,7 +291,7 @@ equivalent of arrays - are encoded.
 > Note that there are two encoding schemes for repeated fields, which are used
 > based on the type of the field that is being repeated.
 > I will not discuss the "packed" scheme, which is used for simple scalar
-> values and also uses a `LEN`-style encoding here.
+> values and also uses a `LEN`-style encoding, in this post.
 > In older versions of protobuffer, this "packed" scheme was opt-in, but
 > in more modern versions it is the default for simple repeated scalars!
 
@@ -306,8 +308,8 @@ message MultiParent {
 }
 ```
 
-Let's have a look at how the following, a `MultiParent` containing two
-`data = 42` children, would be encoded:
+Let's have a look at how a `MultiParent` containing two `data = 42` children
+would be encoded:
 
 ```json
 {
@@ -318,7 +320,7 @@ Let's have a look at how the following, a `MultiParent` containing two
 }
 ```
 
-Quite simply, for repeated embedded messages, protobuffer simply repeats another
+Quite simply, for repeated embedded messages, protobuffer repeats another
 key-value pair with the same field number. We already know that a single embedded
 `Msg` with `data = 42` is encoded as `0x0A 0x02 0x08 0x2A`, so the `MultiParent`
 above is encoded as:
@@ -340,7 +342,7 @@ KEY   LEN   CHILD.....   KEY   LEN   CHILD.....
 
 Armed with this basic understanding of the protobuffer wire format, and a
 `protoc`-generated (or equivalent) encoder and decoder of the inner
-`TracePacket` message, we can now decode and encode a large `Trace` one
+`TracePacket` message, we can now encode and decode a large `Trace` one
 `TracePacket` at a time by doing a bit of manual leg work.
 
 Notably, the `Trace` message with which we started this post is incredibly
@@ -356,19 +358,19 @@ message Trace {
 This means that a Perfetto trace is simply a sequence of the following
 for each `TracePacket`:
 
-- The byte `0x0A`, which is the varlen-encoded form of the key for a field at number 1 with the `LEN` encoding: `(1 << 3) | 2 = 0x0A`.
+- The byte `0x0A`, which is the varlen-encoded form of the key for a field tag number 1 encoded with the `LEN` scheme: `(1 << 3) | 2 = 0x0A`.
 - The length of the serialized `TracePacket` in bytes, in varlen-encoded form.
 - The serialized `TracePacket`.
 
 ### Progressive Serialisation/Appending
 
 This makes progressive serialisation of a `Trace` quite easy to do, because we
-can use the `protoc` generated encoding routing for an individual `TracePacket`,
-and attach them together into a correctly formatted trace by prepending each
+can use the `protoc` generated encoding routine for an individual `TracePacket`,
+and concatenate them together into a correctly formatted trace by prepending each
 trace packet with a `0x0A` and the length of the `TracePacket` in bytes, as
 a varlen-encoded value.
 
-For example, in rust using the [`prost`](https://github.com/tokio-rs/prost)
+For example, in Rust using the [`prost`](https://github.com/tokio-rs/prost)
 protobuffer library, this would look roughly as follows:
 
 ```rust
@@ -387,8 +389,8 @@ pub fn encode_varint(mut v: u64, buf: &mut Vec<u8>) {
 
 /// Append a TracePacket to the provided buffer, which contains an already encoded Trace message,
 /// or is empty.
-pub fn append_trace_package(pckg: &TracePacket, buf: &mut Vec<u8>) -> anyhow::Result<()> {
-    // Key:
+pub fn append_trace_packet(pckg: &TracePacket, buf: &mut Vec<u8>) -> anyhow::Result<()> {
+    // Key: field 1, LEN encoding = (1 << 3) | 2
     encode_varint(0x0A, buf);
     // Length:
     encode_varint(pckg.encoded_len() as u64, buf);
@@ -399,34 +401,36 @@ pub fn append_trace_package(pckg: &TracePacket, buf: &mut Vec<u8>) -> anyhow::Re
 ```
 
 > [!TIP]
-> The `prost` library provides builtin functions for the varlen-encoding of the 
-> message length, which was implemented manually above for illustrative purposes.
+> The `prost` library provides builtin functions for the varlen-encoding of the
+> message length, which is implemented manually above for illustration.
 >
-> See 
+> See
 > [`Message::encode_length_delimited()`](https://docs.rs/prost/latest/prost/trait.Message.html#method.encode_length_delimited),
-> and 
+> and
 > [`encode_length_delimiter()`](https://docs.rs/prost/latest/prost/fn.encode_length_delimiter.html).
-> For decoding, have a look at 
+> For decoding, have a look at
 > [`Message::decode_length_delimited()`](https://docs.rs/prost/latest/prost/trait.Message.html#method.decode_length_delimited),
-> and 
+> and
 > [`decode_length_delimiter()`](https://docs.rs/prost/latest/prost/fn.decode_length_delimiter.html).
 
 
 ### Progressive Deserialisation
-Similarly, for decoding, we skip the `0x0A` byte, decode the varlen-encoded length
+For decoding, we similarly skip the `0x0A` byte, decode the varlen-encoded length
 field, and then pass that number of bytes to the protobuffer-generated `TracePacket`
-decoder. In rust this would look roughly as follows:
+decoder.
 
 > [!CAUTION]
 > Parsing the length of the embedded message to determine which range of bytes makes
 > up one `TracePacket` is absolutely necessary.
 > Protobuffer's wire format is not self-delimiting, so if you try to decode a nested
 > message without trimming away the bytes of successive messages, decoding will
-> very likely produce garbage data.
+> produce garbage data.
 >
 > You also cannot simply search for all `0x0A` bytes and assume that they
 > delimit individual `TracePacket` messages: Encoded nested messages can
 > contain arbitrary bytes, including `0x0A`.
+
+In Rust this would look roughly as follows:
 
 ```rust
 /// Attempt to "consume" the first byte from the buffer and advance the pointer.
@@ -458,15 +462,15 @@ pub fn decode_varint(buf: &mut &[u8]) -> anyhow::Result<u64> {
         }
 
         if offs >= 70 {
-            return Err(anyhow::anyhow!("Unterminated varint"));
+            return Err(anyhow::anyhow!("Varint too long"));
         }
     }
     Ok(v)
 }
 
 /// Decode a TracePacket from the beginning provided buffer containing an encoded Trace message,
-/// returning the package and the offset of the next TracePacket in the buffer.
-pub fn decode_next_trace_package(buf: &mut &[u8]) -> anyhow::Result<(TracePacket, usize)> {
+/// returning the packet and the offset of the next TracePacket in the buffer.
+pub fn decode_next_trace_packet(buf: &mut &[u8]) -> anyhow::Result<(TracePacket, usize)> {
     let len_orig = buf.len();
 
     // Decode & validate key
@@ -498,6 +502,6 @@ pub fn decode_next_trace_package(buf: &mut &[u8]) -> anyhow::Result<(TracePacket
 
 ### Complete Example
 
-For a complete working example including a few tests, have a look at 
-[this](https://github.com/schilkp/protobuffer_repeat_streaming_example) 
+For a complete working example including a few tests, have a look at
+[this](https://github.com/schilkp/protobuffer_repeat_streaming_example)
 repository.
