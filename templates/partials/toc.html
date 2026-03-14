@@ -1,8 +1,12 @@
-{% macro generate_toc(toc) %} 
+{% macro generate_toc(toc, is_header) %} 
   {% if toc %}
     <!-- toc -->
     <div class="toc">
-      <h3 style="margin:0 0 6px;"> {{page.title}} </h3>
+       {% if is_header %}
+        <h3 style="margin:0 0 6px;"> Table of Contents </h3>
+      {% else %}
+        <h2> Table of Contents </h2>
+      {% endif %}
       <ul>
         {% for h1 in toc %}
         <li>

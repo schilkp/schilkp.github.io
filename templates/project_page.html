@@ -13,12 +13,12 @@
     <div class="wrapper">
       <header>
         {% include "partials/header_common.html" %}
-        {{ toc::generate_toc(toc=page.toc) }}
+        {{ toc::generate_toc(toc=page.toc, is_header=true) }}
       </header>
 
       <section>
         <h1>{{page.title}}</h1>
-        {{ page.content | replace(from="<!-- $$toc$$ -->", to=toc::generate_toc(toc=page.toc)) | safe}}
+        {{ page.content | replace(from="<!-- $$toc$$ -->", to=toc::generate_toc(toc=page.toc, is_header=false)) | safe}}
       </section>
 
       <footer></footer>

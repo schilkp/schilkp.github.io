@@ -298,9 +298,6 @@ section .toc {
   display: none;
 }
 @media print, screen and (max-width: 960px) {
-  .toc h3 {
-    display: none;
-  }
   header .toc {
     display: none;
   }
