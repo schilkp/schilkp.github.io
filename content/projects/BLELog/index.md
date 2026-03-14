@@ -12,7 +12,7 @@ disable_toc=true
 A simple python BLE data logger which receives, decodes, stores, and plots characteristic data in real time, that has proven quite convenient and flexible.
 It is based on the [bleak](https://github.com/hbldh/bleak) cross-platform Bluetooth library.
 
-{{ <img.centered src="blelog.png" width="50%"/> }}
+{{ <md.centered_img src="blelog.png" width="50%"/> }}
 
 ---
 

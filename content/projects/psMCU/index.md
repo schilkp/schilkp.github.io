@@ -8,9 +8,9 @@ weight=103
 thumbnail_img="psmcu_header.jpeg"
 +++
 
-{{ <img.centered src="psmcu_header.jpeg"/> }}
+{{ <md.centered_img src="psmcu_header.jpeg"/> }}
 
-{{ <toc.inline_toc/> }}
+{{ <md.toc/> }}
 
 ## Overview
 
@@ -40,10 +40,10 @@ as lookup tables.
 
 ### Control
 
-{% <img.gallery> %}
-    {% <img.gallery.img src="ctrl.jpeg"> %}The psMCU control panel.{% </img.gallery.img> %}
-    {% <img.gallery.img src="prog.jpeg"> %}The USB Programmer.{% </img.gallery.img> %}
-{% </img.gallery> %}
+{% <md.gallery> %}
+    {% <md.gallery.img src="ctrl.jpeg"> %}The psMCU control panel.{% </md.gallery.img> %}
+    {% <md.gallery.img src="prog.jpeg"> %}The USB Programmer.{% </md.gallery.img> %}
+{% </md.gallery> %}
 psMCU features a hardware breakpoint, and can single step both clock cycles and instructions using the
 control panel shown above. The clock frequency can also be controlled here.
 A USB programmer board is used to load a program into the onboard flash. It is based on an STM32 with an
@@ -51,10 +51,10 @@ FTDI chip for USB communication.
 
 ### Peripherals
 
-{% <img.gallery> %}
-    {% <img.gallery.img src="matrix.jpeg"> %}The LED Matrix Peripheral.{% </img.gallery.img> %}
-    {% <img.gallery.img src="numpad.jpeg"> %}The Numpad Peripheral.{% </img.gallery.img> %}
-{% </img.gallery> %}
+{% <md.gallery> %}
+    {% <md.gallery.img src="matrix.jpeg"> %}The LED Matrix Peripheral.{% </md.gallery.img> %}
+    {% <md.gallery.img src="numpad.jpeg"> %}The Numpad Peripheral.{% </md.gallery.img> %}
+{% </md.gallery> %}
 I built a number of peripherals for the processor, including the 8x8 LED matrix and numpad shown above. They can be
 chained together and connected to the memory bus connector on the main board.
 

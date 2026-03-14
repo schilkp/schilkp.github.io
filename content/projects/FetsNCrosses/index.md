@@ -8,9 +8,9 @@ weight=101
 thumbnail_img="fetsncrosses_header.jpeg"
 +++
 
-{{ <img.centered src="fetsncrosses_full.jpeg"/> }}
+{{ <md.centered_img src="fetsncrosses_full.jpeg"/> }}
 
-{{ <toc.inline_toc/> }}
+{{ <md.toc/> }}
 
 ## Overview + Features
 
@@ -30,13 +30,13 @@ In a second step I replaced this implementation with a purely combinatorial logi
 perfect play.
 
 
-{% <img.centered src="sim.png"> %}
+{% <md.centered_img src="sim.png"> %}
 The simulation in LOGISIM.
-{% </img.centered> %}
+{% </md.centered_img> %}
 
-{% <img.centered src="block.png"> %}
+{% <md.centered_img src="block.png"> %}
 A high-level block diagram of the system.
-{% </img.centered> %}
+{% </md.centered_img> %}
 
 ## Hardware Implementation
 
@@ -51,13 +51,13 @@ This was done in KiCad, with each cell contained in a hierarchical schematic she
 
 For example, here is the basic NOT gate:
 
-{{ <img.centered src="not.svg" width="40%"/> }}
+{{ <md.centered_img src="not.svg" width="40%"/> }}
 
 I should note that the specific mosfets models were chosen using the highly scientific process of "sorting by cheapest first" on [lcsc.com](https://www.lcsc.com).
 
 I then systematically constructed more complex gates from these basic cells. For example, a 2-input AND gate was built from an NAND and NOT gate:
 
-{{ <img.centered src="2and.svg" width="50%"/> }}
+{{ <md.centered_img src="2and.svg" width="50%"/> }}
 
 Then, I re-drew the logic circuit in KiCad, using the hierarchical sheets instead of components. A similar
 procedure is used during layout: each basic cell is routed once, and then the layout applied to all instances
@@ -75,14 +75,14 @@ built on a separate PCB, can be connected to a series of pin-headers on the top.
 The PCBs are both 2 layer, and the routing was done in a [Manhattan style](https://en.wikipedia.org/wiki/Manhattan_wiring), with the top layer used for all
 transistor footprints and vertical routing, while the bottom layer was used for all horizontal routing:
 
-{% <img.centered src="route.jpeg"> %}
+{% <md.centered_img src="route.jpeg"> %}
 A close-up of some of the routing on the main board.
-{% </img.centered> %}
+{% </md.centered_img> %}
 
-{% <img.gallery> %}
-    {% <img.gallery.img src="fetsncrosses_render_board.png"> %}Main PCB render.{% </img.gallery.img> %}
-    {% <img.gallery.img src="fetsncrosses_render_engine.png"> %}Engine PCB render.{% </img.gallery.img> %}
-{% </img.gallery> %}
+{% <md.gallery> %}
+    {% <md.gallery.img src="fetsncrosses_render_board.png"> %}Main PCB render.{% </md.gallery.img> %}
+    {% <md.gallery.img src="fetsncrosses_render_engine.png"> %}Engine PCB render.{% </md.gallery.img> %}
+{% </md.gallery> %}
 
 ## Assembly
 
@@ -94,7 +94,7 @@ shared the same orientation on the board, this was actually a pretty quick proce
 
 Here is a timelapse of one such assembly:
 
-{{ <yt.video src="https://www.youtube-nocookie.com/embed/Lz2p190qZ2Q"/> }}
+{{ <md.yt src="https://www.youtube-nocookie.com/embed/Lz2p190qZ2Q"/> }}
 
 (~Not included is me dropping the board from the solder hot-plate around 5 minutes after I stopped filming.~)
 
@@ -105,7 +105,7 @@ weeks due to tension breaking solder joints.
 
 ## Full Hardware Test
 
-{{ <img.centered src="fetsncrosses_testing.jpeg"/> }}
+{{ <md.centered_img src="fetsncrosses_testing.jpeg"/> }}
 
 As a final step, I implemented a small STM32-based test bench that allows the engine to be
 connected to the PC. I also developed a small python script that plays every single

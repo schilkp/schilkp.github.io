@@ -1,0 +1,120 @@
+{# ---- Utilities ----------------------------------------------------------- #}
+
+{% component md.strip_all_indents() -%}
+  {%- set lines = [] -%}
+  {%- for line in body | split(pat="\n") -%}
+    {%- set_global lines = [...lines, line | trim_start] -%}
+  {%- endfor -%}
+  {%- set new_body = lines | join(sep="\n") -%}
+  {{- new_body -}}
+{%- endcomponent md.strip_all_indents %}
+
+{# ---- Images -------------------------------------------------------------- #}
+
+{% component md.gallery() %}
+{%- <md.strip_all_indents> -%}
+  <div class="gallery_row">
+    {{ body | markdown | safe }}
+  </div>
+  <br>
+{%- </md.strip_all_indents> -%}
+{% endcomponent md.gallery %}
+
+{% component md.gallery.img(src: string) %}
+{%- <md.strip_all_indents> -%}
+  <div class="gallery_column">
+    <a href="{{src}}">
+      <img src="{{src}}">
+    </a>
+    <br>
+    {% if body %}
+      <center>
+        {{ body | safe }}
+      </center>
+    {% endif %}
+  </div>
+{%- </md.strip_all_indents> -%}
+{% endcomponent md.gallery.img %}
+
+{% component md.centered_img(src: string, br: bool = true, downscale_to_width: integer = None, width: string = "70%") -%}
+{%- <md.strip_all_indents> -%}
+  {% if br %} <br> {% endif %}
+  <center>
+    {% if downscale_to_width %}
+      {% set resized_image = resize_image(
+         path=src,
+         width=downscale_to_width,
+         op="fit_width",
+         format="jpg",
+         quality=100)
+       %}
+      {% set img = resized_image.url %}
+      {% set link = resized_image.url %}
+    {% else %}
+      {% set img = src %}
+      {% set link= src %}
+    {% endif %}
+    <a href="{{ link }}">
+      <img src="{{img}}" width={{width}}>
+    </a>
+    {% if body %}
+    <br>
+    {{ body | markdown | safe }}
+    {% endif %}
+  </center>
+  {% if br %} <br> {% endif %}
+{%- </md.strip_all_indents> -%}
+{% endcomponent md.centered_img %}
+
+{# ---- KaTeX --------------------------------------------------------------- #}
+
+{% component md.katex.inline() %} <script type="math/tex">{{body | safe}}</script> {% endcomponent md.katex.inline %}
+
+{% component md.katex.block() -%}
+  <script type="math/tex;mode=display">{{body | safe}}</script>
+{%- endcomponent md.katex.block %}
+
+{# ---- Layout -------------------------------------------------------------- #}
+
+{% component md.two_col() %}
+{%- <md.strip_all_indents> -%}
+  <div class="twocol">
+    {{ body | markdown | safe }}
+  </div>
+{%- </md.strip_all_indents> -%}
+{% endcomponent md.two_col %}
+
+{% component md.two_col.box() %}
+{%- <md.strip_all_indents> -%}
+  <div class="twocol_box">
+    {{ body | markdown | safe }}
+  </div>
+{%- </md.strip_all_indents> -%}
+{% endcomponent md.two_col.box %}
+
+{# ---- TOC ----------------------------------------------------------------- #}
+
+{% component md.toc() %}
+{%- <md.strip_all_indents> -%}
+  {# Note:
+     ToC cannot be rendered into the page using templating, as it is only
+     available/known after the page has been generated.
+     Instead, the comment below is replaced by the project_page template after
+     markdown and shortcode expansion.
+  #}
+  <!-- $$toc$$ -->
+{%- </md.strip_all_indents> -%}
+{% endcomponent md.toc %}
+
+{# ---- Youtube ------------------------------------------------------------- #}
+
+{% component md.yt(src: string) %}
+{%- <md.strip_all_indents> -%}
+  <center>
+    <div class="youtube-video-container">
+      <iframe width="560" height="315" src="{{ src }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </center>
+  <br>
+{%- </md.strip_all_indents> -%}
+{% endcomponent md.yt %}

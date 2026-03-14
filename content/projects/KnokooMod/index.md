@@ -9,9 +9,9 @@ weight=404
 thumbnail_img="knokoomod_full.jpeg"
 +++
 
-{{ <img.centered src="knokoomod_full.jpeg"/> }}
+{{ <md.centered_img src="knokoomod_full.jpeg"/> }}
 
-{{ <toc.inline_toc/> }}
+{{ <md.toc/> }}
 
 ## What and Why
 
@@ -48,22 +48,22 @@ An additional LED blinks while in timer mode, or remains on while running indefi
 
 If no pedal is attached, the unit will function normally.
 
-{{ <yt.video src="https://www.youtube-nocookie.com/embed/2ysy9WUZLiE"/> }}
+{{ <md.yt src="https://www.youtube-nocookie.com/embed/2ysy9WUZLiE"/> }}
 
 ## Installation Reference
 
 Once the PCB is assembled and programmed, it can easily be mounted next to the actual PCB:
 
-{{ <img.centered src="knokoomod_modboard.jpeg" width="50%"/> }}
+{{ <md.centered_img src="knokoomod_modboard.jpeg" width="50%"/> }}
 
 A short 4-pin to 3-pin JST XH cable must be made to connect the board to the main PCB:
 
-{{ <img.centered src="knokoomod_small_cable.jpeg" width="50%"/> }}
+{{ <md.centered_img src="knokoomod_small_cable.jpeg" width="50%"/> }}
 
 The 1/4" jack for the pedal, status LED, and timer potentiometer must be connected
 to the board with an 8-pin JST XH cable:
 
-{{ <img.centered src="knokoomod_large_cable.jpeg" width="50%"/> }}
+{{ <md.centered_img src="knokoomod_large_cable.jpeg" width="50%"/> }}
 
 If the 1/4" jack does not have a switch, tie PEDC to GND (for example POT-). In this
 case the unit will *not* return to normal operation when no pedal is connected.

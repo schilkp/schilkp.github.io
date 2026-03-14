@@ -144,17 +144,17 @@ This is an optimization that builds on the observation that in many applications
 while it is beneficial to support full 32 or 64 bit numbers, most of the time only
 small numbers are used.
 For example, in protobuffer messages, tags all the way up
-to {% <katex.inline> %} 2^{29} - 1 {% </katex.inline> %} are supported,
+to {% <md.katex.inline> %} 2^{29} - 1 {% </md.katex.inline> %} are supported,
 while the majority of messages have fewer than 100 fields.
 If protobuffer were to use a fixed 32-bit field for encoding all tags, most
 messages would contain a large number of redundant zeros.
 
 Instead, varints enable us to encode an unsigned number
-using {% <katex.inline> %} \max{\left\lparen \left\lceil \frac{\log_2(N)}{7} \right\rceil, 1 \right\rparen} {% </katex.inline> %} bytes.
+using {% <md.katex.inline> %} \max{\left\lparen \left\lceil \frac{\log_2(N)}{7} \right\rceil, 1 \right\rparen} {% </md.katex.inline> %} bytes.
 This system trades a shorter average message length for a longer worst-case
 message size, assuming a relatively high frequency of small values.
 For example, any value less than or equal to 127 can be encoded in a single byte, while
-the value {% <katex.inline> %} 2^{32}-1 {% </katex.inline> %} requires 5 bytes instead of the usual 4.
+the value {% <md.katex.inline> %} 2^{32}-1 {% </md.katex.inline> %} requires 5 bytes instead of the usual 4.
 
 This is achieved by first splitting the value into 7-bit septets which are each
 encoded, starting with the least significant septet, as an 8-bit value consisting

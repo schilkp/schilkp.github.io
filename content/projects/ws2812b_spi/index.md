@@ -9,7 +9,7 @@ weight=8
 disable_toc=true
 +++
 
-{{ <img.centered src="ws2812b.svg" width="95%"/> }}
+{{ <md.centered_img src="ws2812b.svg" width="95%"/> }}
 
 ## Overview
 

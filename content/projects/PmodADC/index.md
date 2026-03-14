@@ -8,9 +8,9 @@ weight=102
 thumbnail_img="pmodadc_full_board.jpeg"
 +++
 
-{{ <img.centered src="pmodadc_full_board.jpeg"/> }}
+{{ <md.centered_img src="pmodadc_full_board.jpeg"/> }}
 
-{{ <toc.inline_toc/> }}
+{{ <md.toc/> }}
 
 ## Overview
 
@@ -38,7 +38,7 @@ The schematic snippets below can be enlarged by clicking on them.
 ### Frontend + Sample & Hold
 
 
-{{ <img.centered src="pmodadc_sch_input.svg"/> }}
+{{ <md.centered_img src="pmodadc_sch_input.svg"/> }}
 
 The input stage takes care of buffering, amplification, filtering, and biasing, before feeding a
 sample & hold amplifier.
@@ -58,11 +58,11 @@ The actual sampling capacitor is a 10nF C0G ceramic. It too can be bypassed by s
 configuration jumpers. Oscilloscope traces showing the operation of the sample & hold amplifier
 are included below.
 
-{{ <img.centered src="pmodadc_s&h.png" width="50%"/> }}
+{{ <md.centered_img src="pmodadc_s&h.png" width="50%"/> }}
 
 ### DAC + Comparator
 
-{{ <img.centered src="pmodadc_sch_adc.svg"/> }}
+{{ <md.centered_img src="pmodadc_sch_adc.svg"/> }}
 
 A REF3450 5V reference sets the full scale voltage of the DAC at the center of the
 converter, hence providing the reference voltage for the whole ADC.
@@ -77,7 +77,7 @@ and speed.
 
 ### Power
 
-{{ <img.centered src="pmodadc_sch_power.svg" width="50%"/> }}
+{{ <md.centered_img src="pmodadc_sch_power.svg" width="50%"/> }}
 
 I originally wanted the board to be powered solely by the 3.3V provided by the Pmod Connector,
 so I designed and implemented the above power architecture:
@@ -99,7 +99,7 @@ required had already been designed.
 
 The power supply, FPGA interface, and R2R DAC are identical to the ADC above.
 Only the output stage differs:
-{{ <img.centered src="pmodadc_dac_output.svg"/> }}
+{{ <md.centered_img src="pmodadc_dac_output.svg"/> }}
 
 First the DAC output is buffered to prevent errors due to loading. The signal is then AC-coupled, and may be
 attenuated using a potentiometer. This is again followed by a buffer.
@@ -111,15 +111,15 @@ but one may be bypassed using configuration jumpers.
 
 The board was assembled at home using standard methods. Below are some pictures of the process.
 
-{% <img.gallery> %}
-    {% <img.gallery.img src="pmodadc_build_stencil.jpeg"> %}Solder paste being applied using a stencil.{% </img.gallery.img> %}
-    {% <img.gallery.img src="pmodadc_build_paste.jpeg"> %}Solder paste on the board.{% </img.gallery.img> %}
-    {% <img.gallery.img src="pmodadc_build_placed.jpeg"> %}Components placed before soldering.{% </img.gallery.img> %}
-{% </img.gallery> %}
+{% <md.gallery> %}
+    {% <md.gallery.img src="pmodadc_build_stencil.jpeg"> %}Solder paste being applied using a stencil.{% </md.gallery.img> %}
+    {% <md.gallery.img src="pmodadc_build_paste.jpeg"> %}Solder paste on the board.{% </md.gallery.img> %}
+    {% <md.gallery.img src="pmodadc_build_placed.jpeg"> %}Components placed before soldering.{% </md.gallery.img> %}
+{% </md.gallery> %}
 
 A video of the 0402 R2R DAC Resistors being re-flowed on an early revision of the board:
 
-{{ <yt.video src="https://www.youtube-nocookie.com/embed/AxqhHt8jnj0"/> }}
+{{ <md.yt src="https://www.youtube-nocookie.com/embed/AxqhHt8jnj0"/> }}
 
 ## Demonstration
 
@@ -131,7 +131,7 @@ add a very noticeable noise floor, but the audio remains of very acceptable qual
 As a quick demonstration, below is a video of music being recorded by the
 ADC and played back by the DAC:
 
-{{ <yt.video src="https://www.youtube-nocookie.com/embed/QIoPao8BHm0"/> }}
+{{ <md.yt src="https://www.youtube-nocookie.com/embed/QIoPao8BHm0"/> }}
 
 As a more direct comparison, the table below contains short music clips as they are, after being recorded by the ADC,
 and after playback by the DAC respectively.
@@ -150,7 +150,7 @@ and after playback by the DAC respectively.
 I was very fortunate to be given the opportunity do some basic characterization of my ADC and DAC design at the Center for
 Project-based learning at ETHZ.
 
-{{ <img.centered src="pmodadc_lab.jpeg" width="80%"/> }}
+{{ <md.centered_img src="pmodadc_lab.jpeg" width="80%"/> }}
 
 ### ADC Linearity
 
@@ -165,10 +165,10 @@ The most likely sources for these errors are DAC non-linearities, since the DAC 
 measurements (below) feature a similar magnitude.
 
 
-{% <img.gallery> %}
-    {{ <img.gallery.img src="pmodadc_adc_lin.svg"/> }}
-    {{ <img.gallery.img src="pmodadc_adc_lin_adj.svg"/> }}
-{% </img.gallery> %}
+{% <md.gallery> %}
+    {{ <md.gallery.img src="pmodadc_adc_lin.svg"/> }}
+    {{ <md.gallery.img src="pmodadc_adc_lin_adj.svg"/> }}
+{% </md.gallery> %}
 
 ### ADC Noise
 
@@ -176,7 +176,7 @@ With the input AC-coupled but shorted, the ADC will read as shown in the plot be
 
 The readings feature a standard deviation of 3.43 LSB.
 
-{{ <img.centered src="pmodadc_adc_noise.svg" width="50%"/> }}
+{{ <md.centered_img src="pmodadc_adc_noise.svg" width="50%"/> }}
 
 ### ADC Frequency Response
 
@@ -188,23 +188,23 @@ I was surprised by this measurement:
 Both the input high-pass/AC-coupling and antialiasing low-pass seem to perform
 exactly as designed. The passband ripple is less than 0.5dB.
 
-{{ <img.centered src="pmodadc_adc_fresp.svg" width="50%"/> }}
+{{ <md.centered_img src="pmodadc_adc_fresp.svg" width="50%"/> }}
 
 ### ADC SNR and THD
 
 Some very rough SNR and THD measurements yield the following:
 
-{% <img.gallery> %}
-    {{ <img.gallery.img src="pmodadc_adc_snr.svg"/> }}
-    {{ <img.gallery.img src="pmodadc_adc_thd.svg"/> }}
-{% </img.gallery> %}
+{% <md.gallery> %}
+    {{ <md.gallery.img src="pmodadc_adc_snr.svg"/> }}
+    {{ <md.gallery.img src="pmodadc_adc_thd.svg"/> }}
+{% </md.gallery> %}
 
 ### DAC Linearity
 
 Measuring the DAC linearity again using the Keysight B2902A Source meter
 yielded the following:
 
-{{ <img.centered src="pmodadc_dac_lin.svg" width="50%"/> }}
+{{ <md.centered_img src="pmodadc_dac_lin.svg" width="50%"/> }}
 
 Because this DAC is identical to the one at the core of the ADC, and the
 non-linearities are very similar in magnitude to those seen on the ADC,
@@ -214,7 +214,7 @@ it is likely that DAC non-idealities are large source of the ADC errors.
 
 Some very rough THD measurement yields the following:
 
-{{ <img.centered src="pmodadc_dac_thd.svg" width="50%"/> }}
+{{ <md.centered_img src="pmodadc_dac_thd.svg" width="50%"/> }}
 
 A big thank-you again to Dr. Vogt and the ETH PBL Center for giving me the opportunity to put
 my design through its paces.

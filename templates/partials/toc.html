@@ -21,13 +21,3 @@
     </ul>
   </div>
 {% endcomponent toc.toc %}
-
-{% component toc.inline_toc() %}
-  {# Note:
-     ToC cannot be rendered into the page using templating, as it is only
-     available/known after the page has been generated.
-     Instead, the comment below is replaced by the project_page template after
-     markdown and shortcode expansion.
-  #}
-  <!-- $$toc$$ -->
-{% endcomponent toc.inline_toc %}

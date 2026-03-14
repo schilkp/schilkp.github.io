@@ -8,9 +8,9 @@ weight=104
 thumbnail_img="header.jpg"
 +++
 
-{{ <img.centered src="projects/ES/header.jpg"/> }}
+{{ <md.centered_img src="projects/ES/header.jpg"/> }}
 
-{{ <toc.inline_toc/> }}
+{{ <md.toc/> }}
 
 ## Overview
 
@@ -75,11 +75,11 @@ learning and fun applications:
 
 ## Labs
 
-{% <img.gallery> %}
-    {% <img.gallery.img src="ex1.png"> %}Snake on the LED Matrix.{% </img.gallery.img> %}
-    {% <img.gallery.img src="ex2.png"> %}Tic-Tac-Toe on the LED Matrix.{% </img.gallery.img> %}
-    {% <img.gallery.img src="ex3.png"> %}Golf and racing game.{% </img.gallery.img> %}
-{% </img.gallery> %}
+{% <md.gallery> %}
+    {% <md.gallery.img src="ex1.png"> %}Snake on the LED Matrix.{% </md.gallery.img> %}
+    {% <md.gallery.img src="ex2.png"> %}Tic-Tac-Toe on the LED Matrix.{% </md.gallery.img> %}
+    {% <md.gallery.img src="ex3.png"> %}Golf and racing game.{% </md.gallery.img> %}
+{% </md.gallery> %}
 
 With our new hardware in hand, I developed a set of 10 labs, each with multiple practical and theoretical
 exercises, code handouts, slides, and hundreds of pages of documentation.
@@ -113,7 +113,7 @@ Some examples include:
 
 ## Software
 
-{{ <img.centered src="/projects/tonbandgeraet/tband_banner.png" width="100%"/> }}
+{{ <md.centered_img src="/projects/tonbandgeraet/tband_banner.png" width="100%"/> }}
 
 Last semester, I found that students had a hard time understanding what exactly was happening inside
 the microcontroller - especially when dealing with more complicated RTOS setups.

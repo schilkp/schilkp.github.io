@@ -9,12 +9,12 @@ weight=403
 thumbnail_img="vactool_inside.jpeg"
 +++
 
-{% <img.gallery> %}
-    {{ <img.gallery.img src="vactool_inside.jpeg"/> }}
-    {{ <img.gallery.img src="vactool_full.jpeg"/> }}
-{% </img.gallery> %}
+{% <md.gallery> %}
+    {{ <md.gallery.img src="vactool_inside.jpeg"/> }}
+    {{ <md.gallery.img src="vactool_full.jpeg"/> }}
+{% </md.gallery> %}
 
-{{ <toc.inline_toc/> }}
+{{ <md.toc/> }}
 
 ## Overview
 
@@ -44,7 +44,7 @@ The unit is powered by an internal 12V Meanwell supply.
 The VacTool was invaluable while assembling the prototypes for my Fets & Crosses project, where I ended
 up placing thousands of SOT-23 transistors on multiple hardware revisions by hand.
 
-{{ <yt.video src="https://www.youtube-nocookie.com/embed/Lz2p190qZ2Q"/> }}
+{{ <md.yt src="https://www.youtube-nocookie.com/embed/Lz2p190qZ2Q"/> }}
 
 Overall I am very happy with my build. It is not the nicest and sturdiest construction, and a bigger box would
 probably have been a good choice. Still it is a very usable tool that I end up reaching for more often than expected.

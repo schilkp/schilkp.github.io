@@ -22,7 +22,7 @@ pushd repo
 git checkout 2508f4b
 
 echo "Building..."
-cargo build --release
+cargo build
 popd
 
-mv ./repo/target/release/zola ./zola
+mv ./repo/target/debug/zola ./zola

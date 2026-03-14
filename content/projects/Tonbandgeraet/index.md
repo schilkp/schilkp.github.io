@@ -17,38 +17,38 @@ katex=true
 
 A small embedded systems tracer with support for bare-metal and FreeRTOS-based targets.
 
-{{ <img.centered src="tband_banner.png" width="100%"/> }}
+{{ <md.centered_img src="tband_banner.png" width="100%"/> }}
 
-{{ <toc.inline_toc/> }}
+{{ <md.toc/> }}
 
-{% <layout.two_col> %}
-  {% <layout.two_col.box> %}
+{% <md.two_col> %}
+  {% <md.two_col.box> %}
   <h2> 📚 <a href="https://schilk.co/Tonbandgeraet/docs/index.html">Docs</a> </h2>
 
   The [online documentation](https://schilk.co/Tonbandgeraet/docs/index.html) has everything you need to
   get started, API documentation, and a whole bunch of under-the-hood technical documentation.
-  {% </layout.two_col.box> %}
+  {% </md.two_col.box> %}
 
-  {% <layout.two_col.box> %}
+  {% <md.two_col.box> %}
   <h2> 📼 <a href="https://schilk.co/Tonbandgeraet/">Online Converter</a> </h2>
 
   The online, in-browser [trace converter](https://schilk.co/Tonbandgeraet/) can be used to
   quickly decode, convert, and view a Tonbandgerät trace.
-  {% </layout.two_col.box> %}
+  {% </md.two_col.box> %}
 
-  {% <layout.two_col.box> %}
+  {% <md.two_col.box> %}
   <h2> ✨ Demo </h2>
 
   If you want to have a quick look at how a Tonbandgerät trace looks like, use the "Select a demo..."
   dropdown of the in-browser [trace converter](https://schilk.co/Tonbandgeraet/).
-  {% </layout.two_col.box> %}
+  {% </md.two_col.box> %}
 
-  {% <layout.two_col.box> %}
+  {% <md.two_col.box> %}
   <h2> 📁 <a href="https://github.com/schilkp/Tonbandgeraet">Repo</a> </h2>
 
   You can find the repository, which contains all source code including the target tracer, converter, documentation, and website, [here](https://github.com/schilkp/Tonbandgeraet).
-  {% </layout.two_col.box> %}
-{% </layout.two_col> %}
+  {% </md.two_col.box> %}
+{% </md.two_col> %}
 
 ## Overview
 
@@ -132,14 +132,14 @@ Inside each COBS frame, each event type is structured as follows:
     - One variable-length field.
     - Nothing
 
-Importantly, an instance of an event type that permits some {% <katex.inline> %}N{% </katex.inline> %} optional fields, may only omit the last {% <katex.inline> %}0 \leq n \leq N{% </katex.inline> %} optional
-fields. In other words, if an event type contains the optional fields {% <katex.inline> %}\{ A, B, C \}{% </katex.inline> %} valid
+Importantly, an instance of an event type that permits some {% <md.katex.inline> %}N{% </md.katex.inline> %} optional fields, may only omit the last {% <md.katex.inline> %}0 \leq n \leq N{% </md.katex.inline> %} optional
+fields. In other words, if an event type contains the optional fields {% <md.katex.inline> %}\{ A, B, C \}{% </md.katex.inline> %} valid
 event instances could only take on one of the following layouts:
 
-- {% <katex.inline> %}\emptyset{% </katex.inline> %}
-- {% <katex.inline> %}\{A\}{% </katex.inline> %}
-- {% <katex.inline> %}\{A, B\}{% </katex.inline> %}
-- {% <katex.inline> %}\{A, B, C\}{% </katex.inline> %}
+- {% <md.katex.inline> %}\emptyset{% </md.katex.inline> %}
+- {% <md.katex.inline> %}\{A\}{% </md.katex.inline> %}
+- {% <md.katex.inline> %}\{A, B\}{% </md.katex.inline> %}
+- {% <md.katex.inline> %}\{A, B, C\}{% </md.katex.inline> %}
 
 This restrictive format stems from the fact that there are no field IDs or other metadata encoded in the frame, and the decoder
 relies on the field types and framing. Specifically, the
@@ -194,8 +194,8 @@ The tracer uses COBS (Consistent Overhead Byte Stuffing, [wikipedia](https://en.
 separate binary trace events that have been stored or transmitted together. Specifically, the COBS algorithm removes all zeroes from a binary message
 in a reversible fashion, with only minimal overhead. Zeroes are then used to delimit individual trace messages.
 
-Specifically, after COBS framing, a {% <katex.inline> %} N \neq 0{% </katex.inline> %}
-byte message will be at most {% <katex.inline> %} 1 + \left\lceil \frac{N}{254} \right\rceil + N{% </katex.inline> %} bytes long, including a trailing zero for delimination.
+Specifically, after COBS framing, a {% <md.katex.inline> %} N \neq 0{% </md.katex.inline> %}
+byte message will be at most {% <md.katex.inline> %} 1 + \left\lceil \frac{N}{254} \right\rceil + N{% </md.katex.inline> %} bytes long, including a trailing zero for delimination.
 Please read the above article for a more precise specification, but roughly speaking this is done by replacing all zeroes with
 a pointer to the next zero:
 

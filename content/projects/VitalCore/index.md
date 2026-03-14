@@ -8,11 +8,11 @@ weight=200
 thumbnail_img="vitalcore_paper_small.jpeg"
 +++
 
-{% <img.centered src="vitalcore_paper_small.jpeg" br={false} width="60%"> %}
+{% <md.centered_img src="vitalcore_paper_small.jpeg" br={false} width="60%"> %}
 <small> (📸 Frank K. Gürkaynak, 2022) </small>
-{% </img.centered> %}
+{% </md.centered_img> %}
 
-{{ <toc.inline_toc/> }}
+{{ <md.toc/> }}
 
 ## Overview
 
@@ -25,10 +25,10 @@ applications, including in-ear and hearable projects. Built around an NRF5340 So
 a dual-core Cortex-M33 processor running at up to 128 MHz, 1 MB of Flash, 512 KB RAM, and BLE 5.2
 complete with an on-board chip antenna.
 
-{% <img.gallery> %}
-    {{ <img.gallery.img src="vitalcore_paper.jpg"/> }}
-    {{ <img.gallery.img src="lego.jpg"/> }}
-{% </img.gallery> %}
+{% <md.gallery> %}
+    {{ <md.gallery.img src="vitalcore_paper.jpg"/> }}
+    {{ <md.gallery.img src="lego.jpg"/> }}
+{% </md.gallery> %}
 
 <!-- FIXME Link to other projects that use it: VitalPod, In-Ear Voice, RadarBud -->
 
@@ -54,7 +54,7 @@ the VitalPack) can be used:
 
 ## Power
 
-{{ <img.centered src="VC_Power.svg" width="80%"/> }}
+{{ <md.centered_img src="VC_Power.svg" width="80%"/> }}
 
 A MAX77654 PMIC provides a full power subsystem, including a software-controlled battery charger with power path
 switching and up to 300mA charge current, a battery monitor, three software-controllable switch mode buck-boost converters each
@@ -74,7 +74,7 @@ The VitalCore comes equipped with the following peripherals:
 
 ## Panel
 
-{{ <img.centered src="broken_panel.JPG" width="50%"/> }}
+{{ <md.centered_img src="broken_panel.JPG" width="50%"/> }}
 
 The VitalCore Altium project and gerber files include a panel to be used during development.
 It exposes the NRF's SWD programming interface, USB port, power inputs, and power rail test points. It
