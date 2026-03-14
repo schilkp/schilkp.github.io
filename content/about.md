@@ -15,12 +15,14 @@ Hi.
 
 My name is Philipp Schilk.
 
-After growing up in a small village in Austria and spending many years in Istanbul, Turkey, I am currently
-living in Switzerland, where I am completing my Masters in Electrical Engineering
-at ETH Zürich.
+After growing up in a small village in Austria and spending many years in
+Istanbul, Turkey, I am currently living in Switzerland, where I am a doctoral
+student in Prof. Dr. Lana Josipović's [DYNAMO](https://dynamo.ethz.ch/) group
+at the Department of Information Technology and Electrical Engineering of ETH
+Zürich.
 
-I have always been fascinated by both electronics and software, and have done a fair number of technical projects
-which you can find on this site.
+I have always been fascinated by both electronics and software, and have worked
+on a fair number of technical projects which you can find on this site.
 
 Here are a few places that you can find me on the internet:
 
@@ -31,5 +33,5 @@ Here are a few places that you can find me on the internet:
 </center>
 <p>
 
-This page is built using [zola](https://github.com/getzola/zola) and hosted on GitHub Pages. 
-It is open-source, with all sources available [here](https://github.com/schilkp/schilkp.github.io).
+This page is built using [Zola](https://github.com/getzola/zola) and hosted on
+GitHub Pages, with all sources available [here](https://github.com/schilkp/schilkp.github.io).
