@@ -6,6 +6,7 @@ weight=303
 
 [extra]
 thumbnail_img="patchit_hand.jpeg"
+disable_toc=true
 +++
 
 {{ centered_img(src="patchit_explode.png", no_br="true", width="85%", desc="Exploded View.") }}

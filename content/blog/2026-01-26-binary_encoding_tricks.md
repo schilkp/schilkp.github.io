@@ -14,8 +14,6 @@ draft = true
 tags=[]
 +++
 
-{{ toc() }}
-
 ## Data Encoding Tricks
 
 ### Varints

@@ -10,6 +10,8 @@ thumbnail_img="header.jpg"
 
 {{ centered_img(src="projects/ES/header.jpg") }}
 
+{{ toc () }}
+
 ## Overview
 
 During the 2023 Fall Semester, I had the incredible opportunity to build from scratch

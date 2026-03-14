@@ -18,8 +18,6 @@ updated="2026-03-12"
 tags=["nvim"]
 +++
 
-{{ toc() }}
-
 ## One size fits not quite all
 
 While my [neovim configuration](https://github.com/schilkp/dot/tree/main/neovim/.config/nvim)

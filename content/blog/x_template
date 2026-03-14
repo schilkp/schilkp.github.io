@@ -12,6 +12,4 @@ template="blog_post.html"
 tags=[]
 +++
 
-{{ toc() }}
-
 ## TODO: First heading

@@ -6,6 +6,7 @@ weight=2
 
 [extra]
 thumbnail_img=""
+disable_toc=true
 +++
 
 A simple python BLE data logger which receives, decodes, stores, and plots characteristic data in real time, that has proven quite convenient and flexible.

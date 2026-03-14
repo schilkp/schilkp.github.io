@@ -10,10 +10,14 @@
   </head>
 
   <body>
+    {% set disable_toc = page.extra | get(key="disable_toc", default=false) %}
+
     <div class="wrapper">
       <header>
         {% include "partials/header_common.html" %}
-        {{ toc::generate_toc(toc=page.toc, is_header=true) }}
+        {% if not disable_toc %}
+          {{ toc::generate_toc(toc=page.toc, is_header=true) }}
+        {% endif %}
       </header>
 
       <section>
@@ -31,7 +35,18 @@
             {% endfor %}
           {% endif %}
         </div>
-        {{ page.content | replace(from="<!-- $$toc$$ -->", to=toc::generate_toc(toc=page.toc, is_header=false)) | safe}}
+
+        {% if disable_toc %}
+          {{ page.content | safe}}
+        {% else %}
+          {% if "<!-- $$toc$$ -->" in page.content %}
+            {{ page.content | replace(from="<!-- $$toc$$ -->", to=toc::generate_toc(toc=page.toc, is_header=false)) | safe}}
+          {% else %}
+            {{ toc::generate_toc(toc=page.toc, is_header=false) }}
+            {{ page.content | safe}}
+          {% endif %}
+        {% endif %}
+
       </section>
 
       <footer></footer>

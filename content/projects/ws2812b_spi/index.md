@@ -6,6 +6,7 @@ weight=8
 
 [extra]
 thumbnail_img=""
+disable_toc=true
 +++
 
 {{ centered_img(src="ws2812b.svg", width="95%") }}
