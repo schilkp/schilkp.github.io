@@ -1,6 +1,6 @@
 +++
 title="Fets & Crosses"
-description="A game of Knots-and-Crosses (Tic-Tac-Toe) built from 2458 individual mosfets, featuring both player-vs-player and player-vs-computer modes."
+description="A game of Noughts-and-Crosses (Tic-Tac-Toe) built from 2458 individual mosfets, featuring both player-vs-player and player-vs-computer modes."
 template="project_page.html"
 weight=101
 
@@ -14,12 +14,12 @@ thumbnail_img="fetsncrosses_header.jpeg"
 
 ## Overview + Features
 
-An implementation of the classic Tic-Tac-Toe / Knots and Crosses game built entirely from 2458 discrete transistors.
+An implementation of the classic Tic-Tac-Toe / Noughts and Crosses game built entirely from 2458 discrete transistors.
 
 ## Simulation / Design
 
 While playing around with a graphical [logic simulator](http://www.cburch.com/logisim/) during a 'Digital Design' lecture, I came up
-with a simple Tic-Tac-Toe game, featuring both a player-vs-player or player-vs-computer mode. It is capable of detecting
+with a simple Tic-Tac-Toe game, featuring both a player-vs-player and player-vs-computer mode. It is capable of detecting
 all possible win/draw states, and features a move validator, allowing it to reject invalid inputs from the user.
 
 The 'Engine' against which a player can play was originally implemented using a parallel input/output ROM as a large lookup table:
@@ -38,7 +38,7 @@ perfect play.
 
 The final circuit was much simpler than I first expected it to be: It only requires 19 Flip-Flops (18 for the
 current game state, and one to track the active player), and a handful of basic gates. Some quick
-estimates put that around 2000 transistors when implemented in CMOS - how hard could that be to implement?
+estimates put that around 2000 transistors when built in CMOS - how hard could that be to implement?
 
 _Well._
 
@@ -49,7 +49,7 @@ For example, here is the basic NOT gate:
 
 {{ centered_img(src="not.svg", width="40%") }}
 
-I should note that the specific mosfets models were chosen using the highly scientific process of "sorting by cheapest first" on [lcsc.com](https://www.lcsc.com).
+I should note that the specific mosfet models were chosen using the highly scientific process of "sorting by cheapest first" on [lcsc.com](https://www.lcsc.com).
 
 I then systematically constructed more complex gates from these basic cells. For example, a 2-input AND gate was built from an NAND and NOT gate:
 
@@ -97,7 +97,87 @@ to have five engines and main boards assembled: The uneven heating of the PCB du
 soldering had introduced such significant warpage that my prototypes would break randomly after a few
 weeks due to tension breaking solder joints.
 
-## Full Hardware Test
+## Gameplay Demo
+
+Below is a quick video showing both me playing against myself in the player vs. player mode, 
+and playing against the computer:
+
+{{ youtube(src="https://www.youtube-nocookie.com/embed/Q1DVDBl8Gxs") }}
+
+## The Engine
+
+Because Tic-tac-toe is such a simple game, implementing perfect play is rather straightforward.
+In fact, you can think of the engine as a long `if-else` statement, that picks the first sensible
+move:
+
+```rust
+if (b[top][left] == "us" && b[top][middle] = "us" && b[top][right] == "empty") {
+  // can win in top row.
+  play(top, right);
+} else if (b[top][left] == "us" && b[top][middle] = "empty" && b[top][right] == "us") {
+  // can win in top row.
+  play(top, center);
+} else if (b[top][left] == "empty" && b[top][middle] = "us" && b[top][right] == "us") {
+  // can win in top row.
+  play(top, left);
+} else if ...
+```
+
+Because of the game's simplicity, only 64 such checks are required. 
+In hardware, each one of these checks is implemented as a simple "decision gate", that 
+activates its output if the particular situation it is hardwired to detect occurs. Once
+a decision gate fires, it blocks all subsequent decision gates from activating. 
+
+For example, the decision gate for the second if statement in the example above
+("if in the top row, we have played the left and right cell, win by playing the center
+cell"), is implemented as follows:
+
+{{ centered_img(src="decision_gate.png", desc="An individual decision gate.") }}
+
+Note that because in CMOS it requires fewer transistors to build inverting logic (`NOR` and `NAND` gates),
+the input signals to which the decision gates are connected are inverted (low if the condition is true). 
+The `block` input is connected to the previous decision gate and disables the gate from activating if
+high. The `block` output is connected to the next decision gate, and is asserted if this or any previous
+gate fires, locking subsequent gates.
+
+The decision gates required, in order, are as follows:
+
+- If it is possible to win by completing a row, win (9 gates)
+- If it is possible to win by completing a column, win (9 gates).
+- If it is possible to win by completing a diagonal, win (6 gates).
+- If the opponent is one cell away of completing a row, block them (9 gates).
+- If the opponent is one cell away of completing a column, block them (9 gates).
+- If the opponent is one cell away of completing a diagonal, block them (6 gates).
+- Prevent forks (3 gates).
+- If the center is empty, play the center (1 gate).
+- If the opponent has played in a corner and the opposite corner is empty, play in the opposite corner (4 gates).
+- If a corner is empty, play in the corner (4 gates).
+- If a side/top/bottom is empty, play there (4 gates).
+
+Here a _fork_ is a situation where the player has two possible slots to they
+can play to win against the engine. 
+The precise decision required to prevent forks depends on the exact order of decision gates. For
+my implementation, the following suffices to completely prevent forks:
+
+```rust
+...
+} else if (b[top][left] == "them" && b[bottom][right] = "them" && b[bottom][center] == "empty") {
+  // prevent fork
+  play(bottom, center);
+} else if (b[top][right] == "them" && b[bottom][left] = "them" && b[bottom][center] == "empty") {
+  // prevent fork
+  play(bottom, center);
+} else if (b[middle][right] == "them" && b[bottom][center] = "them" && b[bottom][right] == "empty") {
+  // prevent fork
+  play(bottom, right);
+} else if ...
+```
+
+With this scheme, the 64 required decision gates and supporting logic (inversion of game state,
+`OR`-ing of all play outputs for a specific cell) can be implemented using 1074 transistors, yielding
+a fully combinational tic tac toe perfect play engine.
+
+## Full Engine Test
 
 {{ centered_img(src="fetsncrosses_testing.jpeg") }}
 
@@ -105,6 +185,13 @@ As a final step, I implemented a small STM32-based test bench that allows the en
 connected to the PC. I also developed a small python script that plays every single
 possible game of Tic-Tac-Toe against the engine (there aren't that many!) and confirmed that
 the engine never loses.
+
+## Notes
+
+In case it is not already obvious, efficiency and sensibility were not a top priority when
+working on this project. I am sure there are more efficient flip-flop designs or
+implementations with fewer transistors, especially by building composite gates that
+combine `NAND` and `NOR` gates, but I don't really care :)
 
 ## Links
 - 📁 [Repo](https://github.com/schilkp/Fets_and_Crosses)
