@@ -123,7 +123,7 @@ if (b[top][left] == "us" && b[top][middle] = "us" && b[top][right] == "empty") {
 } else if ...
 ```
 
-Because of the game's simplicity, only 64 such checks are required. 
+In fact, only 64 such checks are required to ensure the engine can never be beaten.
 In hardware, each one of these checks is implemented as a simple "decision gate", that 
 activates its output if the particular situation it is hardwired to detect occurs. Once
 a decision gate fires, it blocks all subsequent decision gates from activating. 
