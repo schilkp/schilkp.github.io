@@ -8,7 +8,7 @@ weight=201
 thumbnail_img="radarbud_in_hand.jpeg"
 +++
 
-{{ centered_img(src="projects/RadarBud/radarbud_in_hand.jpeg") }}
+{{ centered_img(src="radarbud_in_hand.jpeg") }}
 
 {{ toc() }}
 
