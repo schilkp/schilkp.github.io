@@ -8,7 +8,7 @@ weight=104
 thumbnail_img="header.jpg"
 +++
 
-{{ centered_img(src="projects/ES/header.jpg") }}
+{{ centered_img(src="header.jpg") }}
 
 {{ toc () }}
 
