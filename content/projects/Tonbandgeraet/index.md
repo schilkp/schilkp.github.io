@@ -35,8 +35,23 @@ It can be used both with an RTOS, or in bare-metal environments to instrument us
 Full tracing of [FreeRTOS](https://www.freertos.org/index.html) tasks and resources is also supported out-of-the-box.
 
 Tonbandgerät is based on a simple custom binary trace format, designed to be fairly fast to encode and keep traces as small as possible. Recorded
-traces can be viewed in Google's in-browser [*perfetto* trace viewer](https://perfetto.dev) after conversion with the rust-based `tband` CLI tool or in-browser [converter](https://schilk.co/Tonbandgeraet/).
-The latter runs a WASM-version of the rust conversion tool directly in the browser.
+traces can be viewed in Google's in-browser [*perfetto* trace viewer](https://perfetto.dev) after conversion with the Rust-based `tband` CLI tool or in-browser [converter](https://schilk.co/Tonbandgeraet/).
+The latter runs a WASM version of the Rust conversion tool directly in the browser.
+
+## Purpose
+
+Tonbandgeraet was designed primarily for a teaching context, in particular for
+the [Embedded Systems course](@/projects/ES/index.md) I had the pleasure of
+running at ETH Zurich.
+
+Most of the trade-offs and design choices that might seem odd at first stem
+from the somewhat weird context I was planning to use it in.
+
+For instance, while using a purely web-based UI and offering an in-browser
+trace converter relinquishes the opportunity to do live recording, it prevents
+us from having to help the hundreds of students that participate in the course
+every year with getting some closed-source software that we have no control
+over running on their machine.
 
 ## Using Tonbandgerät
 
@@ -60,7 +75,7 @@ of these events is encoded into a [custom binary format](#trace-format) and then
 
 ### Snapshot Backend
 
-The snapshot backend, once triggered, fills a RAM buffer with tracing events until it is full. The trace data can then be sent to the 
+The snapshot backend, once triggered, fills a RAM buffer with tracing events until it is full. The trace data can then be sent to the
 PC for analysis using a user-provided communication interface.
 
 ### Streaming Backend
@@ -68,7 +83,7 @@ PC for analysis using a user-provided communication interface.
 The streaming backend immediately passes every trace event to the user-provided communication interface to be sent to the PC
 in real time. Note that this requires a fast interface: RTT is recommended.
 
-### Postmortem Backend 
+### Postmortem Backend
 
 🚧 Not yet implemented 🚧
 
@@ -77,16 +92,16 @@ backend was stopped can then be sent to the PC for analysis using a user-provide
 
 ### Trace Converter
 
-Next, the binary trace stream is decoded and interpreted using a rust-based conversion tool 🦀. A CLI is provided. 
+Next, the binary trace stream is decoded and interpreted using a Rust-based conversion tool 🦀. A CLI is provided.
 To keep the overhead of trace event generation and handling as low as possible, only absolutely necessary information
-is included in each event. The conversion tool takes care of connecting the dots between the different events to 
+is included in each event. The conversion tool takes care of connecting the dots between the different events to
 generate a rich trace representation.
 
-This trace representation is then converted into the native protobuffer-based input format of Google's in-browser [*perfetto* trace viewer](https://perfetto.dev).
+This trace representation is then converted into the native protobuf-based input format of Google's in-browser [*perfetto* trace viewer](https://perfetto.dev).
 
 ### Web Frontend
 
-As an alternative to the command line trace converted, a web tool is also provided. This uses the same rust-based trace converter compiled to
+As an alternative to the command line trace converter, a web tool is also provided. This uses the same Rust-based trace converter compiled to
 WASM bytecode, allowing it to run in the browser. A simple Vue-based web frontend makes it simple to upload or paste-in trace data, and
 visualize it in perfetto with a single click.
 
@@ -94,7 +109,7 @@ visualize it in perfetto with a single click.
 
 To store trace events in a compact binary format, Tonbandgerät uses zero-delimited COBS
 frames each containing a single trace event. The set of trace event types (each identified by an
-8-bit id) and their respective structure is fixed.
+8-bit ID) and their respective structure is fixed.
 
 ### Frame Structure
 
@@ -118,7 +133,7 @@ event instances could only take on one of the following layouts:
 This restrictive format stems from the fact that there are no field IDs or other metadata encoded in the frame, and the decoder
 relies on the field types and framing. Specifically, the
 first block of required known-length fields can directly be decoded because the length of each field is fixed or can
-be determined based on its [varlen encoding](#field-encoding). If an event type specifies optional fields, the 
+be determined based on its [varlen encoding](#field-encoding). If an event type specifies optional fields, the
 decoder will continue decoding until the frame ends. If an event type ends with a variable-length field, all bytes
 beyond the last required field are attributed to it.
 
@@ -132,7 +147,7 @@ fields are zero most of the time, wasting trace storage capacity or transfer ban
 To combat this, Tonbandgerät uses the same specific form of variable-length (varlen) encoding that
 is also used by UTF-8 for most numeric values:
 
-> Values are split into 7-bit septets, and are encoding starting with the least significant
+> Values are split into 7-bit septets, and are encoded starting with the least significant
 > septet. Each septet is encoded as an 8-bit value, consisting of the septet in the lower bits,
 > and a control bit in the most significant bit position that is set to `1` if there are more
 > septets to follow, or `0` if this is the last septet and all following bits should be assumed
@@ -149,7 +164,7 @@ byte:
 +--> No more bits to follow.
 ```
 
-The value `0xFF` requires more than seven bits and therefor is split into two bytes:
+The value `0xFF` requires more than seven bits and therefore is split into two bytes:
 
 ```
     +---> First 7 bits          +---> Next 7 bits
@@ -159,8 +174,7 @@ The value `0xFF` requires more than seven bits and therefor is split into two by
 +--> More bits to follow.   +--> No more bits to follow.
 ```
 
-This system trades a much improved average message length for a longer worst-case 
-message size.
+This system trades a longer worst-case message size for a much improved average message length.
 
 ### COBS Framing
 
@@ -199,14 +213,14 @@ COBS framed:       0x01   0xFF  0x01  0x02 ... 0xFD  0xFE  0x02   0xFF  0x00
 
 ```
 
-When decoding, the value pointed at by a `0xFF` pointer must therefor not be decoded to a zero but only be interpreted as a 
+When decoding, the value pointed at by a `0xFF` pointer must therefore not be decoded to a zero but only be interpreted as a
 another pointer. Because trace events are usually very short, this means that most can be framed with only two bytes of overhead.
 
 ### Code Generator
 
-The set of possible tracing events and their fields is defined in a simple python code
-script. This, in turn, generates the c event encoder, an event decoder test file,
-the rust event decoder, and the event index documentation.
+The set of possible tracing events and their fields is defined in a simple Python script.
+This, in turn, generates the C event encoder, an event decoder test file,
+the Rust event decoder, and the event index documentation.
 
 Consider the following `isr_name` event as an example:
 
