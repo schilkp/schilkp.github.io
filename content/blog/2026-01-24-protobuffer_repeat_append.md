@@ -80,10 +80,10 @@ message Trace {
 ```
 
 Unlike in zero-copy frameworks such as [Cap'n Proto](https://capnproto.org/),
-protobuffer's serialised format does not double as an in-memory representation,
-all serialisation and deserialisation operations move and convert data between
-a binary buffer containing the wire representation and an in-memory data structure
-with which the program interacts.
+protobuffer's serialised format does not double as an in-memory representation.
+Therefore, all serialisation and deserialisation operations move and convert
+data between a binary buffer containing the wire representation and an
+in-memory data structure with which the program interacts.
 
 In short, this means that to serialise a large `Trace`, the full trace needs
 to be in an in-memory representation.
@@ -138,10 +138,10 @@ If you want more detailed information, have a look at the
 ### VARINTs
 
 At the heart of protobuffer encoding sit variable-length ("varlen") encoded
-64 bit integers, referred to as _varints_.
+64-bit integers, referred to as _varints_.
 
 This is an optimization that builds on the observation that in many applications,
-while it is beneficial to support full 32 or 64 bit numbers, most of the time only
+while it is beneficial to support full 32- or 64-bit numbers, most of the time only
 small numbers are used.
 For example, in protobuffer messages, tags all the way up to
 {{ katex(body="2^{29} - 1") }} are supported, while the majority of messages
@@ -257,7 +257,7 @@ message Parent {
 ```
 
 In protobufs, such "embedded" messages are encoded using the `LEN` scheme
-listed in the table above, which has an id of `2`.
+listed in the table above, which has an ID of `2`.
 Quite simply, after the key value, the length of the encoded child message in
 bytes is first serialised as a varlen-encoded value, followed by the normal
 encoding of the child message.
@@ -343,7 +343,7 @@ KEY   LEN   CHILD.....   KEY   LEN   CHILD.....
 Armed with this basic understanding of the protobuffer wire format, and a
 `protoc`-generated (or equivalent) encoder and decoder of the inner
 `TracePacket` message, we can now encode and decode a large `Trace` one
-`TracePacket` at a time by doing a bit of manual leg work.
+`TracePacket` at a time by doing a bit of manual legwork.
 
 Notably, the `Trace` message with which we started this post is incredibly
 similar to the `MultiParent` example above: A message with a single,
@@ -468,7 +468,7 @@ pub fn decode_varint(buf: &mut &[u8]) -> anyhow::Result<u64> {
     Ok(v)
 }
 
-/// Decode a TracePacket from the beginning provided buffer containing an encoded Trace message,
+/// Decode a TracePacket from the beginning of the provided buffer containing an encoded Trace message,
 /// returning the packet and the offset of the next TracePacket in the buffer.
 pub fn decode_next_trace_packet(buf: &mut &[u8]) -> anyhow::Result<(TracePacket, usize)> {
     let len_orig = buf.len();
@@ -502,6 +502,6 @@ pub fn decode_next_trace_packet(buf: &mut &[u8]) -> anyhow::Result<(TracePacket,
 
 ### Complete Example
 
-For a complete working example including a few tests, have a look at
+For a complete working example including a few tests, feel free to have a look at
 [this](https://github.com/schilkp/protobuffer_repeat_streaming_example)
 repository.
