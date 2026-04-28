@@ -224,8 +224,8 @@ the Rust event decoder, and the event index documentation.
 
 Consider the following `isr_name` event as an example:
 
-<center>
-<div style="width: 50%;">
+<div style="display: flex; justify-content: center;">
+<div style="width: fit-content;">
 
 | **Field Name:** | `id` | `isr_id` | `name` |
 | :- | :-: | :-: | :-: |
@@ -233,7 +233,7 @@ Consider the following `isr_name` event as an example:
 | **Note:** | 0x03 | required | varlen |
 
 </div>
-</center>
+</div>
 
 Based on this, the following encoder and decoder are generated:
 ```c

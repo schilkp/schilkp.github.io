@@ -22,8 +22,8 @@ A discrete SAR (Successive-Approximation-Register) ADC controlled by a state mac
 A quick feature overview:
 
 
-<center>
-<div style="width: 50%;">
+<div style="display: flex; justify-content: center;">
+<div style="width: fit-content;">
 
 | Specification       | Value                                    |
 | -                   | -                                        |
@@ -35,7 +35,7 @@ A quick feature overview:
 | Output              | 8 bit parallel                           |
 
 </div>
-</center>
+</div>
 
 The point of this project was not to design a usable ADC (8bit at 300Hz is nothing to write home about),
 but rather to be a fun challenge and play around with successive-approximation analog to digital conversion.
