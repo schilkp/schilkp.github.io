@@ -192,6 +192,11 @@ img {
   max-width:100%;
 }
 
+audio {
+  display: block;
+  margin: 0 auto;
+}
+
 strong {
   color:#222;
   font-weight:500;

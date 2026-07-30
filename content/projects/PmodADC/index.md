@@ -133,15 +133,21 @@ ADC and played back by the DAC:
 
 {{ youtube(src="https://www.youtube-nocookie.com/embed/QIoPao8BHm0") }}
 
-As a more direct comparison, the table below contains short music clips as they are, after being recorded by the ADC,
-and after playback by the DAC respectively.
+As a more direct comparison, the table below contains short music clips in
+their original form, after being recorded by the ADC, and after playback by the
+DAC respectively.
 
-| *Song*                     | *Original*                                                                                       | *PmodADC Demo*                                                                         | *PmodDAC Demo*                                                                                 |
-| :-:                        | :-:                                                                                              | :-:                                                                                    | :-:                                                                                            |
-| Protofunk                  | [here](https://soundcloud.com/user-489490213/protofunk-reference/s-mYtDzv4H0rD)                  | [here](https://soundcloud.com/user-489490213/protofunk-s-5CrWlwWIQJU)                  | [here](https://soundcloud.com/user-489490213/protofunk-pmoddac/s-AqIKrZKs7Aa)                  |
-| New Hero in Town           | [here](https://soundcloud.com/user-489490213/new-hero-in-town-reference/s-YKGpP2wkpSc)           | [here](https://soundcloud.com/user-489490213/new-hero-in-town-s-A1OPIKn5Tv4)           | [here](https://soundcloud.com/user-489490213/new-hero-in-town-pmoddac/s-smGRP41zKKE)           |
-| Whiskey on the Mississippi | [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-reference/s-0ekaJDO2ERm) | [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-s-d2xfiT4uBGa) | [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmoddac/s-CflAaRhN0gA) |
-| The Parting                | [here](https://soundcloud.com/user-489490213/the-parting-reference/s-s09MCjP3SIX)                | [here](https://soundcloud.com/user-489490213/the-parting-s-gcHSaS2ZzWT)                | [here](https://soundcloud.com/user-489490213/the-parting-pmoddac/s-kLg3MuZsgWg)                |
+| *Song*                     | *Version* | *Audio*                                                                                                   |
+| -                          | -         | :-:                                                                                                       |
+| Whiskey On The Mississippi | Reference | <audio controls> <source src="./demos/whiskey_on_the_mississippi_ref.mp3" type="audio/mpeg"> </audio>     |
+| Whiskey On The Mississippi | PmodADC   | <audio controls> <source src="./demos/whiskey_on_the_mississippi_PmodADC.mp3" type="audio/mpeg"> </audio> |
+| Whiskey On The Mississippi | PmodDAC   | <audio controls> <source src="./demos/whiskey_on_the_mississippi_PmodDAC.mp3" type="audio/mpeg"> </audio> |
+| Protofunk                  | Reference | <audio controls> <source src="./demos/protofunk_ref.mp3" type="audio/mpeg"> </audio>                      |
+| Protofunk                  | PmodADC   | <audio controls> <source src="./demos/protofunk_PmodADC.mp3" type="audio/mpeg"> </audio>                  |
+| Protofunk                  | PmodDAC   | <audio controls> <source src="./demos/protofunk_PmodDAC.mp3" type="audio/mpeg"> </audio>                  |
+| The Parting                | Reference | <audio controls> <source src="./demos/the_parting_ref.mp3" type="audio/mpeg"> </audio>                    |
+| The Parting                | PmodADC   | <audio controls> <source src="./demos/the_parting_PmodADC.mp3" type="audio/mpeg"> </audio>                |
+| The Parting                | PmodDAC   | <audio controls> <source src="./demos/the_parting_PmodDAC.mp3" type="audio/mpeg"> </audio>                |
 
 <small> All music used is by Kevin MacLeod and is available under the Creative Commons 4.0 license, see [here](#other-notes).</small>
 
@@ -254,10 +260,6 @@ License: http://creativecommons.org/licenses/by/4.0/
 
 Whiskey on the Mississippi by Kevin MacLeod
 Link: https://incompetech.filmmusic.io/song/4624-whiskey-on-the-mississippi
-License: http://creativecommons.org/licenses/by/4.0/
-
-New Hero In Town by Kevin MacLeod
-Link: https://incompetech.filmmusic.io/song/5742-new-hero-in-town
 License: http://creativecommons.org/licenses/by/4.0/
 
 The Parting by Kevin MacLeod
