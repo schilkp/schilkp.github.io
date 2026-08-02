@@ -1,4 +1,4 @@
-{% if not no_br %} <br> {% endif %} 
+{% if not no_br %} <br> {% endif %}
 <div style="text-align: center;">
     {% if downscale_to_width %}
       {% set resized_image = resize_image(
@@ -17,9 +17,9 @@
     <a href="{{ link }}">
         <img src="{{img}}" {% if width %}width="{{width}}" {% else %} width="70%" {% endif %}>
     </a>
-    {% if desc %} 
+    {% if desc %}
     <br>
     {{ desc | markdown | safe }}
     {% endif %}
 </div>
-{% if not no_br %} <br> {% endif %} 
+{% if not no_br %} <br> {% endif %}

@@ -13,7 +13,7 @@
       <header>
         {% include "partials/header_common.html" %}
         <script>
-        function toggle_div(id) { 
+        function toggle_div(id) {
           const div = document.getElementById(id);
           if (div != null) {
               if (div.style.display === "none") {
@@ -29,15 +29,15 @@
 
       <section>
         <h1>📎 Papers</h1>
-        
+
         {% set papers = load_data(path=page.colocated_path ~ "papers.yml", format="yaml", required=true) %}
         <div class="papers">
           {% for paper in papers %}
             <div class="paper">
-              <strong> 
+              <strong>
                 {% if paper.url %}<a href="{{paper.url}}">{% endif %}
                     {{ paper.title }}
-                {% if paper.url %}</a>{% endif %} 
+                {% if paper.url %}</a>{% endif %}
               </strong> <br>
 
               <em> {{paper.authors}} </em> <br>
@@ -45,11 +45,11 @@
               {% if paper.cite_info %}
                 {{ paper.cite_info }} <br>
               {% endif %}
-              
+
               {% if paper.award %}
               ⭐ {{ paper.award }}
               {% endif %}
-               
+
               <div class="paper_button_row">
                 {% if paper.url %}
                   <div class="paper_button">
@@ -62,19 +62,19 @@
                     💡 <a href="{{ get_url(path=paper.zola_link) }}"> Info </a>
                   </div>
                 {% endif %}
-                
+
                 {% if paper.arxiv %}
                   <div class="paper_button">
                     🗄️ <a href="{{ paper.arxiv }}"> arXiv </a>
                   </div>
                 {% endif %}
-                
+
                 {% if paper.uni_link %}
                   <div class="paper_button">
                     🏛️ <a href="{{ paper.uni_link }}"> University </a>
                   </div>
                 {% endif %}
-                
+
                 {% if paper.abstract %}
                   <div class="paper_button">
                     🔍 <a onclick="toggle_div('abstract_{{loop.index}}')"> Abstract </a>
@@ -86,7 +86,7 @@
                     💻 <a href="{{ paper.code }}"> Code </a>
                   </div>
                 {% endif %}
-                
+
                 {% if paper.dataset %}
                   <div class="paper_button">
                     💾 <a href="{{ paper.dataset }}"> Dataset </a>
@@ -105,7 +105,7 @@
                   {{ paper.bibtex | markdown(inline=true) | safe }}
                 </div>
               {% endif %}
-              
+
               {% if paper.abstract %}
                 <div class="paper_info_panel" id="abstract_{{loop.index}}" style="display:none;">
                   <div class="content_box"> {{ paper.abstract | markdown(inline=true) | safe }} </div>
@@ -120,14 +120,14 @@
         <div class="papers">
           {% for award in awards %}
             <div class="paper">
-              <strong> 
+              <strong>
                 {% if award.url %}<a href="{{award.url}}">{% endif %}
                     {{ award.title }} {% if award.year %} ({{ award.year }}) {% endif %}
-                {% if award.url %}</a>{% endif %} 
+                {% if award.url %}</a>{% endif %}
               </strong> <br>
 
               {% if award.descr %}
-                {{ award.descr | safe }} 
+                {{ award.descr | safe }}
                 <br>
               {% endif %}
 
@@ -137,7 +137,7 @@
                     🌍 <a href="{{ award.url }}"> Website </a>
                   </div>
                 {% endif %}
-                
+
                 {% if award.paper_url %}
                   <div class="paper_button">
                     📄 <a href="{{award.paper_url}}"> Paper </a>
