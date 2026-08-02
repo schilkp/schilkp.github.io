@@ -2,8 +2,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  {# Build TS/Hash #}
   <!-- Built at {{ get_env(name="SCHILK_IO_BUILD_TS", default="[DEV]") }} from commit {{ get_env(name="SCHILK_IO_COMMIT", default="[DEV]") }}  --!>
 
+  {# Katex #}
   {% if katex_enabled %}
     <link rel="stylesheet" href="/css/katex.min.css" />
     <script defer src="/js/katex.min.js"></script>
@@ -13,9 +15,10 @@
     {% endif %}
   {% endif %}
 
+  {# CSS #}
   <link rel="stylesheet" href="/css/styles.css" />
 
-  <!-- goatcounter analytics: -->
+  {# GoatCounter analytics #}
   <link rel="canonical" href="{{current_url}}">
   <script data-goatcounter="https://analytics.schilk.co/count" async src="//analytics.schilk.co/count.js"></script>
 {% endmacro setup %}
