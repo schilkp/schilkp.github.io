@@ -71,7 +71,7 @@ jobs:
 
       - name: Build
         working-directory: ${{github.workspace}}
-        run: ./tools/zola build
+        run: source ./tools/deploy_env.bash && ./tools/zola build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

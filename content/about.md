@@ -35,3 +35,11 @@ Here are a few places that you can find me on the internet:
 
 This page is built using [Zola](https://github.com/getzola/zola) and hosted on
 GitHub Pages, with all sources available [here](https://github.com/schilkp/schilkp.github.io).
+
+<small>
+Built at
+<code>{{ get_env(name="SCHILK_IO_BUILD_TS", default="[DEV]") }}</code>
+from commit
+<code>{{ get_env(name="SCHILK_IO_COMMIT", default="[DEV]") }}</code>
+.
+</small>
