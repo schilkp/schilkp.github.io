@@ -37,14 +37,18 @@
 
     {% set combined_items = [] %}
 
+    {# Collect all root subsections and root pages into one list: #}
     {% for subsection in root_section.subsections %}
       {% set section = get_section(path=subsection) %}
       {% if not section.extra | get(key="exclude_from_menu", default=false) %}
+        {# Use `extra.menu_link` override if given, otherwise use permalink: #}
+        {% set menu_link = section.extra | get(key="menu_link", default="") %}
+        {% if menu_link != "" %} {% set target_link = get_url(path=menu_link) %} {% else %} {% set target_link = section.permalink %} {% endif %}
         {% set new_item = [
           "section",
           section.extra.nav_emoji,
           section.title,
-          section.permalink,
+          target_link,
           section.extra | get(key="menu_pos", default=100)
         ] %}
         {% set_global combined_items = combined_items | concat(with=[new_item]) %}
@@ -53,11 +57,14 @@
 
     {% for page in root_section.pages %}
       {% if not page.extra | get(key="exclude_from_menu", default=false) %}
+        {# Use `extra.menu_link` override if given, otherwise use permalink: #}
+        {% set menu_link = page.extra | get(key="menu_link", default="") %}
+        {% if menu_link %} {% set target_link = get_url(path=menu_link) %} {% else %} {% set target_link = page.permalink %} {% endif %}
         {% set new_item = [
           "page",
           page.extra.nav_emoji,
           page.title,
-          page.permalink,
+          target_link,
           page.extra | get(key="menu_pos", default=100)
         ] %}
         {% set_global combined_items = combined_items | concat(with=[new_item]) %}

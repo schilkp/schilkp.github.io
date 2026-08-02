@@ -12,4 +12,7 @@ nav_emoji="🔨"
 
 # Position in menu:
 menu_pos=0
+
+# Menu link override:
+menu_link="@/_index.md"
 +++
