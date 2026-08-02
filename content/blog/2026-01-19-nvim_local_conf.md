@@ -7,7 +7,7 @@ on a per-project basis.
 
 As with anything related to neovim configuration there are about 50 different
 ways this can be achieved, and because neovim is usually configured with
-executable code instead of declarative config files, a few gotchas that might
+executable code instead of declarative config files, there are a few gotchas that might
 not be immediately obvious.
 """
 template="blog_post.html"
@@ -284,7 +284,7 @@ You can find my complete setup directly in my neovim configuration
 
 ## Changes
 
-- `13-03-2026`:
+- `2026-03-13`:
     - Fixed the version of `nvim` in which `vim.secure.read()` was introduced - thanks, justinmk!
     - Updated the example snippet to use the actual content read by `vim.secure.read()` instead of just using said function to check if the file is trusted before sourcing from the file.
     - Add explanation about deferred `notify` calls.

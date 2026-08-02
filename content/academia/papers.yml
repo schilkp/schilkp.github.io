@@ -90,7 +90,7 @@
     within 12.8ms at an accuracy of 95% is evaluated. Different SoC choices are
     contrasted, with the final implementation based on the cutting-edge Ambiq 
     Apollo 4 Blue SoC achieving 2.64mW average power consumption at 14uJ per 
-    inference, reaching 43h of battery life on a miniature 32mAh li-ion cell and 
+    inference, reaching 43h of battery life on a miniature 32mAh Li-ion cell and
     without duty cycling.
   bibtex: |
     ```bibtex
@@ -118,8 +118,8 @@
   uni_link: "https://www.research-collection.ethz.ch/handle/20.500.11850/603855"
   award: "Best Paper eHPWAS'22"
   abstract: |
-    Monitoring of physiological parameters support early detection, prevention,
-    and management of adverse healthcare related events. In-ear wearable sensor
+    Monitoring of physiological parameters supports early detection, prevention,
+    and management of adverse healthcare-related events. In-ear wearable sensor
     nodes that track changing bio-physiological signals can be advantageous
     over traditional monitoring methods in being compact, unobtrusive, and
     inconspicuous, increasing their appeal. However, in-ear ergonomics place

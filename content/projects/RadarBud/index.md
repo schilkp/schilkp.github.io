@@ -33,7 +33,7 @@ radar and hand gesture recognition pipeline.
 The RadarBud is built on my [VitalCore](/projects/vitalcore/) platform: a tiny controller board that
 features a fairly capable NRF53 SoC, full power and battery management, an IMU, a BLE antenna, and
 some extra flash. We extended it using a purpose-built "RadarPack" extension board, which features
-an Infinion radar and its supporting circuitry.
+an Infineon radar and its supporting circuitry.
 
 {{ centered_img(src="render_lbl_master.jpeg", width="95%") }}
 This stack is then placed in a custom case that was manufactured using a resin 3D printer. Besides

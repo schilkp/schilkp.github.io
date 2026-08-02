@@ -16,7 +16,7 @@ thumbnail_img="header.jpg"
 
 During the Fall Semester of 2023, I had the incredible opportunity to both design from scratch
 and teach all practical components of the Embedded Systems course attended annually by 350+ students
-here at the ETH Zürich Department for Electrical Engineering and Information Science.
+here at the ETH Zürich Department of Information Technology and Electrical Engineering.
 
 > [!NOTE]
 >
@@ -48,7 +48,7 @@ Basic development boards (such as ST's Nucleo line) feature nothing but a microc
 programmer, intended for the user to connect different peripherals via some connectors. The lack
 of different buttons, potentiometers, LEDs, and other "fun" components makes it hard to
 design visual and engaging exercises. While it would be possible to attach such parts
-to the board, this does not really scale with 350 students in a room - There are already
+to the board, this does not really scale with 350 students in a room - there are already
 sufficient problems that require debugging!
 
 Full-featured development boards, on the other hand, tend to be stuffed to the brim with top-of-the-line

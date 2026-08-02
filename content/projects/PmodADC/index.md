@@ -153,7 +153,7 @@ DAC respectively.
 
 ## Characterization
 
-I was very fortunate to be given the opportunity do some basic characterization of my ADC and DAC design at the Center for
+I was very fortunate to be given the opportunity to do some basic characterization of my ADC and DAC design at the Center for
 Project-based learning at ETHZ.
 
 {{ centered_img(src="pmodadc_lab.jpeg" width="80%") }}
@@ -214,7 +214,7 @@ yielded the following:
 
 Because this DAC is identical to the one at the core of the ADC, and the
 non-linearities are very similar in magnitude to those seen on the ADC,
-it is likely that DAC non-idealities are large source of the ADC errors.
+it is likely that DAC non-idealities are a large source of the ADC errors.
 
 ### DAC THD
 
@@ -231,13 +231,13 @@ The logical next step would probably be to integrate the ADC, DAC, FPGA and USB 
 same board. This could simplify the somewhat convoluted power architecture, possibly
 reducing noise.
 
-This would also enable me to select the external oscillator FPGA to give more flexibility in sampling
+This would also enable me to select the external oscillator for the FPGA to give more flexibility in sampling
 rate selection. A more standard frequency (44.1 kHz) would make sense. The FPGA could also be directly
 connected to the ADC: Skipping the shift registers and their high-speed serial communication would
 probably also yield noise improvements.
 
 Another interesting idea would be to implement a charge-redistribution ADC from discrete components.
-I would presume that this would not be as straight forward, but definitely worth a try. An integrating/multislope
+I would presume that this would not be as straightforward, but definitely worth a try. An integrating/multislope
 ADC would also make for a fun challenge.
 
 ## Links

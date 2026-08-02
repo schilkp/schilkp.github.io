@@ -21,7 +21,6 @@ A small embedded systems tracer with support for bare-metal and FreeRTOS-based t
 
 {{ toc() }}
 
-<!-- FIXME -->
 <!-- Used to be used in multiple places, but now I still use the ident to prevent it from appearing in the table of contents.. -->
 {{ include_markdown(path="content/projects/Tonbandgeraet/_links.mdsnippet") }}
 
@@ -40,9 +39,9 @@ The latter runs a WASM version of the Rust conversion tool directly in the brows
 
 ## Purpose
 
-Tonbandgeraet was designed primarily for a teaching context, in particular for
+Tonbandgerät was designed primarily for a teaching context, in particular for
 the [Embedded Systems course](@/projects/ES/index.md) I had the pleasure of
-running at ETH Zurich.
+running at ETH Zürich.
 
 Most of the trade-offs and design choices that might seem odd at first stem
 from the somewhat weird context I was planning to use it in.

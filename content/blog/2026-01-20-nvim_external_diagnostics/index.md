@@ -44,7 +44,7 @@ The command `:make` will cause vim to call `make` with no arguments, capture
 its output and parse it into the so-called quickfix list, which you can open
 with `:cwindow`:
 
-{{ centered_img(src="make_qf.png", desc="Errors produced by `:make` in the quick-fix list.") }}
+{{ centered_img(src="make_qf.png", desc="Errors produced by `:make` in the quickfix list.") }}
 
 As you scroll through the quickfix list, vim will automatically jump to the location of
 the errors and warnings.
@@ -162,7 +162,7 @@ A few that might be of interest:
 - `eslint` and `tsc` for webdev.
 - `tex` and `typst` for typesetting.
 
-And even `modelsim_vcom`, which is the VHDL compiler in modelsim!
+And even `modelsim_vcom`, which is the VHDL compiler in ModelSim!
 
 It is worth having a look at the content of the compiler plugin file for a tool
 you are intending to use.
@@ -186,7 +186,7 @@ If you find yourself often parsing the output of a tool that is not
 yet included in (neo)vim's list of built-in compiler plugins, consider
 adding a custom compiler plugin in your configuration.
 
-On linux, new compiler plugins should be placed in `$XDG_CONFIG_HOME/nvim/compiler/`,
+On Linux, new compiler plugins should be placed in `$XDG_CONFIG_HOME/nvim/compiler/`,
 while overrides to existing compiler plugins go in `$XDG_CONFIG_HOME/nvim/after/compiler/`.
 
 For example, on my machine, to create a new `verilator` compiler plugin, I create
@@ -288,7 +288,7 @@ verilator --diagnostics-sarif --diagnostics-sarif-output log.json
 In addition to seeing the errors inline, I like to use the excellent
 [trouble.nvim](https://github.com/folke/trouble.nvim) to also show a quickfix-like
 pane with all diagnostics.
-If you prefer to use the quickfix list, you can also programatically insert
+If you prefer to use the quickfix list, you can also programmatically insert
 the diagnostics there.
 
 This approach, while a little bit more work, has the advantage of being

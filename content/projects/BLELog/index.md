@@ -18,8 +18,6 @@ It is based on the [bleak](https://github.com/hbldh/bleak) cross-platform Blueto
 
 ## Overview
 
-<!-- Fixme: Link to vitalcore, radarbud -->
-
 After having written one too many quick and dirty "receive and store BLE characteristic notification" python script,
 I took the time to write a generic BLE data logger that can be adapted quickly to the most common requirements.
 

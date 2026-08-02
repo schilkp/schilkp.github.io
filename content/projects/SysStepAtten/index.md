@@ -1,6 +1,6 @@
 +++
 title="SYS Step Attenuator"
-description="A 127 Step Audio Relay Step-Attenuator and 4-way input switcher designed to fit into a Schiit SYS enclosure. "
+description="A 127 Step Audio Relay Step-Attenuator and 4-way input switcher designed to fit into a Schiit SYS enclosure."
 template="project_page.html"
 weight=402
 

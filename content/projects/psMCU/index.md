@@ -62,7 +62,7 @@ chained together and connected to the memory bus connector on the main board.
 
 ### Overview
 
-Because it features a custom ISA, I developed a fairly full-featured macro assembler in python called *psASM*.
+Because it features a custom ISA, I developed a fairly full-featured macro assembler in Python called *psASM*.
 It features a Turing-complete C-style preprocessor with global and local label resolution, 
 file inclusion/multi-file programs, macros to reduce code duplication, conditional compilation, and calculations.
 
@@ -193,7 +193,7 @@ ascii_heap "Hello World!", 0x10
 
 ### Internals
 
-psASM is written in python using an ANTLR4 frontend. The bulk of the complexity
+psASM is written in Python using an ANTLR4 frontend. The bulk of the complexity
 is in the preprocessor, which is effectively a tree-walking interpreter that executes
 the directives in multiple passes.
 
@@ -212,7 +212,7 @@ it into psMCU's program flash.
 
 ### Syntax Highlighting
 
-Because I was spending a significant time writing psASM code, I setup simple syntax highlighting for
+Because I was spending a significant time writing psASM code, I set up simple syntax highlighting for
 Notepad++, VIM, and now even this website.
 
 ## Links

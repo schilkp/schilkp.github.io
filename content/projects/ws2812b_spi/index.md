@@ -1,6 +1,6 @@
 +++
 title="WS2812B SPI Driver"
-description="A simple but flexible, unit-tested, cross-platform library to communicate with WS2812B-style LEDs using an SPI peripheral. "
+description="A simple but flexible, unit-tested, cross-platform library to communicate with WS2812B-style LEDs using an SPI peripheral."
 template="project_page.html"
 weight=8
 

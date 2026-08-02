@@ -1,6 +1,6 @@
 +++
 title="Fets & Crosses"
-description="A game of Noughts-and-Crosses (Tic-Tac-Toe) built from 2458 individual mosfets, featuring both player-vs-player and player-vs-computer modes."
+description="A game of Noughts-and-Crosses (Tic-Tac-Toe) built from 2458 individual MOSFETs, featuring both player-vs-player and player-vs-computer modes."
 template="project_page.html"
 weight=101
 
@@ -106,18 +106,18 @@ and playing against the computer:
 
 ## The Engine
 
-Because Tic-tac-toe is such a simple game, implementing perfect play is rather straightforward.
+Because Tic-Tac-Toe is such a simple game, implementing perfect play is rather straightforward.
 In fact, you can think of the engine as a long `if-else` statement, that picks the first sensible
 move:
 
 ```rust
-if (b[top][left] == "us" && b[top][middle] = "us" && b[top][right] == "empty") {
+if (b[top][left] == "us" && b[top][middle] == "us" && b[top][right] == "empty") {
   // can win in top row.
   play(top, right);
-} else if (b[top][left] == "us" && b[top][middle] = "empty" && b[top][right] == "us") {
+} else if (b[top][left] == "us" && b[top][middle] == "empty" && b[top][right] == "us") {
   // can win in top row.
   play(top, center);
-} else if (b[top][left] == "empty" && b[top][middle] = "us" && b[top][right] == "us") {
+} else if (b[top][left] == "empty" && b[top][middle] == "us" && b[top][right] == "us") {
   // can win in top row.
   play(top, left);
 } else if ...
@@ -154,20 +154,20 @@ The decision gates required, in order, are as follows:
 - If a corner is empty, play in the corner (4 gates).
 - If a side/top/bottom is empty, play there (4 gates).
 
-Here a _fork_ is a situation where the player has two possible slots to they
+Here a _fork_ is a situation where the player has two possible slots they
 can play to win against the engine. 
 The precise decision required to prevent forks depends on the exact order of decision gates. For
 my implementation, the following suffices to completely prevent forks:
 
 ```rust
 ...
-} else if (b[top][left] == "them" && b[bottom][right] = "them" && b[bottom][center] == "empty") {
+} else if (b[top][left] == "them" && b[bottom][right] == "them" && b[bottom][center] == "empty") {
   // prevent fork
   play(bottom, center);
-} else if (b[top][right] == "them" && b[bottom][left] = "them" && b[bottom][center] == "empty") {
+} else if (b[top][right] == "them" && b[bottom][left] == "them" && b[bottom][center] == "empty") {
   // prevent fork
   play(bottom, center);
-} else if (b[middle][right] == "them" && b[bottom][center] = "them" && b[bottom][right] == "empty") {
+} else if (b[middle][right] == "them" && b[bottom][center] == "them" && b[bottom][right] == "empty") {
   // prevent fork
   play(bottom, right);
 } else if ...
@@ -175,7 +175,7 @@ my implementation, the following suffices to completely prevent forks:
 
 With this scheme, the 64 required decision gates and supporting logic (inversion of game state,
 `OR`-ing of all play outputs for a specific cell) can be implemented using 1074 transistors, yielding
-a fully combinational tic tac toe perfect play engine.
+a fully combinational Tic-Tac-Toe perfect play engine.
 
 ## Full Engine Test
 

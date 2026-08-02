@@ -295,7 +295,7 @@ h1:has(+ div.subtitle) {
 
 /* ==== Table of Contents =================================================== */
 
-/* Hide ToC in header when header is moved from sidepar to top of page.
+/* Hide ToC in header when header is moved from sidebar to top of page.
    The header looks ugly here because it would appear before the page title.
    Instead, the ToC inside the page is revealed. This is kept hidden while the sidebar
    ToC is active because it is redundant. */
@@ -334,7 +334,7 @@ section .toc {
 
 /* ==== Tag Index =========================================================== */
 
-/* Hide tag index in header when header is moved from sidepar to top of page.
+/* Hide tag index in header when header is moved from sidebar to top of page.
    The header looks ugly here because it would appear before the page title.
    Instead, the tag index inside the page is revealed. This is kept hidden
    while the sidebar tag index is active because it is redundant. */
@@ -354,7 +354,7 @@ section .tag_index {
   color:#595959;
 }
 
-/* ==== Two-collumn layout =================================================== */
+/* ==== Two-column layout =================================================== */
 
 .twocol {
   display: flex;
@@ -527,7 +527,7 @@ pre table {
     opacity: 0.8;
 }
 
-/* ==== Github-style Admonishmnets ========================================== */
+/* ==== Github-style Admonishments ========================================== */
 
 blockquote.markdown-alert-note {
   border-left:4px solid #0969da;

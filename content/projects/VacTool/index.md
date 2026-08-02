@@ -1,6 +1,6 @@
 +++
 title="VacTool"
-description="A simple manual SMD pick-and-place pen. "
+description="A simple manual SMD pick-and-place pen."
 template="project_page.html"
 
 weight=403
