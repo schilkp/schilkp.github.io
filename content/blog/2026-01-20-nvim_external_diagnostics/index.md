@@ -11,6 +11,8 @@ manually generating diagnostics with a lua script.
 """
 template="blog_post.html"
 
+updated="2026-08-12"
+
 [taxonomies]
 tags=["nvim", "rtl"]
 +++
@@ -327,13 +329,13 @@ M.verilator_exclude_filters = {}
 M.verilator_include_filters = {}
 
 function M.filter_check(file, msg, severity)
-  local severity_lower = string.lower(severity)
-  local diag = file .. " " .. msg
+  local severity_lower = string.lower(severity or "")
+  local diag = string.lower(file .. " " .. msg)
 
   -- Reject based on exclude filters:
   for _, filter in ipairs(M.verilator_exclude_filters) do
     local filter_lower = string.lower(filter)
-    if string.find(diag, filter) or string.find(severity_lower, filter_lower) then
+    if string.find(diag, filter_lower) or string.find(severity_lower, filter_lower) then
       return false
     end
   end
@@ -343,7 +345,7 @@ function M.filter_check(file, msg, severity)
     local any_filter_matches = false
     for _, filter in ipairs(M.verilator_include_filters) do
       local filter_lower = string.lower(filter)
-      if string.find(diag, filter) or string.find(severity_lower, filter_lower) then
+      if string.find(diag, filter_lower) or string.find(severity_lower, filter_lower) then
         any_filter_matches = true
       end
     end
@@ -525,4 +527,9 @@ function M.setup()
 end
 
 return M
+
+## Changes
+
+- `2026-08-12`:
+    - Fixed small bugs in the sample implementation of `M.filter_check`
 ```
