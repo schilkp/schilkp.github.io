@@ -393,20 +393,31 @@ section .tag_index {
 
 /* ==== Project overview table (home page) ================================== */
 
-/* FIXME: Convert to SCSS + Inheritance of twocol */
-
 .project_table {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
 }
 
 .project_table img:hover{
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* With thumbnail: title / image / description -> spans 3 shared row tracks */
 .project_table_inner {
-  flex: 0 0 45%;
-  padding-right: 10px;
+  grid-row: span 3;
+  display: grid;
+  grid-template-rows: subgrid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Without thumbnail: title / description -> spans 2 shared row tracks */
+.project_table_inner_noimg {
+  grid-row: span 2;
+  display: grid;
+  grid-template-rows: subgrid;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -417,13 +428,7 @@ section .tag_index {
 
 @media print, screen and (max-width: 500px) {
   .project_table {
-    display: block;
-  }
-  .project_table_inner {
-    flex: 100% 1 0;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    grid-template-columns: 1fr;
   }
   .project_table_inner img {
       display: block;

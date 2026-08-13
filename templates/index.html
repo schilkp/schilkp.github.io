@@ -29,7 +29,6 @@
             <div class="project_table_inner">
               <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
               <a href="{{project.permalink}}"><img src="{{proj_img.url}}"/></a>
-              <br />
               {{project.description | markdown | safe}}
             </div>
             {% endif %}
@@ -39,7 +38,7 @@
           <!-- Projects without image: -->
           {% for project in projects.pages %}
             {% if project.extra.thumbnail_img is matching("^$") %}
-            <div class="project_table_inner">
+            <div class="project_table_inner_noimg">
               <h2><a href="{{project.permalink}}">{{project.title}}</a></h2>
               {{project.description | markdown | safe}}
             </div>
