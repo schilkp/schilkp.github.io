@@ -527,9 +527,9 @@ function M.setup()
 end
 
 return M
+```
 
 ## Changes
 
 - `2026-08-12`:
     - Fixed small bugs in the sample implementation of `M.filter_check`
-```
