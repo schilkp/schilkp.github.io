@@ -30,14 +30,17 @@ Something such as:
 
 This is especially the case when writing RTL in (System)Verilog, where I often
 find myself needing to do structured and systematic text transformations.
-This blog post contains a few real-life examples of such transforms at the end.
 
 Fortunately, neovim is configured and scripted in Lua, which makes this rather
 simple to implement.
 
-## Wrappers
+This blog post contains a short guide on how to write transforms as lua
+functions, explains how to register them as bindings or commands, and includes
+a few real-life examples of such transforms that I have found useful at the end.
 
-To achieve this, I rely on two simple helper functions in my neovim configuration.
+## Wrapper Functions
+
+I rely on two simple helper functions in my neovim configuration.
 
 The first, given a Lua text-transform function that both accepts and returns
 a list(-like table) of lines, returns a function which grabs the current selection,
