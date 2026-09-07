@@ -21,11 +21,11 @@ clean:
     rm -rf static/processed_images
 
 new_post name:
-    cp content/blog/x_template content/blog/"$(date +%Y-%m-%d)-{{name}}".md
+    cp content/blog/xxxx-xx-xx-template content/blog/"$(date +%Y-%m-%d)-{{name}}".md
 
 new_folder_post name:
     mkdir content/blog/"$(date +%Y-%m-%d)-{{name}}"
-    cp content/blog/x_template content/blog/"$(date +%Y-%m-%d)-{{name}}"/index.md
+    cp content/blog/xxxx-xx-xx-template content/blog/"$(date +%Y-%m-%d)-{{name}}"/index.md
 
 check_zola:
     #!/usr/bin/env bash
