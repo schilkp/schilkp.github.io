@@ -11,6 +11,8 @@ functions, and register them both as visual mode mappings and user commands.
 """
 template="blog_post.html"
 
+updated="2026-09-08"
+
 [taxonomies]
 tags=["nvim", "rtl"]
 +++
@@ -49,21 +51,20 @@ applies the transform function, and replaces the current selection with its outp
 ```lua
 -- Wrap a text-transformation function to make it simple to register
 -- it as a visual mode text-transform mapping.
-function visual_process_selection(processing_func)
+function visual_process_selection_lines(processing_func)
   return function()
-    -- Determine range of lines selected:
-    local line_first = vim.fn.line("v")
-    local line_last = vim.fn.line(".")
-    if line_first > line_last then
-      line_first, line_last = line_last, line_first
-    end
-
     -- Retrieve selected lines:
-    local bufn = vim.api.nvim_get_current_buf()
-    local lines = vim.api.nvim_buf_get_lines(bufn, line_first - 1, line_last, false)
+    local pos1 = vim.fn.getpos("v")
+    local pos2 = vim.fn.getpos(".")
+    local lines = vim.fn.getregion(pos1, pos2, { type = "V" })
 
     -- Process selected lines using the provided function:
     local processed_lines = processing_func(lines)
+
+    -- Determine buffer and (ordered) line range selected for replacement:
+    local bufn = vim.api.nvim_get_current_buf()
+    local line_first = math.min(pos1[2], pos2[2])
+    local line_last = math.max(pos1[2], pos2[2])
 
     -- Replace selected lines:
     vim.api.nvim_buf_set_lines(bufn, line_first - 1, line_last, false, processed_lines)
@@ -84,7 +85,7 @@ selection with its output:
 ```lua
 -- Wrap a text-transformation function to make it simple to register
 -- it as a text-transforming user command.
-function cmd_process_selection(processing_func)
+function cmd_process_selection_lines(processing_func)
   return function(opts)
     -- Get the range from the command (line1 and line2 are 1-indexed)
     local line_start = opts.line1
@@ -124,14 +125,14 @@ end
 We can register this function as a visual mode mapping and user command
 as follows:
 ```lua
-vim.keymap.set("v", "gQ", visual_process_selection(prepend_line_no), {
+vim.keymap.set("v", "gQ", visual_process_selection_lines(prepend_line_no), {
   desc = "Prepend line numbers",
   silent = true,
   noremap = true,
 })
 vim.api.nvim_create_user_command(
   "PrependLineNos",
-  cmd_process_selection(prepend_line_no),
+  cmd_process_selection_lines(prepend_line_no),
   { range = true, desc = "Prepend line numbers" }
 )
 ```
@@ -298,3 +299,7 @@ instantiate it, and do the bulk of the tedious editing with a single mapping.
 
 You can find the full transform function to achieve this
 [here](@/blog/2026-09-06-nvim_lua_macros/module_instant.md).
+
+## Changes
+- `2026-09-08`:
+    - Simplified + renamed `visual_process_selection` to `visual_process_selection_lines`. Thanks [justinmk](https://www.reddit.com/r/neovim/comments/1w8w48y/comment/p8bwomt/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)!
