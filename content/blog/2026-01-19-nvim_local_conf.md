@@ -33,7 +33,7 @@ are immediately available in the MLIR LSP after a quick re-compile.
 
 There is nothing stopping me from adding such edge-case checks to my
 main configuration - but that does not scale nicely and inevitably leaves
-behind a whole bunch of configuration snippets I don't actively use, but don't
+behind a whole bunch of configuration snippets I don't actively use, yet don't
 want to delete in case I go back to a project in the future.
 I would much prefer a strategy that allows me to keep such per-project
 configuration with the actual project.
