@@ -9,7 +9,7 @@ thumbnail_img=""
 disable_toc=true
 +++
 
-{{ centered_img(src="ws2812b.svg", width="95%") }}
+{{ centered_img(alt="Timing diagram show WS2812B LED pulses encoded in an SPI stream", src="ws2812b.svg", width="95%") }}
 
 ## Overview
 

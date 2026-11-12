@@ -8,11 +8,11 @@ weight=402
 thumbnail_img="sysstepatten_full_device.jpeg"
 +++
 
-{{ centered_img(src="sysstepatten_full_device.jpeg") }}
+{{ centered_img(alt="The finished SYS step attenuator in its Schiit SYS enclosure", src="sysstepatten_full_device.jpeg") }}
 
 {{ gallery() }}
-    {{ gallery_img(src="sysstepatten_full_back.jpeg") }}
-    {{ gallery_img(src="sysstepatten_full.jpeg") }}
+    {{ gallery_img(alt="Rear view of the SYS step attenuator showing the input and output connectors", src="sysstepatten_full_back.jpeg") }}
+    {{ gallery_img(alt="The SYS step attenuator", src="sysstepatten_full.jpeg") }}
 {{ gallery_end() }}
 
 {{ toc() }}
@@ -36,7 +36,7 @@ at it, I might as well add a four-way input switcher and relay mute.
 
 ### Attenuator
 
-{{ centered_img(src="sysstepatten_sch_atten.svg") }}
+{{ centered_img(alt="Schematic of the relay-based step attenuator", src="sysstepatten_sch_atten.svg") }}
 
 The attenuator is a seven-stage constant input impedance relay design. It is nominally sized for a device representing
 a 10k impedance at the output.
@@ -52,7 +52,7 @@ but never completely disrupt the signal.
 
 ### Grounding
 
-{{ centered_img(src="sysstepatten_sch_input.svg") }}
+{{ centered_img(alt="Schematic of the input switching and grounding circuitry", src="sysstepatten_sch_input.svg") }}
 
 The grounding of the control unit and signals was kept as flexible as possible to prevent any possible ground-loop problems.
 
@@ -82,7 +82,7 @@ the bulk capacitance for AC/DC conversion would have taken up a lot of space. Th
 
 ### Making the connectors fit
 
-{{ centered_img(src="sysstepatten_connectors.jpeg") }}
+{{ centered_img(alt="Inside the SYS step attenuator enclosure, showing the relay PCB and connector riser PCBs", src="sysstepatten_connectors.jpeg") }}
 
 My design required four extra connectors (one DC Input, two 3.5mm audio inputs, and one 2-by-2 2.54 mm pin header for the
 external remote) and an on/off switch, but there was little space left at the back of the unit.

@@ -17,7 +17,7 @@ katex=true
 
 A small embedded systems tracer with support for bare-metal and FreeRTOS-based targets.
 
-{{ centered_img(src="tband_banner.png" width="100%") }}
+{{ centered_img(alt="Tonbandgerät embedded tracer example trace", src="tband_banner.png" width="100%") }}
 
 {{ toc() }}
 

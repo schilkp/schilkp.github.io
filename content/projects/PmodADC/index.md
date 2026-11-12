@@ -8,7 +8,7 @@ weight=102
 thumbnail_img="pmodadc_full_board.jpeg"
 +++
 
-{{ centered_img(src="pmodadc_full_board.jpeg") }}
+{{ centered_img(alt="The PmodADC discrete ADC and PmodDAC discrete DAC connect to an iCEbreaker FPGA board", src="pmodadc_full_board.jpeg") }}
 
 {{ toc() }}
 
@@ -38,7 +38,7 @@ The schematic snippets below can be enlarged by clicking on them.
 ### Frontend + Sample & Hold
 
 
-{{ centered_img(src="pmodadc_sch_input.svg") }}
+{{ centered_img(alt="Schematic of the PmodADC input frontend and sample and hold stage", src="pmodadc_sch_input.svg") }}
 
 The input stage takes care of buffering, amplification, filtering, and biasing, before feeding a
 sample & hold amplifier.
@@ -58,11 +58,11 @@ The actual sampling capacitor is a 10nF C0G ceramic. It too can be bypassed by s
 configuration jumpers. Oscilloscope traces showing the operation of the sample & hold amplifier
 are included below.
 
-{{ centered_img(src="pmodadc_s&h.png" width="50%") }}
+{{ centered_img(alt="Oscilloscope traces showing the sample and hold amplifier in operation", src="pmodadc_s&h.png" width="50%") }}
 
 ### DAC + Comparator
 
-{{ centered_img(src="pmodadc_sch_adc.svg") }}
+{{ centered_img(alt="Schematic of the PmodADC's internal DAC and comparator", src="pmodadc_sch_adc.svg") }}
 
 A REF3450 5V reference sets the full scale voltage of the DAC at the center of the
 converter, hence providing the reference voltage for the whole ADC.
@@ -77,7 +77,7 @@ and speed.
 
 ### Power
 
-{{ centered_img(src="pmodadc_sch_power.svg" width="50%") }}
+{{ centered_img(alt="Schematic of the PmodADC power supply", src="pmodadc_sch_power.svg" width="50%") }}
 
 I originally wanted the board to be powered solely by the 3.3V provided by the Pmod Connector,
 so I designed and implemented the above power architecture:
@@ -99,7 +99,7 @@ required had already been designed.
 
 The power supply, FPGA interface, and R2R DAC are identical to the ADC above.
 Only the output stage differs:
-{{ centered_img(src="pmodadc_dac_output.svg") }}
+{{ centered_img(alt="Schematic of the PmodDAC output stage", src="pmodadc_dac_output.svg") }}
 
 First the DAC output is buffered to prevent errors due to loading. The signal is then AC-coupled, and may be
 attenuated using a potentiometer. This is again followed by a buffer.
@@ -112,9 +112,9 @@ but one may be bypassed using configuration jumpers.
 The board was assembled at home using standard methods. Below are some pictures of the process.
 
 {{ gallery() }}
-    {{ gallery_img(src="pmodadc_build_stencil.jpeg", desc="Solder paste being applied using a stencil.") }}
-    {{ gallery_img(src="pmodadc_build_paste.jpeg", desc="Solder paste on the board.") }}
-    {{ gallery_img(src="pmodadc_build_placed.jpeg", desc="Components placed before soldering.") }}
+    {{ gallery_img(alt="Solder paste being applied to the PmodDAC PCB using a stencil", src="pmodadc_build_stencil.jpeg", desc="Solder paste being applied using a stencil.") }}
+    {{ gallery_img(alt="Solder paste on the PmodDAC PCB", src="pmodadc_build_paste.jpeg", desc="Solder paste on the board.") }}
+    {{ gallery_img(alt="Components placed on the PmodDAC PCB before soldering", src="pmodadc_build_placed.jpeg", desc="Components placed before soldering.") }}
 {{ gallery_end() }}
 
 A video of the 0402 R2R DAC Resistors being re-flowed on an early revision of the board:
@@ -156,7 +156,7 @@ DAC respectively.
 I was very fortunate to be given the opportunity to do some basic characterization of my ADC and DAC design at the Center for
 Project-based learning at ETHZ.
 
-{{ centered_img(src="pmodadc_lab.jpeg" width="80%") }}
+{{ centered_img(alt="The PmodADC & PmodDAC being characterized on a lab bench", src="pmodadc_lab.jpeg" width="80%") }}
 
 ### ADC Linearity
 
@@ -172,8 +172,8 @@ measurements (below) feature a similar magnitude.
 
 
 {{ gallery() }}
-    {{ gallery_img(src="pmodadc_adc_lin.svg") }}
-    {{ gallery_img(src="pmodadc_adc_lin_adj.svg") }}
+    {{ gallery_img(alt="Plot of PmodADC absolute deviation from the ideal transfer function", src="pmodadc_adc_lin.svg") }}
+    {{ gallery_img(alt="Plot of PmodADC non-linearity after gain and offset adjustment", src="pmodadc_adc_lin_adj.svg") }}
 {{ gallery_end() }}
 
 ### ADC Noise
@@ -182,7 +182,7 @@ With the input AC-coupled but shorted, the ADC will read as shown in the plot be
 
 The readings feature a standard deviation of 3.43 LSB.
 
-{{ centered_img(src="pmodadc_adc_noise.svg" width="50%") }}
+{{ centered_img(alt="Plot of PmodADC noise", src="pmodadc_adc_noise.svg" width="50%") }}
 
 ### ADC Frequency Response
 
@@ -194,15 +194,15 @@ I was surprised by this measurement:
 Both the input high-pass/AC-coupling and antialiasing low-pass seem to perform
 exactly as designed. The passband ripple is less than 0.5dB.
 
-{{ centered_img(src="pmodadc_adc_fresp.svg" width="50%") }}
+{{ centered_img(alt="Plot of PmodADC frequency response", src="pmodadc_adc_fresp.svg" width="50%") }}
 
 ### ADC SNR and THD
 
 Some very rough SNR and THD measurements yield the following:
 
 {{ gallery() }}
-    {{ gallery_img(src="pmodadc_adc_snr.svg") }}
-    {{ gallery_img(src="pmodadc_adc_thd.svg") }}
+    {{ gallery_img(alt="Plot of PmodADC signal-to-noise ratio", src="pmodadc_adc_snr.svg") }}
+    {{ gallery_img(alt="Plot of PmodADC total harmonic distortion", src="pmodadc_adc_thd.svg") }}
 {{ gallery_end() }}
 
 ### DAC Linearity
@@ -210,7 +210,7 @@ Some very rough SNR and THD measurements yield the following:
 Measuring the DAC linearity again using the Keysight B2902A Source meter
 yielded the following:
 
-{{ centered_img(src="pmodadc_dac_lin.svg" width="50%") }}
+{{ centered_img(alt="Plot of PmodDAC linearity", src="pmodadc_dac_lin.svg" width="50%") }}
 
 Because this DAC is identical to the one at the core of the ADC, and the
 non-linearities are very similar in magnitude to those seen on the ADC,
@@ -220,7 +220,7 @@ it is likely that DAC non-idealities are a large source of the ADC errors.
 
 Some very rough THD measurement yields the following:
 
-{{ centered_img(src="pmodadc_dac_thd.svg" width="50%") }}
+{{ centered_img(alt="Plot of PmodDAC total harmonic distortion", src="pmodadc_dac_thd.svg" width="50%") }}
 
 A big thank-you again to Dr. Vogt and the ETH PBL Center for giving me the opportunity to put
 my design through its paces.

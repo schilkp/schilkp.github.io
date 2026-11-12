@@ -8,7 +8,7 @@ weight=200
 thumbnail_img="vitalcore_paper_small.jpeg"
 +++
     
-{{ centered_img(src="vitalcore_paper_small.jpeg", no_br="true", width="60%", desc="<small> (📸 Frank K. Gürkaynak, 2022) </small>") }}
+{{ centered_img(alt="The tiny VitalCore embedded board", src="vitalcore_paper_small.jpeg", no_br="true", width="60%", desc="<small> (📸 Frank K. Gürkaynak, 2022) </small>") }}
 
 {{ toc() }}
 
@@ -24,8 +24,8 @@ a dual-core Cortex-M33 processor running at up to 128 MHz, 1 MB of Flash, 512 KB
 complete with an on-board chip antenna.
 
 {{ gallery() }}
-    {{ gallery_img(src="vitalcore_paper.jpg", desc="") }}
-    {{ gallery_img(src="lego.jpg", desc="") }}
+    {{ gallery_img(alt="Annotated sketch of the VitalCore board, labelling the MCU, PMIC, IMU, flash, LED, antenna, and debug panel", src="vitalcore_paper.jpg", desc="") }}
+    {{ gallery_img(alt="A LEGO minifigure holding the VitalCore board, for scale", src="lego.jpg", desc="") }}
 {{ gallery_end() }}
 
 ## VitalPack Interface
@@ -50,7 +50,7 @@ the VitalPack) can be used:
 
 ## Power
 
-{{ centered_img(src="VC_Power.svg", width="80%") }}
+{{ centered_img(alt="Block diagram of the VitalCore power subsystem", src="VC_Power.svg", width="80%") }}
 
 A MAX77654 PMIC provides a full power subsystem, including a software-controlled battery charger with power path
 switching and up to 300mA charge current, a battery monitor, three software-controllable switch mode buck-boost converters each
@@ -70,7 +70,7 @@ The VitalCore comes equipped with the following peripherals:
 
 ## Panel
 
-{{ centered_img(src="broken_panel.JPG", width="50%") }}
+{{ centered_img(alt="VitalCore boards with and without their development panel", src="broken_panel.JPG", width="50%") }}
 
 The VitalCore Altium project and gerber files include a panel to be used during development.
 It exposes the NRF's SWD programming interface, USB port, power inputs, and power rail test points. It

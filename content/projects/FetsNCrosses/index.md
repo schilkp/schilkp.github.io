@@ -8,7 +8,7 @@ weight=101
 thumbnail_img="fetsncrosses_header.jpeg"
 +++
 
-{{ centered_img(src="fetsncrosses_full.jpeg") }}
+{{ centered_img(alt="The complete Fets and Crosses Tic-Tac-Toe game, built from 2458 MOSFETs", src="fetsncrosses_full.jpeg") }}
 
 {{ toc() }}
 
@@ -30,9 +30,9 @@ In a second step I replaced this implementation with a purely combinatorial logi
 perfect play.
 
 
-{{ centered_img(src="sim.png", desc="The simulation in LOGISIM.") }}
+{{ centered_img(alt="LOGISIM simulation of Fets and Crosses", src="sim.png", desc="The simulation in LOGISIM.") }}
 
-{{ centered_img(src="block.png", desc="A high-level block diagram of the system.") }}
+{{ centered_img(alt="High-level block diagram of the Fets and Crosses game", src="block.png", desc="A high-level block diagram of the system.") }}
 
 ## Hardware Implementation
 
@@ -47,13 +47,13 @@ This was done in KiCad, with each cell contained in a hierarchical schematic she
 
 For example, here is the basic NOT gate:
 
-{{ centered_img(src="not.svg", width="40%") }}
+{{ centered_img(alt="Schematic of a CMOS NOT gate", src="not.svg", width="40%") }}
 
 I should note that the specific mosfet models were chosen using the highly scientific process of "sorting by cheapest first" on [lcsc.com](https://www.lcsc.com).
 
 I then systematically constructed more complex gates from these basic cells. For example, a 2-input AND gate was built from an NAND and NOT gate:
 
-{{ centered_img(src="2and.svg", width="50%") }}
+{{ centered_img(alt="Schematic of a 2-input AND gate built from NAND and NOT gates", src="2and.svg", width="50%") }}
 
 Then, I re-drew the logic circuit in KiCad, using the hierarchical sheets instead of components. A similar
 procedure is used during layout: each basic cell is routed once, and then the layout applied to all instances
@@ -71,11 +71,11 @@ built on a separate PCB, can be connected to a series of pin-headers on the top.
 The PCBs are both 2 layer, and the routing was done in a [Manhattan style](https://en.wikipedia.org/wiki/Manhattan_wiring), with the top layer used for all
 transistor footprints and vertical routing, while the bottom layer was used for all horizontal routing:
 
-{{ centered_img(src="route.jpeg", desc="A close-up of some of the routing on the main board.") }}
+{{ centered_img(alt="Rendering of the PCB routing on the Fets and Crosses main board", src="route.jpeg", desc="A close-up of some of the routing on the main board.") }}
 
 {{ gallery() }}
-    {{ gallery_img(src="fetsncrosses_render_board.png", desc="Main PCB render.") }}
-    {{ gallery_img(src="fetsncrosses_render_engine.png", desc="Engine PCB render.") }}
+    {{ gallery_img(alt="Render of the Fets and Crosses main PCB", src="fetsncrosses_render_board.png", desc="Main PCB render.") }}
+    {{ gallery_img(alt="Render of the Fets and Crosses engine PCB", src="fetsncrosses_render_engine.png", desc="Engine PCB render.") }}
 {{ gallery_end() }}
 
 ## Assembly
@@ -132,7 +132,7 @@ For example, the decision gate for the second if statement in the example above
 ("if in the top row, we have played the left and right cell, win by playing the center
 cell"), is implemented as follows:
 
-{{ centered_img(src="decision_gate.png", desc="An individual decision gate.") }}
+{{ centered_img(alt="Schematic of an individual decision gate as used in the game engine", src="decision_gate.png", desc="An individual decision gate.") }}
 
 Note that because in CMOS it requires fewer transistors to build inverting logic (`NOR` and `NAND` gates),
 the input signals to which the decision gates are connected are inverted (low if the condition is true). 
@@ -179,7 +179,7 @@ a fully combinational Tic-Tac-Toe perfect play engine.
 
 ## Full Engine Test
 
-{{ centered_img(src="fetsncrosses_testing.jpeg") }}
+{{ centered_img(alt="The Fets and Crosses engine board connected to the testing adapter", src="fetsncrosses_testing.jpeg") }}
 
 As a final step, I implemented a small STM32-based test bench that allows the engine to be
 connected to the PC. I also developed a small python script that plays every single

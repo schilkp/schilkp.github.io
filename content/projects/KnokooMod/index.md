@@ -9,7 +9,7 @@ weight=404
 thumbnail_img="knokoomod_full.jpeg"
 +++
 
-{{ centered_img(src="knokoomod_full.jpeg") }}
+{{ centered_img(alt="The fume extractor mod board installed in the Knokoo fume extractor", src="knokoomod_full.jpeg") }}
 
 {{ toc() }}
 
@@ -54,16 +54,16 @@ If no pedal is attached, the unit will function normally.
 
 Once the PCB is assembled and programmed, it can easily be mounted next to the actual PCB:
 
-{{ centered_img(src="knokoomod_modboard.jpeg", width="50%") }}
+{{ centered_img(alt="The mod board mounted next to the fume extractor's main PCB", src="knokoomod_modboard.jpeg", width="50%") }}
 
 A short 4-pin to 3-pin JST XH cable must be made to connect the board to the main PCB:
 
-{{ centered_img(src="knokoomod_small_cable.jpeg", width="50%") }}
+{{ centered_img(alt="The 4-pin to 3-pin JST XH cable connecting the mod board to the main PCB", src="knokoomod_small_cable.jpeg", width="50%") }}
 
 The 1/4" jack for the pedal, status LED, and timer potentiometer must be connected
 to the board with an 8-pin JST XH cable:
 
-{{ centered_img(src="knokoomod_large_cable.jpeg", width="50%") }}
+{{ centered_img(alt="The 8-pin JST XH cable connecting the pedal jack, status LED, and potentiometer", src="knokoomod_large_cable.jpeg", width="50%") }}
 
 If the 1/4" jack does not have a switch, tie PEDC to GND (for example POT-). In this
 case the unit will *not* return to normal operation when no pedal is connected.

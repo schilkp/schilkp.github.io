@@ -1,6 +1,6 @@
 <div class="gallery_column">
     <a href="{{src}}">
-        <img src="{{src}}">
+        <img src="{{src}}" alt="{% if alt %}{{ alt }}{% elif desc %}{{ desc | markdown(inline=true) | striptags | trim }}{% endif %}">
     </a>
     <br>
     {% if desc %}

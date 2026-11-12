@@ -46,7 +46,7 @@ The command `:make` will cause vim to call `make` with no arguments, capture
 its output and parse it into the so-called quickfix list, which you can open
 with `:cwindow`:
 
-{{ centered_img(src="make_qf.png", desc="Errors produced by `:make` in the quickfix list.") }}
+{{ centered_img(alt="Neovim's quickfix list, showing errors produced by :make in a C project", src="make_qf.png", desc="Errors produced by `:make` in the quickfix list.") }}
 
 As you scroll through the quickfix list, vim will automatically jump to the location of
 the errors and warnings.

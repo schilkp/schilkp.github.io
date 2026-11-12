@@ -8,7 +8,7 @@ weight=201
 thumbnail_img="radarbud_in_hand.jpeg"
 +++
 
-{{ centered_img(src="radarbud_in_hand.jpeg") }}
+{{ centered_img(alt="The RadarBud in-ear radar gesture recognition demonstrator", src="radarbud_in_hand.jpeg") }}
 
 {{ toc() }}
 
@@ -28,28 +28,28 @@ radar and hand gesture recognition pipeline.
 
 ## Hardware
 
-{{ centered_img(src="spin_master.svg") }}
+{{ centered_img(alt="Render of the main VitalCore and RadarPack PCB assembly", src="spin_master.svg") }}
 
 The RadarBud is built on my [VitalCore](/projects/vitalcore/) platform: a tiny controller board that
 features a fairly capable NRF53 SoC, full power and battery management, an IMU, a BLE antenna, and
 some extra flash. We extended it using a purpose-built "RadarPack" extension board, which features
 an Infineon radar and its supporting circuitry.
 
-{{ centered_img(src="render_lbl_master.jpeg", width="95%") }}
+{{ centered_img(alt="Labelled exploded render of the RadarBud components and case", src="render_lbl_master.jpeg", width="95%") }}
 This stack is then placed in a custom case that was manufactured using a resin 3D printer. Besides
 the PCBs, the case also holds a 70mAh battery, a charge connector, and a power switch.
 
 ## Operation
 
-{{ centered_img(src="soli_gestures.jpeg", desc="The set of gestures, as defined by [Wang et al](https://dl.acm.org/doi/10.1145/2984511.2984565). Figure taken from [Wang et al.](https://dl.acm.org/doi/10.1145/2984511.2984565)", width="90%") }}
+{{ centered_img(alt="The set of hand gestures used for recognition, from Wang et al.", src="soli_gestures.jpeg", desc="The set of gestures, as defined by [Wang et al](https://dl.acm.org/doi/10.1145/2984511.2984565). Figure taken from [Wang et al.](https://dl.acm.org/doi/10.1145/2984511.2984565)", width="90%") }}
 
 The RadarBud is capable of classifying within the set of 11 gestures, as defined by [Wang et al.](https://dl.acm.org/doi/10.1145/2984511.2984565) and pictured above. The
 dataset that was acquired for this project with these gestures is available [here](https://www.research-collection.ethz.ch/handle/20.500.11850/672242).
 
 {{ gallery() }}
-    {{ gallery_img(src="range_doppler.svg", desc="Example of a raw radar frame, and the generated Range-Doppler map.") }}
-    {{ gallery_img(src="sequence_doppler.svg", desc="A sequence of Range-Doppler maps, which are the input to the CNN.") }}
-    {{ gallery_img(src="radar_gesture_nn.svg", desc="Depiction of the two convolutional stages, and final multi-layer perceptron.") }}
+    {{ gallery_img(alt="A raw radar frame and the generated Range-Doppler map", src="range_doppler.svg", desc="Example of a raw radar frame, and the generated Range-Doppler map.") }}
+    {{ gallery_img(alt="A sequence of Range-Doppler maps used as CNN input", src="sequence_doppler.svg", desc="A sequence of Range-Doppler maps, which are the input to the CNN.") }}
+    {{ gallery_img(alt="Diagram of the two convolutional stages and final multi-layer perceptron", src="radar_gesture_nn.svg", desc="Depiction of the two convolutional stages, and final multi-layer perceptron.") }}
 {{ gallery_end() }}
 The radar generates a sequence of frames, each of which contains a number of radar chirps. Through an FFT, each radar frame
 is first converted into the Range-Doppler domain, yielding a two-dimensional range versus relative speed mapping.
@@ -64,8 +64,8 @@ For more details on the algorithmic details, please take a look at our paper lin
 ## Performance
 
 {{ gallery() }}
-    {{ gallery_img(src="cm.svg", desc="Confusion Matrix of the quantized Network.") }}
-    {{ gallery_img(src="power_profile.svg", desc="Power profile of an acquisition and inference.") }}
+    {{ gallery_img(alt="Confusion matrix of the quantized gesture recognition network", src="cm.svg", desc="Confusion Matrix of the quantized Network.") }}
+    {{ gallery_img(alt="Power profile of a radar acquisition and inference", src="power_profile.svg", desc="Power profile of an acquisition and inference.") }}
 {{ gallery_end() }}
 
 The final quantized model is only 36KiB large, with a single inference time of 32.4ms on the VitalCore's NRF5340, and is 

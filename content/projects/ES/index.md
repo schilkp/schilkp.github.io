@@ -8,7 +8,7 @@ weight=104
 thumbnail_img="header.jpg"
 +++
 
-{{ centered_img(src="header.jpg") }}
+{{ centered_img(alt="The custom ETH Zürich Embedded Systems Course Hardware", src="header.jpg") }}
 
 {{ toc () }}
 
@@ -108,9 +108,9 @@ we picked to provide both opportunities for learning and fun applications:
 ## Labs
 
 {{ gallery() }}
-    {{ gallery_img(src="ex1.png", desc="Snake on the LED Matrix.") }}
-    {{ gallery_img(src="ex2.png", desc="Tic-Tac-Toe on the LED Matrix.") }}
-    {{ gallery_img(src="ex3.png", desc="Golf and racing game.") }}
+    {{ gallery_img(alt="Snake game running on the course hardware's LED matrix", src="ex1.png", desc="Snake on the LED Matrix.") }}
+    {{ gallery_img(alt="Tic-Tac-Toe running on the course hardware' LED matrix", src="ex2.png", desc="Tic-Tac-Toe on the LED Matrix.") }}
+    {{ gallery_img(alt="Golf and racing games running on the course hardware", src="ex3.png", desc="Golf and racing game.") }}
 {{ gallery_end() }}
 
 With our new hardware in hand, I developed a set of 10 labs, each with multiple practical and theoretical
@@ -161,7 +161,7 @@ Some examples include:
 
 ## Software
 
-{{ centered_img(src="/projects/tonbandgeraet/tband_banner.png" width="100%") }}
+{{ centered_img(alt="Tonbandgerät embedded tracer example trace", src="/projects/tonbandgeraet/tband_banner.png" width="100%") }}
 
 While teaching the course, I found that students had a hard time understanding
 what exactly was happening inside the microcontroller, especially when dealing

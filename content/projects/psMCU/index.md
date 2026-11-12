@@ -8,7 +8,7 @@ weight=103
 thumbnail_img="psmcu_header.jpeg"
 +++
 
-{{ centered_img(src="psmcu_header.jpeg") }}
+{{ centered_img(alt="The psMCU 8-bit processor built from discrete logic ICs", src="psmcu_header.jpeg") }}
 
 {{ toc() }}
 
@@ -41,8 +41,8 @@ as lookup tables.
 ### Control
 
 {{ gallery() }}
-    {{ gallery_img(src="ctrl.jpeg", desc="The psMCU control panel.") }}
-    {{ gallery_img(src="prog.jpeg", desc="The USB Programmer.") }}
+    {{ gallery_img(alt="The psMCU control panel", src="ctrl.jpeg", desc="The psMCU control panel.") }}
+    {{ gallery_img(alt="The psMCU USB programmer", src="prog.jpeg", desc="The USB Programmer.") }}
 {{ gallery_end() }}
 psMCU features a hardware breakpoint, and can single step both clock cycles and instructions using the 
 control panel shown above. The clock frequency can also be controlled here.
@@ -52,8 +52,8 @@ FTDI chip for USB communication.
 ### Peripherals
 
 {{ gallery() }}
-    {{ gallery_img(src="matrix.jpeg", desc="The LED Matrix Peripheral.") }}
-    {{ gallery_img(src="numpad.jpeg", desc="The Numpad Peripheral.") }}
+    {{ gallery_img(alt="The psMCU LED matrix peripheral", src="matrix.jpeg", desc="The LED Matrix Peripheral.") }}
+    {{ gallery_img(alt="The psMCU numpad peripheral", src="numpad.jpeg", desc="The Numpad Peripheral.") }}
 {{ gallery_end() }}
 I built a number of peripherals for the processor, including the 8x8 LED matrix and numpad shown above. They can be 
 chained together and connected to the memory bus connector on the main board.

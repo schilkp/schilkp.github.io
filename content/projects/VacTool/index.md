@@ -10,8 +10,8 @@ thumbnail_img="vactool_inside.jpeg"
 +++
 
 {{ gallery() }}
-    {{ gallery_img(src="vactool_inside.jpeg") }}
-    {{ gallery_img(src="vactool_full.jpeg") }}
+    {{ gallery_img(alt="Inside of the VacTool SMD pick-and-place pen", src="vactool_inside.jpeg") }}
+    {{ gallery_img(alt="The assembled VacTool SMD pick-and-place pen", src="vactool_full.jpeg") }}
 {{ gallery_end() }}
 
 {{ toc() }}

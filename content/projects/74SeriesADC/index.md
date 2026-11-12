@@ -9,8 +9,8 @@ thumbnail_img="74seriesadc_full_board.jpeg"
 +++
 
 {{ gallery() }}
-    {{ gallery_img(src="74seriesadc_full_board.jpeg") }}
-    {{ gallery_img(src="74seriesadc_render.jpeg") }}
+    {{ gallery_img(alt="The assembled 74-series SAR-ADC circuit board", src="74seriesadc_full_board.jpeg") }}
+    {{ gallery_img(alt="3D render of the 74-series SAR-ADC PCB", src="74seriesadc_render.jpeg") }}
 {{ gallery_end() }}
 
 {{ toc() }}
@@ -63,8 +63,8 @@ At such a low speed, the successive-approximation algorithm can be seen in actio
 Below are two more oscilloscope captures showing conversion:
 
 {{ gallery() }}
-    {{ gallery_img(src="74seriesadc_trace1.png") }}
-    {{ gallery_img(src="74seriesadc_trace2.png") }}
+    {{ gallery_img(alt="Oscilloscope capture of the 74-series SAR-ADC performing a conversion of a value close to Vref/2", src="74seriesadc_trace1.png") }}
+    {{ gallery_img(alt="Oscilloscope capture of the 74-series SAR-ADC performing a conversion of a value close to 0V", src="74seriesadc_trace2.png") }}
 {{ gallery_end() }}
 
 ## Design
